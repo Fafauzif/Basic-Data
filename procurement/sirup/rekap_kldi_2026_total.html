@@ -1,0 +1,16 @@
+<th class="ui-state-default" colspan="2" style="text-align: right; font-weight: bold; text-align: left;">TOTAL</th>
+<th class="number rupiahtotal" style="font-weight: bold; text-align: right;">3629799</th>
+<th class="number rupiahtotal" style="font-weight: bold; text-align: right;">1079975288279676</th>
+<th class="number rupiahtotal" style="font-weight: bold; text-align: right;">1132814</th>
+<th class="number rupiahtotal" style="font-weight: bold; text-align: right;">244007701956763</th>
+<th class="number rupiahtotal" style="font-weight: bold; text-align: right;">4762613</th>
+<th class="number rupiahtotal" style="font-weight: bold; text-align: right;">1323982990236439</th>
+<script>
+function rupiahTotal(){
+	var items=$("th.rupiahtotal")
+     $.each(items,function (index,item) {
+    	 $(item).html(accounting.formatMoney(parseInt($(item).text()), "", 0, ".", ","));
+    });
+}
+rupiahTotal();
+</script>

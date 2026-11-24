@@ -1,0 +1,20 @@
+archive: full.csv.tar.gz
+bytes: 308296024
+members: 11
+sum of uncompressed member sizes: 1775172100
+gzip CRC / stream integrity: OK
+streaming pass elapsed: 4.1s
+source: https://fastly.data.open-contracting.org/downloads/indonesia_opentender/4043/full.csv.tar.gz
+
+name	bytes	type
+full	0	dir
+full/awards.csv	202138953	file
+full/awards_items.csv	113100729	file
+full/awards_suppliers.csv	117054449	file
+full/main.csv	492401504	file
+full/parties.csv	418764831	file
+full/parties_additionalIdentifiers.csv	143394877	file
+full/parties_details_classifications.csv	112897991	file
+full/planning_budget_budgetBreakdown.csv	25624777	file
+full/relatedProcesses.csv	40167642	file
+full/tender_items.csv	109626347	file

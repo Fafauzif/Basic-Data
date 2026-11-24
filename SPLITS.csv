@@ -1,0 +1,3 @@
+original_path,original_bytes,original_sha256,part_count,limit_bytes,parts
+geospatial/sumatra-261122.osm.pbf,283411896,17ac853a0efa6172bb55ca4bd68776691b8d19ab833b3aa4cbc9146d9db74612,7,47185920,sumatra-261122.osm.pbf.001;sumatra-261122.osm.pbf.002;sumatra-261122.osm.pbf.003;sumatra-261122.osm.pbf.004;sumatra-261122.osm.pbf.005;sumatra-261122.osm.pbf.006;sumatra-261122.osm.pbf.007
+procurement/opentender/full.csv.tar.gz,308296024,48aa241ac4ef4344a74404d0f7b53063439bd753b1d110b9537c97d8c2ba67e5,7,47185920,full.csv.tar.gz.001;full.csv.tar.gz.002;full.csv.tar.gz.003;full.csv.tar.gz.004;full.csv.tar.gz.005;full.csv.tar.gz.006;full.csv.tar.gz.007

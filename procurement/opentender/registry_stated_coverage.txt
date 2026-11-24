@@ -1,0 +1,151 @@
+OPENTENDER PUBLICATION 101 - STATED COVERAGE (transcription)
+============================================================
+
+Source URL : https://data.open-contracting.org/en/publication/101
+Snapshot   : procurement/opentender/registry_publication_101.html
+             (60,778 bytes; sha256 279115736e791765d6ca8cb6fa6944f9f66b1f37fe5d180c0f11a2fdbc7c8b5d)
+Collected  : 2026-11-24 (Asia/Jakarta)
+Kind       : transcription - every value below is quoted from the registry page
+             or its embedded JSON-LD. Nothing here is a measurement of the data.
+             Line numbers refer to the saved HTML snapshot.
+
+-----------------------------------------------------------------------------
+1. DATASET IDENTITY (quoted)
+-----------------------------------------------------------------------------
+Page title : "Indonesia: Indonesia Corruption Watch (ICW) | OCP Data Registry"
+             (snapshot line 10)
+JSON-LD name: "OCDS data for Indonesia: Indonesia Corruption Watch (ICW)"
+             (snapshot line 39)
+JSON-LD creator: "Open Contracting Partnership" (snapshot line 53)
+Registry dataset name shown on page: "Indonesia Corruption Watch (ICW)"
+JSON-LD description, first statement:
+  "Indonesia Corruption Watch (ICW) tracks information in Open Tender
+   (https://opentender.net/#/)." (snapshot line 40)
+Source of the records (quoted):
+  "ICW sources data on the government procurement of goods, works and services
+   from the National Public Procurement Agency (LKPP)." (snapshot line 40)
+"Retrieved from:" -> "https://v3.opentender.net/#/ocds" (snapshot line 257)
+"Main language:" -> "Indonesian" (snapshot line 282)
+"OCID prefix:" -> "ocds-20h3g7" (snapshot line 284)
+"Publication policy:" -> "https://opentender.net/#/tentang-opentender/"
+             (snapshot line 280)
+
+Stated legal scope of the data (quoted from JSON-LD description, snapshot line 40):
+  "The regulation covers the procurement of goods, works and services by
+   ministries, institutions and regional apparatuses financed by the state
+   budget (APBN) and local government budgets (APBD). It excludes procurement
+   financed from other sources, including procurement by state-owned
+   enterprises (SOE) and regionally-owned enterprises (BUMD) that do not have
+   APBN or APBD components."
+
+-----------------------------------------------------------------------------
+2. STATED TEMPORAL COVERAGE (years / dates)
+-----------------------------------------------------------------------------
+Page field "Data date range:" -> "Jan 1970 - Jul 2025" (snapshot line 236)
+JSON-LD "temporalCoverage" -> "1970-01-01/2025-07-30" (snapshot line 68)
+JSON-LD "dateModified" -> "2026-08-03T03:05:01.758974+00:00" (snapshot line 67)
+Page field "Last retrieved:" -> "Aug 3, 2026" and "(retrieved monthly)"
+             (snapshot lines 243-246)
+Page field "Update frequency:" -> "-" (snapshot line 240)
+Page note "Last reviewed: Nov 2021" (snapshot line 430; refers to the
+             data-quality review)
+
+Per-year download entries actually listed on the page (download link labels,
+snapshot lines 459-773, JSON / Excel / CSV sections all list the same years):
+  All time; 2120; 2025; 2024; 2023; 2022; 2021; 2020; 2019; 2018; 2017;
+  2016; 2015; 2014; 2013; 2012; 2010; 1970; Date unknown (undated)
+  -> Stated caveat: 2011 is NOT listed. A "2120" entry IS listed (consistent
+     with the page's own note that "The data has date typos, including dates
+     up to 3020"); "1970" and "Date unknown" are also listed. These are the
+     page's own year labels, quoted as-is.
+
+-----------------------------------------------------------------------------
+3. STATED RECORD COUNTS (page section "Data available")
+-----------------------------------------------------------------------------
+Quoted from the page (snapshot lines 306-377):
+  "Count of parties: 3,693,069"                  (line 309)
+  "Count of planning activities: 216,949"        (line 317)
+  "Count of tenders: 1,303,374"                  (line 325)
+  "Count of tenderers: 0"                        (line 327)
+  "Count of tender items: 1,086,425"             (line 329)
+  "Count of awards: 1,086,425"                   (line 337)
+  "Count of suppliers: 1,086,441"                (line 339)
+  "Count of award items: 1,086,425"              (line 341)
+  "Count of contracts: 0"                        (line 349)
+  "Count of contract items: 0"                   (line 351)
+  "Count of transactions: 0"                     (line 353)
+  "Count of documents: 0"                        (line 361)
+  "Count of milestones: 0"                       (line 369)
+  "Count of amendments: 0"                       (line 377)
+Availability labels on the page: Parties, Planning, Tenders and Awards are
+marked "Available"; Contracts, Documents, Milestones and Amendments are marked
+"Unavailable" (aria-labels in the same section).
+
+Definition of the counts (quoted, snapshot line 299):
+  "These counts are the number of JSON objects across all contracting
+   processes. Parties, tenderers and suppliers are unique within a contracting
+   process, but can be repeated across contracting processes."
+
+-----------------------------------------------------------------------------
+4. STATED FORMATS, FILES AND PAGE-STATED SIZES
+-----------------------------------------------------------------------------
+Page section "Available formats:" lists "JSON", "Excel" and "CSV"
+             (snapshot lines 197-209).
+Access statement (quoted, snapshot line 443):
+  "This OCDS dataset is available for download in JSON, Excel or CSV format.
+   You can download the data for contracting processes in a specific year or
+   for all time."
+JSON-LD "distribution" entries (snapshot lines 71-86):
+  - CSV all time : "encodingFormat": "text/csv",
+                   "contentSize": "294.0 MB",
+                   "contentUrl": "https://data.open-contracting.org/en/publication/101/download?name=full.csv.tar.gz",
+                   "dateModified": "2026-08-03"
+  - JSONL all time: "encodingFormat": "application/jsonlines",
+                   "contentSize": "201.0 MB",
+                   "contentUrl": "https://data.open-contracting.org/en/publication/101/download?name=full.jsonl.gz",
+                   "dateModified": "2026-08-03"
+  (Page-stated sizes are rounded; actual HTTP Content-Length for the all-years
+   CSV is recorded in the stream registry, not in this transcription.)
+Per-year files are offered for each listed year as
+  ".../download?name=<year>.csv.tar.gz", "...?name=<year>.xlsx",
+  "...?name=<year>.jsonl.gz" (snapshot lines 459-773).
+
+-----------------------------------------------------------------------------
+5. STATED LICENCE / ATTRIBUTION
+-----------------------------------------------------------------------------
+Page field "License:" (quoted, snapshot line 261):
+  "Open Data Commons Open Database License (ODbL)"
+  linked to https://opendatacommons.org/licenses/odbl/
+JSON-LD "license": "https://opendatacommons.org/licenses/odbl/"
+             (snapshot line 70)
+JSON-LD "isAccessibleForFree": true (snapshot line 50)
+
+-----------------------------------------------------------------------------
+6. STATED DATA-QUALITY CAVEATS (page section "Data quality", quoted)
+-----------------------------------------------------------------------------
+"The dataset has quality issues to take into account, notably:" (line 411)
+  - "The data has date typos, including dates up to 3020. The correct data
+     include dates from 2008 till the current year only, so you may want to
+     filter the incorrect dates." (line 413)
+  - "A small number of non-unique combinations of `ocid` and `id` values."
+     (line 414)
+  - "Multiple entries in `parties` for the same organization with differing
+     `id`s. In such cases, you may need to fallback to using `name` to
+     disambiguate organizations." (line 415)
+  - "A small number of contracting processes that do not declare a buyer."
+     (line 416)
+  - "A small number of missing supplier names." (line 417)
+"The dataset has minor issues that should not interfere with most uses. They
+include:" (line 419)
+  - "The start and end date of the selection period are erroneously mapped to
+     `planning.milestones.dueDate` and `planning.milestones.dateMet`
+     respectively." (line 421)
+
+-----------------------------------------------------------------------------
+7. HOW THIS FILE WAS PRODUCED
+-----------------------------------------------------------------------------
+The saved HTML snapshot (60,778 bytes) was downloaded once with the shared
+collect.py helper (HTTP 200, text/html) on 2026-11-24 and parsed as static
+text; the quoted strings above were copied from the snapshot and their
+snapshot line numbers recorded. No live parsing, scripting or data extraction
+was performed, and no value was inferred or recomputed.

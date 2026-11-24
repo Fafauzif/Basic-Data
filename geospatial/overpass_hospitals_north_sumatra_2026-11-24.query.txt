@@ -1,0 +1,10 @@
+[out:json][timeout:180];
+(
+  node["amenity"="hospital"](1.0,95.5,5.7,100.5);
+  way["amenity"="hospital"](1.0,95.5,5.7,100.5);
+  relation["amenity"="hospital"](1.0,95.5,5.7,100.5);
+  node["healthcare"="hospital"](1.0,95.5,5.7,100.5);
+  way["healthcare"="hospital"](1.0,95.5,5.7,100.5);
+  relation["healthcare"="hospital"](1.0,95.5,5.7,100.5);
+);
+out body center;

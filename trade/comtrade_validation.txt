@@ -1,0 +1,55 @@
+COMTRADE VALIDATION - UN Comtrade public preview API
+Query: C/A/HS, reporterCode=360 (Indonesia), cmdCode=401512, flowCode=M (imports), period=YYYY
+HS 401512 is the broad HS6 class covering medical/surgical/dental/veterinary gloves
+(the exact 6-digit heading), not the Indonesian national 8-digit line 40151290.
+Each payload was requested exactly as documented in the collection task; partnerCode was omitted
+so the API returned partner-level rows. Partner rows are preserved as returned and are NOT merged.
+Collected at (local time): 2026-11-24 (Asia/Jakarta).
+
+year | file | count field | len(data) | count==len | distinct partnerCode | partner 0 (World) present | years observed | reporterCode values | flowCode values | cmdCode values | discrepancy
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2022 | comtrade_idn_2022_401512.json | 18 | 18 | yes | 18 (0,40,50,144,156,251,276,392,410,458,586,699,702,704,724,764,826,842) | yes | [2022] | [360] | ['M'] | ['401512'] | OK
+2023 | comtrade_idn_2023_401512.json | 21 | 21 | yes | 21 (0,36,144,156,251,276,344,380,392,410,458,490,586,642,699,702,704,724,764,826,842) | yes | [2023] | [360] | ['M'] | ['401512'] | OK
+2024 | comtrade_idn_2024_401512.json | 16 | 16 | yes | 16 (0,36,156,276,360,392,410,458,490,702,704,710,764,792,826,842) | yes | [2024] | [360] | ['M'] | ['401512'] | OK
+2025 | comtrade_idn_2025_401512.json | 21 | 21 | yes | 21 (0,144,156,251,276,344,360,392,410,458,490,528,586,699,702,704,710,764,784,826,842) | yes | [2025] | [360] | ['M'] | ['401512'] | OK
+
+Per-year detail
+---------------
+2022: comtrade_idn_2022_401512.json
+    payload count=18, len(data)=18, rows cover partnerCode [0, 40, 50, 144, 156, 251, 276, 392, 410, 458, 586, 699, 702, 704, 724, 764, 826, 842]
+    partner 0 (World) row: present (1 row; primaryValue=17562176.0, netWgt=2239632.0)
+    payload descriptive fields: reporterDesc set=['None']; cmdDesc set=['None']; partnerDesc set=['None']
+    primaryValue present on all rows: True; netWgt present on all rows: True
+    rows: 0=17562176.0, 40=298506.0, 50=12.0, 144=32.0, 156=645164.0, 251=7.0 ...
+2023: comtrade_idn_2023_401512.json
+    payload count=21, len(data)=21, rows cover partnerCode [0, 36, 144, 156, 251, 276, 344, 380, 392, 410, 458, 490, 586, 642, 699, 702, 704, 724, 764, 826, 842]
+    partner 0 (World) row: present (1 row; primaryValue=8787767.0, netWgt=1434391.0)
+    payload descriptive fields: reporterDesc set=['None']; cmdDesc set=['None']; partnerDesc set=['None']
+    primaryValue present on all rows: True; netWgt present on all rows: True
+    rows: 0=8787767.0, 36=149.0, 144=79930.0, 156=977526.0, 251=10.0, 276=1428757.0 ...
+2024: comtrade_idn_2024_401512.json
+    payload count=16, len(data)=16, rows cover partnerCode [0, 36, 156, 276, 360, 392, 410, 458, 490, 702, 704, 710, 764, 792, 826, 842]
+    partner 0 (World) row: present (1 row; primaryValue=14518325.0, netWgt=3079212.0)
+    payload descriptive fields: reporterDesc set=['None']; cmdDesc set=['None']; partnerDesc set=['None']
+    primaryValue present on all rows: True; netWgt present on all rows: True
+    rows: 0=14518325.0, 36=167.0, 156=867885.0, 276=1563312.0, 360=76292.0, 392=129.0 ...
+2025: comtrade_idn_2025_401512.json
+    payload count=21, len(data)=21, rows cover partnerCode [0, 144, 156, 251, 276, 344, 360, 392, 410, 458, 490, 528, 586, 699, 702, 704, 710, 764, 784, 826, 842]
+    partner 0 (World) row: present (1 row; primaryValue=17541431.448, netWgt=3773390.22)
+    payload descriptive fields: reporterDesc set=['None']; cmdDesc set=['None']; partnerDesc set=['None']
+    primaryValue present on all rows: True; netWgt present on all rows: True
+    rows: 0=17541431.448, 144=21017.0, 156=1378806.515, 251=562.0, 276=2545439.0, 344=266.0 ...
+
+Cross-check summary (computed from the saved payloads, not assumed):
+  - count field == len(data) for every year: yes
+  - all rows in all four payloads carry refYear == requested year, reporterCode 360,
+    flowCode M, cmdCode 401512 and period == requested year; partner 0 (World) is present.
+  - 'error' field is the empty string '' in every payload (not an error message).
+  - partnerDesc/reporterDesc/cmdDesc are null in the public preview payload; labels are
+    therefore NOT present in the saved files and were not invented here.
+  - partnerCode 360 (Indonesia) also appears as a partner row in 2024 and 2025, as returned
+    by the API; it is left as-is and not removed.
+  - 2025 figures are whatever the preview API returned for period 2025 at collection time
+    (the payload does not mark month coverage; the saved rows are year-period records).
+
+RESULT: ALL CHECKS PASSED

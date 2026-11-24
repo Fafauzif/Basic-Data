@@ -1,0 +1,44 @@
+Header lines of the CSV tables inside full.csv.tar.gz
+main_ocid is the child-table join key back to main.csv (the hub table).
+gzip stream integrity: OK
+
+=== full/awards.csv ===
+bytes=202138953 columns=7 main_ocid=True
+header: id,date,title,value_amount,value_currency,main_ocid,main_id
+
+=== full/awards_items.csv ===
+bytes=113100729 columns=6 main_ocid=True
+header: id,classification_description,main_ocid,main_id,awards_id,deliveryLocation_description
+
+=== full/awards_suppliers.csv ===
+bytes=117054449 columns=5 main_ocid=True
+header: id,name,main_ocid,main_id,awards_id
+
+=== full/main.csv ===
+bytes=492401504 columns=26 main_ocid=False
+header: id,tag,date,ocid,language,initiationType,buyer_id,buyer_name,tender_id,tender_mainProcurementCategory,tender_title,tender_datePublished,tender_status,tender_statusDetails,tender_value_currency,tender_minValue_amount,tender_minValue_currency,tender_tenderPeriod_startDate,tender_procuringEntity_id,tender_procuringEntity_name,tender_additionalProcurementCategories,planning_budget_id,planning_budget_description,planning_budget_project,planning_budget_amount_amount,planning_budget_amount_currency
+
+=== full/parties.csv ===
+bytes=418764831 columns=5 main_ocid=True
+header: id,name,roles,main_ocid,main_id
+
+=== full/parties_additionalIdentifiers.csv ===
+bytes=143394877 columns=4 main_ocid=True
+header: legalName,main_ocid,main_id,parties_id
+
+=== full/parties_details_classifications.csv ===
+bytes=112897991 columns=5 main_ocid=True
+header: id,description,main_ocid,main_id,parties_id
+
+=== full/planning_budget_budgetBreakdown.csv ===
+bytes=25624777 columns=5 main_ocid=True
+header: id,classifications_Year,main_ocid,main_id,planning_budget_id
+
+=== full/relatedProcesses.csv ===
+bytes=40167642 columns=7 main_ocid=True
+header: id,title,scheme,identifier,relationship,main_ocid,main_id
+
+=== full/tender_items.csv ===
+bytes=109626347 columns=5 main_ocid=True
+header: id,classification_description,main_ocid,main_id,tender_id
+

@@ -1,0 +1,2894 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RS Online</title>
+  <link rel="icon" type="image/png" href="https://sirs.kemkes.go.id/fo/assets/images/kemkes-1.png">
+  <link rel="apple-touch-icon" href="https://sirs.kemkes.go.id/fo/assets/images/kemkes-1.png">
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/plugins/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/dist/css/adminlte.min.css">
+
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/plugins/morris/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/plugins/datepicker/datepicker3.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/plugins/daterangepicker/daterangepicker-bs3.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/plugins/datatables/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/assets/css/tokenfield-typeahead.min.css">
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/assets/css/icheck.css">
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/assets/css/select2.min.css">
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/assets/css/select2-boosraps.css">
+  <!-- Theme style -->
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/assets/css/fontcss.css">
+  <script>
+    (function () {
+      var p = window.location.pathname || '';
+      var pl = p.toLowerCase();
+      if (p.indexOf('/fo/kris') !== -1) {
+        document.documentElement.classList.add('page-kris');
+      }
+      if (p.indexOf('/fo/kris/input') !== -1) {
+        document.documentElement.classList.add('page-kris-input');
+      }
+      if (pl.indexOf('/fo/disabilitas/rekap_data') !== -1 || pl.indexOf('/fo/rekap-disabilitas') !== -1) {
+        document.documentElement.classList.add('page-disabilitas-rekap');
+      }
+      if (pl.indexOf('report_dinkesv3') !== -1 || pl.indexOf('report_adminv3') !== -1) {
+        document.documentElement.classList.add('page-dinkes-cov3');
+      }
+    })();
+  </script>
+
+  <style>
+    :root {
+      --sb-bg: #0b2545;
+      --sb-bg-soft: #13315c;
+      --sb-border: rgba(255, 255, 255, 0.08);
+      --sb-text: #dbe6ff;
+      --sb-text-muted: #b7c7e8;
+      --sb-hover: rgba(103, 161, 255, 0.18);
+      --sb-active-start: #1e5bbf;
+      --sb-active-end: #2f80ed;
+      --sb-shadow: 0 14px 28px rgba(2, 8, 23, 0.35);
+      --sb-width: 290px;
+      --sb-font: 0.84rem;
+      --sb-font-sub: 0.8rem;
+    }
+
+    /* Widen sidebar so long menu labels fit better */
+    .main-sidebar,
+    .main-sidebar:before {
+      width: var(--sb-width) !important;
+    }
+
+    /* Watermark logo Kemkes: ~1/2 tinggi layar, miring kiri-bawah → kanan-atas, opacity 40% */
+    .main-sidebar::after {
+      content: "";
+      position: absolute;
+      left: -18%;
+      bottom: -8%;
+      width: 50vh;
+      height: 50vh;
+      max-width: 140%;
+      transform: rotate(-28deg);
+      transform-origin: center center;
+      background: url('https://sirs.kemkes.go.id/fo/assets/images/kemkes-1.png') center / contain no-repeat;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .main-sidebar {
+      overflow: hidden;
+    }
+    .main-sidebar > .brand-link,
+    .main-sidebar > .sidebar {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+      .content-wrapper,
+      .main-footer,
+      .main-header {
+        margin-left: var(--sb-width) !important;
+      }
+
+      .sidebar-collapse .content-wrapper,
+      .sidebar-collapse .main-footer,
+      .sidebar-collapse .main-header {
+        margin-left: 0 !important;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .sidebar-mini.sidebar-collapse .content-wrapper,
+      .sidebar-mini.sidebar-collapse .main-footer,
+      .sidebar-mini.sidebar-collapse .main-header {
+        margin-left: 4.6rem !important;
+      }
+    }
+
+    .sidebar-collapse .main-sidebar,
+    .sidebar-collapse .main-sidebar:before {
+      margin-left: calc(var(--sb-width) * -1) !important;
+    }
+
+    @media (min-width: 992px) {
+      .sidebar-mini.sidebar-collapse .main-sidebar,
+      .sidebar-mini.sidebar-collapse .main-sidebar:before {
+        margin-left: 0 !important;
+        width: 4.6rem !important;
+      }
+
+      .sidebar-mini.sidebar-collapse .main-sidebar:hover,
+      .sidebar-mini.sidebar-collapse .main-sidebar:hover:before {
+        width: var(--sb-width) !important;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .main-sidebar,
+      .main-sidebar:before {
+        margin-left: calc(var(--sb-width) * -1) !important;
+      }
+
+      .sidebar-open .main-sidebar,
+      .sidebar-open .main-sidebar:before {
+        margin-left: 0 !important;
+      }
+    }
+
+    .main-sidebar.sidebar-dark-primary {
+      background: linear-gradient(180deg, var(--sb-bg) 0%, var(--sb-bg-soft) 100%) !important;
+      border-right: 1px solid var(--sb-border);
+      box-shadow: var(--sb-shadow);
+    }
+
+    .main-sidebar .brand-link {
+      border-bottom: 1px solid var(--sb-border) !important;
+      padding: 0.85rem 0.9rem;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+      backdrop-filter: blur(2px);
+    }
+
+    .main-sidebar .brand-text {
+      color: #eef4ff !important;
+      letter-spacing: 0.2px;
+      font-weight: 600 !important;
+      font-size: 0.95rem !important;
+    }
+
+    .main-sidebar .brand-image {
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+    }
+
+    .main-sidebar .sidebar,
+    .main-sidebar section.sidebar {
+      padding: 8px 6px 12px 8px;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      max-height: calc(100vh - 58px);
+      scroll-behavior: smooth;
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: rgba(96, 165, 250, 0.55) rgba(255, 255, 255, 0.06);
+    }
+
+    .main-sidebar .nav-sidebar .nav-item {
+      margin-bottom: 4px;
+    }
+
+    .main-sidebar .nav-sidebar .nav-link {
+      border-radius: 10px;
+      color: var(--sb-text) !important;
+      padding: 0.5rem 0.65rem;
+      font-weight: 500;
+      font-size: var(--sb-font) !important;
+      line-height: 1.3;
+      transition: all 0.18s ease;
+      border: 1px solid transparent;
+      align-items: flex-start;
+    }
+
+    .main-sidebar .nav-sidebar .nav-link p {
+      display: inline;
+      white-space: normal !important;
+      word-break: break-word;
+      margin: 0;
+      line-height: 1.3;
+      font-size: inherit;
+    }
+
+    .main-sidebar .nav-sidebar .nav-link .nav-icon {
+      margin-right: 0.35rem;
+      margin-top: 0.12rem;
+      color: var(--sb-text-muted) !important;
+      width: 1.15rem;
+      text-align: center;
+      font-size: 0.88rem !important;
+    }
+
+    /* Normalize legacy mixed icon classes in old sidebar templates */
+    .main-sidebar .nav-sidebar .nav-link i:not(.right) {
+      width: 1.3rem;
+      min-width: 1.3rem;
+      margin-right: 0.42rem;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.2;
+      color: var(--sb-text-muted) !important;
+      vertical-align: middle;
+    }
+
+    .main-sidebar .nav-sidebar .nav-link i.right {
+      margin-left: auto;
+      margin-right: 0;
+      width: auto;
+      min-width: auto;
+      font-size: 0.82rem;
+      opacity: 0.85;
+      color: #c7d7f6 !important;
+      transition: transform 0.2s ease;
+    }
+
+    .main-sidebar .nav-item.menu-open > .nav-link i.right {
+      transform: rotate(-90deg);
+    }
+
+    .main-sidebar .nav-sidebar .nav-link:hover {
+      background: var(--sb-hover) !important;
+      border-color: rgba(59, 130, 246, 0.22);
+      color: #ffffff !important;
+      transform: translateX(2px);
+    }
+
+    .main-sidebar .nav-sidebar .nav-link:hover .nav-icon {
+      color: #cfe2ff !important;
+    }
+
+    .main-sidebar .nav-sidebar .nav-link:hover i:not(.right) {
+      color: #dbeafe !important;
+    }
+
+    .main-sidebar .nav-sidebar .nav-link.active {
+      background: linear-gradient(135deg, var(--sb-active-start), var(--sb-active-end)) !important;
+      color: #ffffff !important;
+      box-shadow: 0 7px 18px rgba(37, 99, 235, 0.34);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .main-sidebar .nav-sidebar .nav-link.active .nav-icon {
+      color: #ffffff !important;
+    }
+
+    .main-sidebar .nav-sidebar .nav-link.active i:not(.right) {
+      color: #ffffff !important;
+    }
+
+    .main-sidebar .nav-treeview {
+      padding-left: 0.35rem;
+      margin-top: 4px;
+      border-left: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+
+    .main-sidebar .nav-treeview .nav-link {
+      padding: 0.42rem 0.55rem;
+      font-size: var(--sb-font-sub) !important;
+      border-radius: 8px;
+    }
+
+    /* Sidebar scroll slider */
+    .main-sidebar .sidebar::-webkit-scrollbar,
+    .main-sidebar section.sidebar::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .main-sidebar .sidebar::-webkit-scrollbar-track,
+    .main-sidebar section.sidebar::-webkit-scrollbar-track {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.04) 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0.04) 100%
+      );
+      border-radius: 999px;
+      margin: 10px 0;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .main-sidebar .sidebar::-webkit-scrollbar-thumb,
+    .main-sidebar section.sidebar::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #60a5fa 0%, #2563eb 55%, #1e40af 100%);
+      border-radius: 999px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+      min-height: 48px;
+    }
+
+    .main-sidebar .sidebar::-webkit-scrollbar-thumb:hover,
+    .main-sidebar section.sidebar::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #93c5fd 0%, #3b82f6 50%, #1d4ed8 100%);
+      background-clip: padding-box;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.28),
+        0 0 10px rgba(59, 130, 246, 0.45);
+    }
+
+    .main-sidebar .sidebar::-webkit-scrollbar-thumb:active,
+    .main-sidebar section.sidebar::-webkit-scrollbar-thumb:active {
+      background: linear-gradient(180deg, #bfdbfe 0%, #2563eb 100%);
+      background-clip: padding-box;
+    }
+
+    .main-sidebar .sidebar::-webkit-scrollbar-corner,
+    .main-sidebar section.sidebar::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+
+    /* Footer: keep default layout but cleaner look */
+    .main-footer {
+      padding: 0.78rem 1rem;
+      border-top: 1px solid #e2e8f0;
+      background: #ffffff;
+      color: #334155;
+      font-size: 0.86rem;
+    }
+
+    .main-footer strong,
+    .main-footer .pull-right b {
+      color: #1f2a44;
+      font-weight: 700;
+    }
+
+    /* KRIS page modern skin (scoped by URL class) */
+    .page-kris .content-wrapper {
+      background: #f4f7fb;
+    }
+
+    .page-kris .content-wrapper .card {
+      border: 1px solid #e6edf5;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      overflow: hidden;
+    }
+
+    .page-kris .content-wrapper .card-header {
+      border-bottom: 1px solid #e7eef6;
+      background: linear-gradient(90deg, #f8fbff, #f1f6ff);
+    }
+
+    .page-kris .content-wrapper .card-title,
+    .page-kris .content-wrapper h2,
+    .page-kris .content-wrapper h5,
+    .page-kris .content-wrapper h6 {
+      color: #1f2a44;
+      font-weight: 700;
+    }
+
+    .page-kris .content-wrapper .form-control,
+    .page-kris .content-wrapper .custom-select {
+      border-radius: 10px;
+      border-color: #d5e1ef;
+    }
+
+    .page-kris .content-wrapper .form-control-plaintext {
+      color: #1f2a44;
+      font-weight: 600;
+    }
+
+    .page-kris .content-wrapper .btn {
+      border-radius: 9px;
+      font-weight: 600;
+    }
+
+    .page-kris .content-wrapper .btn-primary {
+      background: linear-gradient(135deg, #1e5bbf, #2f80ed);
+      border: 0;
+    }
+
+    .page-kris .content-wrapper .btn-warning {
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+      border: 0;
+      color: #fff;
+    }
+
+    .page-kris .content-wrapper .btn-danger {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+      border: 0;
+    }
+
+    .page-kris .content-wrapper .table thead th {
+      background: #eef4fb;
+      color: #334155;
+      border-bottom: 1px solid #dbe5f1;
+      font-weight: 700;
+    }
+
+    .page-kris .content-wrapper .table tbody tr:nth-child(even) {
+      background: #fbfdff;
+    }
+
+    .page-kris .content-wrapper .table tbody tr:hover {
+      background: #f3f8ff;
+    }
+
+    .page-kris .content-wrapper .custom-alert {
+      background: linear-gradient(135deg, #1e5bbf, #2f80ed) !important;
+      color: #fff !important;
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(47, 128, 237, 0.25);
+    }
+
+    .page-kris .content-wrapper .custom-alert a {
+      color: #ffe082 !important;
+      font-weight: 700;
+    }
+
+    /* KRIS input detail page */
+    .page-kris-input .content-wrapper .alert.alert-info {
+      border-radius: 10px;
+      border: 1px solid #bfdbfe;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      color: #1f2a44 !important;
+    }
+
+    .page-kris-input .content-wrapper .alert.alert-info a {
+      color: #1d4ed8 !important;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .page-kris-input .content-wrapper .alert.alert-info a:hover {
+      color: #1e40af !important;
+      text-decoration: none;
+    }
+
+    .page-kris-input .content-wrapper .card .card {
+      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+    }
+
+    .page-kris-input .content-wrapper .card-header.text-center {
+      background: linear-gradient(135deg, #1e5bbf, #2f80ed);
+    }
+
+    .page-kris-input .content-wrapper .card-header.text-center h2 {
+      color: #fff !important;
+      letter-spacing: 0.3px;
+    }
+
+    /* Disabilitas rekap pages */
+    .page-disabilitas-rekap .content-wrapper {
+      background: #f4f7fb;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .container.mt-4,
+    .page-disabilitas-rekap .content-wrapper .container-fluid > .container.mt-4 {
+      background: #fff;
+      border: 1px solid #e6edf5;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      padding: 1rem 1rem 1.1rem;
+    }
+
+    .page-disabilitas-rekap .content-wrapper h4 {
+      color: #1f2a44 !important;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .form-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.75rem;
+      align-items: flex-end;
+      margin-bottom: 0.85rem !important;
+      padding: 0.75rem;
+      border-radius: 11px;
+      border: 1px solid #e7eef6;
+      background: linear-gradient(90deg, #f8fbff, #f1f6ff);
+    }
+
+    .page-disabilitas-rekap .content-wrapper .form-inline .form-group {
+      margin-right: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .form-inline label {
+      margin-bottom: 0.3rem;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.86rem;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .form-control,
+    .page-disabilitas-rekap .content-wrapper .custom-select {
+      border-radius: 10px;
+      border-color: #d5e1ef;
+      min-height: 38px;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .btn {
+      border-radius: 9px;
+      font-weight: 600;
+      border: 0;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .btn-primary {
+      background: linear-gradient(135deg, #1e5bbf, #2f80ed);
+      color: #fff;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .btn-danger {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+      color: #fff;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table-responsive {
+      border: 1px solid #e6edf5;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table {
+      margin-bottom: 0;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table thead th {
+      color: #243b53 !important;
+      border-color: #dbe5f1 !important;
+      font-weight: 700;
+      box-shadow: inset 0 -1px 0 rgba(148, 163, 184, 0.28);
+    }
+
+    /* Keep original grouped colors, then elevate with richer gradients */
+    .page-disabilitas-rekap .content-wrapper .table thead th[style*="#bbdefb"] {
+      background: linear-gradient(180deg, #d7ebff 0%, #c4defe 100%) !important;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table thead th[style*="#b2dfdb"] {
+      background: linear-gradient(180deg, #cbf0ea 0%, #bae6df 100%) !important;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table thead th[style*="#ffe0b2"] {
+      background: linear-gradient(180deg, #ffeccf 0%, #ffdfad 100%) !important;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table thead th[style*="#ffcdd2"] {
+      background: linear-gradient(180deg, #ffe0e3 0%, #ffd2d8 100%) !important;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table thead th[style*="#b3e5fc"] {
+      background: linear-gradient(180deg, #d8efff 0%, #c6e7fb 100%) !important;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table thead th[style*="#ffe082"] {
+      background: linear-gradient(180deg, #ffefb5 0%, #ffe38d 100%) !important;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table tbody td {
+      border-color: #e8eef6 !important;
+      color: #1f2a44;
+      font-size: 0.82rem;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table tbody tr:nth-child(even) {
+      background: #f8fbff;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table tbody tr:hover {
+      background: #eaf3ff;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table tbody td span[style*="color:green"] {
+      color: #15803d !important;
+      font-weight: 700 !important;
+    }
+
+    .page-disabilitas-rekap .content-wrapper .table tbody td span[style*="color:red"] {
+      color: #dc2626 !important;
+      font-weight: 700 !important;
+    }
+
+    /* Unified table action buttons/chips for modernized pages */
+    .dashboard-modern .table .btn,
+    .cov3-modern .table .btn,
+    .acute-modern .table .btn,
+    .pemilu-modern .table .btn,
+    .events-modern .table .btn,
+    .shk-modern .table .btn,
+    .simrs-modern .table .btn,
+    .audit-modern .table .btn,
+    .profile-modern .table .btn,
+    .page-kris .content-wrapper .table .btn,
+    .page-kris-input .content-wrapper .table .btn,
+    .page-disabilitas-rekap .content-wrapper .table .btn {
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 0.3rem 0.6rem;
+      box-shadow: none;
+    }
+
+    .dashboard-modern .table .input-group-text,
+    .cov3-modern .table .input-group-text,
+    .acute-modern .table .input-group-text,
+    .pemilu-modern .table .input-group-text,
+    .events-modern .table .input-group-text,
+    .shk-modern .table .input-group-text,
+    .simrs-modern .table .input-group-text,
+    .audit-modern .table .input-group-text,
+    .profile-modern .table .input-group-text,
+    .page-kris .content-wrapper .table .input-group-text,
+    .page-kris-input .content-wrapper .table .input-group-text,
+    .page-disabilitas-rekap .content-wrapper .table .input-group-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      border-radius: 8px;
+      border: 0;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.82rem;
+      line-height: 1.2;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .dashboard-modern .table .input-group-text.bg-warning,
+    .cov3-modern .table .input-group-text.bg-warning,
+    .acute-modern .table .input-group-text.bg-warning,
+    .pemilu-modern .table .input-group-text.bg-warning,
+    .events-modern .table .input-group-text.bg-warning,
+    .shk-modern .table .input-group-text.bg-warning,
+    .simrs-modern .table .input-group-text.bg-warning,
+    .audit-modern .table .input-group-text.bg-warning,
+    .profile-modern .table .input-group-text.bg-warning,
+    .page-kris .content-wrapper .table .input-group-text.bg-warning,
+    .page-kris-input .content-wrapper .table .input-group-text.bg-warning,
+    .page-disabilitas-rekap .content-wrapper .table .input-group-text.bg-warning {
+      color: #1f2a44;
+    }
+
+    .dashboard-modern .table td a,
+    .cov3-modern .table td a,
+    .acute-modern .table td a,
+    .pemilu-modern .table td a,
+    .events-modern .table td a,
+    .shk-modern .table td a,
+    .simrs-modern .table td a,
+    .audit-modern .table td a,
+    .profile-modern .table td a,
+    .page-kris .content-wrapper .table td a,
+    .page-kris-input .content-wrapper .table td a,
+    .page-disabilitas-rekap .content-wrapper .table td a {
+      text-decoration: none;
+    }
+
+    /* Colorful table headers across modernized pages */
+    .dashboard-modern .table thead th,
+    .cov3-modern .table thead th,
+    .acute-modern .table thead th,
+    .pemilu-modern .table thead th,
+    .events-modern .table thead th,
+    .shk-modern .table thead th,
+    .simrs-modern .table thead th,
+    .audit-modern .table thead th,
+    .profile-modern .table thead th,
+    .page-kris .content-wrapper .table thead th,
+    .page-kris-input .content-wrapper .table thead th {
+      color: #1f2a44 !important;
+      font-weight: 700;
+      border-color: #d9e4f2 !important;
+      box-shadow: inset 0 -1px 0 rgba(148, 163, 184, 0.25);
+    }
+
+    .dashboard-modern .table thead th {
+      background: linear-gradient(180deg, #e8f1ff 0%, #dbeafe 100%) !important;
+    }
+
+    .cov3-modern .table thead th {
+      background: linear-gradient(180deg, #e8fff8 0%, #d1fae5 100%) !important;
+    }
+
+    .acute-modern .table thead th {
+      background: linear-gradient(180deg, #fff2e8 0%, #ffe5d0 100%) !important;
+    }
+
+    .pemilu-modern .table thead th {
+      background: linear-gradient(180deg, #fff5e8 0%, #ffedd5 100%) !important;
+    }
+
+    .events-modern .table thead th {
+      background: linear-gradient(180deg, #f2eeff 0%, #e9d5ff 100%) !important;
+    }
+
+    .shk-modern .table thead th {
+      background: linear-gradient(180deg, #eafdf6 0%, #ccfbf1 100%) !important;
+    }
+
+    .simrs-modern .table thead th {
+      background: linear-gradient(180deg, #e9fbff 0%, #cffafe 100%) !important;
+    }
+
+    .audit-modern .table thead th {
+      background: linear-gradient(180deg, #f1f5ff 0%, #e0e7ff 100%) !important;
+    }
+
+    .profile-modern .table thead th {
+      background: linear-gradient(180deg, #fff0f7 0%, #fce7f3 100%) !important;
+    }
+
+    .page-kris .content-wrapper .table thead th,
+    .page-kris-input .content-wrapper .table thead th {
+      background: linear-gradient(180deg, #eaf2ff 0%, #dbeafe 100%) !important;
+    }
+
+    /* Preserve KRIS green marker columns */
+    .page-kris .content-wrapper .table thead th[style*="#9FBB73"],
+    .page-kris .content-wrapper .table thead th[style*="#9fbb73"],
+    .page-kris-input .content-wrapper .table thead th[style*="#9FBB73"],
+    .page-kris-input .content-wrapper .table thead th[style*="#9fbb73"] {
+      background: linear-gradient(180deg, #cfe7a9 0%, #b7d884 100%) !important;
+      color: #1f2a44 !important;
+      border-color: #b8d28f !important;
+    }
+
+    .dashboard-modern .table tbody tr:nth-child(even),
+    .cov3-modern .table tbody tr:nth-child(even),
+    .acute-modern .table tbody tr:nth-child(even),
+    .pemilu-modern .table tbody tr:nth-child(even),
+    .events-modern .table tbody tr:nth-child(even),
+    .shk-modern .table tbody tr:nth-child(even),
+    .simrs-modern .table tbody tr:nth-child(even),
+    .audit-modern .table tbody tr:nth-child(even),
+    .profile-modern .table tbody tr:nth-child(even),
+    .page-kris .content-wrapper .table tbody tr:nth-child(even),
+    .page-kris-input .content-wrapper .table tbody tr:nth-child(even) {
+      background: #fbfdff;
+    }
+
+    .dashboard-modern .table tbody tr:hover,
+    .cov3-modern .table tbody tr:hover,
+    .acute-modern .table tbody tr:hover,
+    .pemilu-modern .table tbody tr:hover,
+    .events-modern .table tbody tr:hover,
+    .shk-modern .table tbody tr:hover,
+    .simrs-modern .table tbody tr:hover,
+    .audit-modern .table tbody tr:hover,
+    .profile-modern .table tbody tr:hover,
+    .page-kris .content-wrapper .table tbody tr:hover,
+    .page-kris-input .content-wrapper .table tbody tr:hover {
+      background: #f3f8ff;
+    }
+
+    /* Laporan COVID v3 Dinkes / Dinkes kab — ukuran tebal dari marquee + heading invalid */
+    .page-dinkes-cov3 .content-wrapper {
+      font-size: 0.875rem;
+      line-height: 1.45;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .content {
+      font-size: inherit;
+    }
+
+    .page-dinkes-cov3 .content-wrapper marquee {
+      font-size: 0.95rem !important;
+      font-weight: 600 !important;
+      height: auto !important;
+      min-height: 2.1rem;
+      padding: 0.4rem 0.5rem;
+      line-height: 1.35;
+    }
+
+    .page-dinkes-cov3 .content-wrapper h3.mb-2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem !important;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .dinkes-cov3-region {
+      color: #210c99;
+      margin: 0 0 0.65rem;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .dinkes-cov3-region-name {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .nav-pills .nav-link {
+      font-size: 0.88rem;
+      padding: 0.38rem 0.7rem;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .card-header .card-title,
+    .page-dinkes-cov3 .content-wrapper .card-title {
+      font-size: 1rem;
+    }
+
+    .page-dinkes-cov3 .content-wrapper h5.mb-3 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .page-dinkes-cov3 .content-wrapper label {
+      font-size: 0.82rem;
+      margin-bottom: 0.22rem;
+      font-weight: 600;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .form-control {
+      font-size: 0.875rem;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .table {
+      font-size: 0.8rem;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .table th,
+    .page-dinkes-cov3 .content-wrapper .table td {
+      padding: 0.35rem 0.45rem;
+      vertical-align: middle;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .btn {
+      font-size: 0.875rem;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .dinkes-cov3-filter .form-group {
+      margin-bottom: 0.65rem;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .dinkes-cov3-legend {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.65rem 0.9rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .dinkes-cov3-legend-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #475569;
+      margin-bottom: 0.45rem;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .dinkes-cov3-legend-list {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      color: #334155;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .dinkes-cov3-legend-list li {
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .dinkes-cov3-swatch {
+      flex-shrink: 0;
+      width: 16px !important;
+      height: 16px !important;
+      min-width: 16px;
+      padding: 0 !important;
+      margin: 0.15rem 0 0 0 !important;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .page-dinkes-cov3 .dataTables_wrapper .dt-buttons {
+      float: none !important;
+      margin: 0 0 0.6rem 0 !important;
+    }
+
+    .page-dinkes-cov3 .dataTables_wrapper .dt-button {
+      padding: 0.3rem 0.7rem !important;
+      font-size: 0.8125rem !important;
+      font-weight: 600 !important;
+      border-radius: 6px !important;
+      margin: 0 0.35rem 0.35rem 0 !important;
+      border: 1px solid #17a2b8 !important;
+      background: #17a2b8 !important;
+      color: #fff !important;
+    }
+
+    .page-dinkes-cov3 .dataTables_wrapper .dt-button:hover {
+      background: #138496 !important;
+      border-color: #117a8b !important;
+      color: #fff !important;
+    }
+
+    .page-dinkes-cov3 .dataTables_wrapper .dataTables_filter {
+      float: none !important;
+      text-align: right !important;
+      margin-bottom: 0.45rem !important;
+    }
+
+    .page-dinkes-cov3 .dataTables_wrapper .dataTables_filter label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 0;
+    }
+
+    .page-dinkes-cov3 .dataTables_wrapper .dataTables_filter input {
+      margin-left: 0.35rem !important;
+      font-size: 0.875rem !important;
+      padding: 0.3rem 0.55rem !important;
+      border-radius: 6px !important;
+      border: 1px solid #ced4da !important;
+      min-width: 10.5rem;
+    }
+
+    .page-dinkes-cov3 .dataTables_wrapper .dataTables_info {
+      font-size: 0.8125rem;
+      color: #64748b;
+      padding-top: 0.5rem;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .dinkes-cov3-table-wrap {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .dinkes-cov3-table-wrap .table {
+      margin-bottom: 0;
+    }
+
+    .page-dinkes-cov3 .content-wrapper .dinkes-cov3-table-wrap .table thead th {
+      font-size: 0.78rem;
+      line-height: 1.2;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+  </style>
+
+<!--tambahkan custom css disini-->
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <!-- Site wrapper -->
+  <div class="wrapper">
+
+    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="https://sirs.kemkes.go.id/fo/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+      <!-- SEARCH FORM -->
+
+      <!-- Right navbar links -->
+          </nav><!-- Left side column. contains the sidebar -->
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- sidebar: style can be found in sidebar.less -->
+	 <a href="index3.html" class="brand-link">
+      <img src="https://sirs.kemkes.go.id/fo/dist/img/kemkes.png" alt="Kemkes Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">Ditjen Keslan</span>
+    </a>
+
+<div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+          <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                    <li class="nav-item has-treeview menu-open">
+            <a href="https://sirs.kemkes.go.id/fo/home" class="nav-link active">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>
+                Home
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            
+          </li>
+          <li class="nav-item">
+            <a href="https://sirs.kemkes.go.id/fo/login" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+               <p>
+                Executive Dashboard
+               
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="https://sirs.kemkes.go.id/fo/home/def" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>
+                Kebutuhan TT
+
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://sirs.kemkes.go.id/fo/home/intensif" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>
+                Kebutuhan TT Intensif
+
+              </p>
+            </a>
+          </li>
+ <li class="nav-item">
+            <a href="https://sirs.kemkes.go.id/fo/home/rujukan" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>
+               RS RUJUKAN
+
+              </p>
+            </a>
+          </li>
+ <li class="nav-item">
+            <a href="https://sirs.kemkes.go.id/fo/home/akreditasi" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>
+               RS TERAKREDITASI
+
+              </p>
+            </a>
+          </li>
+  <li class="nav-item has-treeview menu-open">
+            <a href="https://sisrute.kemkes.go.id" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>
+                SISRUTE
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+
+          </li>
+	          </ul>
+      </nav>
+    </section>
+    <!-- /.sidebar -->
+</aside>
+
+<!-- =============================================== -->
+
+
+<!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper rs-modern">
+
+<section class="content">
+      <div class="container-fluid">
+
+        <div class="row">
+
+          <!-- /.col -->
+
+          <div class="col-md-8">
+            <div class="card">
+             
+              <div class="card-body">
+                <span><h3>Silahkan Klik Pada Area Peta Untuk Melihat Data Lebih Detail</h3></span>
+                <span id="nasional"><a href="https://sirs.kemkes.go.id/fo/home/dashboard_rs">Klik Disini Untuk Peta Nasional</a></span>
+                <div id="mapModeBar" class="map-mode-bar">
+                  <label for="mapMode">Tampilan peta:</label>
+                  <select id="mapMode" class="form-control form-control-sm" style="width:auto;display:inline-block;">
+                    <option value="rs_count">Jumlah RS</option>
+                    <option value="rasio_tt">Rasio tempat tidur (WHO)</option>
+                  </select>
+                </div>
+                <div id="rasioRingkasan" class="rasio-ringkasan" style="display:none;"></div>
+                <div id="marker"><input type="checkbox" name="chkmark" id="chkmark" value=1><label>Munculkan Koordinat RS</label> <small id="markerStatus" style="display:none;margin-left:8px;color:#555;"></small></div>
+                <div id="mapindonesia">
+            
+          </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+		  		   <div class="col-md-4">
+		    <div class="card rs-chart-card">
+              <div class="card-body">
+                <div class="rs-chart-head">
+                  <div>
+                    <h4 id="titleKelas">Rekap RS per Kelas</h4>
+                    <p class="rs-chart-hint">Klik irisan untuk filter daftar RS (bisa lebih dari satu). Klik lagi untuk membatalkan.</p>
+                  </div>
+                </div>
+                <div id="chartcontentx" class="rs-chart-body"></div>
+              </div>
+            </div>
+		   </div>
+     </div>
+
+     <div class="row rs-kpi-row">
+       <div class="col-md-4">
+         <div class="rs-kpi rs-kpi-blue">
+           <span class="rs-kpi-label">Total rumah sakit</span>
+           <span class="rs-kpi-value" id="kpiTotalRs">—</span>
+           <span class="rs-kpi-sub" id="kpiTotalRsSub">RS aktif, selain RS Darurat</span>
+         </div>
+       </div>
+       <div class="col-md-4">
+         <div class="rs-kpi rs-kpi-teal">
+           <span class="rs-kpi-label">Pemilik terbanyak</span>
+           <span class="rs-kpi-value" id="kpiPemilik">—</span>
+           <span class="rs-kpi-sub" id="kpiPemilikSub">berdasarkan jumlah RS</span>
+         </div>
+       </div>
+       <div class="col-md-4">
+         <div class="rs-kpi rs-kpi-amber">
+           <span class="rs-kpi-label">Jenis terbanyak</span>
+           <span class="rs-kpi-value" id="kpiJenis">—</span>
+           <span class="rs-kpi-sub" id="kpiJenisSub">berdasarkan jumlah RS</span>
+         </div>
+       </div>
+     </div>
+               
+     <div class="row">
+             <div class="col-md-6">
+        <div class="card rs-chart-card">
+              <div class="card-body">
+                <div class="rs-chart-head">
+                  <div>
+                    <h4 id="titlePemilik">Rekap RS per Pemilik</h4>
+                    <p class="rs-chart-hint">Klik batang untuk filter daftar RS (bisa pilih beberapa kepemilikan).</p>
+                  </div>
+                  <div class="rs-chart-tools">
+                    <span class="rs-chart-badge" id="badgePemilik">0 RS</span>
+                    <div class="rs-chart-toggle" data-chart="pemilik">
+                      <button type="button" data-type="bar" class="active">Bar</button>
+                      <button type="button" data-type="column">Kolom</button>
+                      <button type="button" data-type="pie">Donut</button>
+                    </div>
+                  </div>
+                </div>
+                <div id="chartcontent" class="chartcontent rs-chart-body"></div>
+              </div>
+            </div>
+       </div>
+     <div class="col-md-6">
+        <div class="card rs-chart-card">
+              <div class="card-body">
+                <div class="rs-chart-head">
+                  <div>
+                    <h4 id="titleJenis">Rekap RS per Jenis</h4>
+                    <p class="rs-chart-hint">Klik kategori untuk filter daftar RS (bisa pilih beberapa jenis).</p>
+                  </div>
+                  <div class="rs-chart-tools">
+                    <span class="rs-chart-badge" id="badgeJenis">0 RS</span>
+                    <div class="rs-chart-toggle" data-chart="jenis">
+                      <button type="button" data-type="column" class="active">Kolom</button>
+                      <button type="button" data-type="bar">Bar</button>
+                      <button type="button" data-type="pie">Donut</button>
+                    </div>
+                  </div>
+                </div>
+                <div id="chartcontent_jenis" class="chartcontent rs-chart-body"></div>
+              </div>
+            </div>
+       </div>  
+     </div>
+     <div class="row">
+             <div class="col-md-12">
+        <div class="card rs-list-card">
+             
+              <div class="card-body">
+                <h2><div id="lbl1" class="text-center"></div></h2>
+                <p class="rs-chart-hint text-center" id="rsListCountHint"></p>
+                <div id="rsListFilterPanel" class="rs-list-filter">
+                  <div class="rs-list-filter-group">
+                    <div class="rs-list-filter-title">
+                      <strong>Filter kepemilikan</strong>
+                      <button type="button" class="rs-filter-mini" data-clear="pemilik">Reset</button>
+                    </div>
+                    <select id="selPemilik" class="form-control rs-filter-select" multiple="multiple" style="width:100%"></select>
+                  </div>
+                  <div class="rs-list-filter-group">
+                    <div class="rs-list-filter-title">
+                      <strong>Filter kelas</strong>
+                      <button type="button" class="rs-filter-mini" data-clear="kelas">Reset</button>
+                    </div>
+                    <select id="selKelas" class="form-control rs-filter-select" multiple="multiple" style="width:100%"></select>
+                  </div>
+                  <div class="rs-list-filter-group">
+                    <div class="rs-list-filter-title">
+                      <strong>Filter jenis</strong>
+                      <button type="button" class="rs-filter-mini" data-clear="jenis">Reset</button>
+                    </div>
+                    <select id="selJenis" class="form-control rs-filter-select" multiple="multiple" style="width:100%"></select>
+                  </div>
+                </div>
+                <div id="rsFilterBar" class="rs-filter-bar" style="display:none;">
+                  Filter aktif: <span id="rsFilterLabel"></span>
+                  <button type="button" id="rsFilterClear" class="rs-filter-clear">Hapus semua filter</button>
+                </div>
+                <p class="rs-table-swipe-hint">Geser tabel ke kiri atau kanan untuk melihat semua kolom</p>
+                <div id="tbl1" class="chartcontent rs-table-scroll"></div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+       </div>
+      </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+       </div><!-- /.content-wrapper -->
+       <link rel="stylesheet" href="https://sirs.kemkes.go.id/fo/assets/leaflet/leaflet.css" />
+  <style>
+        .rs-modern {
+          background: #f4f7fb;
+        }
+        .rs-modern .card {
+          border: 1px solid #e6edf5;
+          border-radius: 14px;
+          box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+          overflow: hidden;
+        }
+        .rs-modern .card-body {
+          padding: 1rem 1.1rem;
+        }
+        .rs-modern #chartcontentx,
+        .rs-modern #chartcontent,
+        .rs-modern #chartcontent_jenis {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 8px;
+        }
+        .rs-chart-card .card-body {
+          padding: 0.9rem 1rem 1rem;
+        }
+        .rs-chart-head {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 12px;
+          margin-bottom: 8px;
+        }
+        .rs-chart-head h4 {
+          margin: 0;
+          font-size: 16px;
+          font-weight: 700;
+          color: #1f2a44;
+          line-height: 1.3;
+        }
+        .rs-chart-hint {
+          margin: 4px 0 0;
+          font-size: 12px;
+          color: #64748b;
+          line-height: 1.4;
+        }
+        .rs-chart-tools {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex-shrink: 0;
+        }
+        .rs-chart-badge {
+          background: #edf4ff;
+          color: #1e5bbf;
+          border: 1px solid #d4e3f8;
+          border-radius: 999px;
+          padding: 4px 10px;
+          font-size: 12px;
+          font-weight: 700;
+        }
+        .rs-chart-toggle {
+          display: inline-flex;
+          background: #eef4ff;
+          border-radius: 8px;
+          padding: 3px;
+        }
+        .rs-chart-toggle button {
+          border: 0;
+          background: transparent;
+          padding: 5px 10px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 600;
+          color: #355070;
+          cursor: pointer;
+        }
+        .rs-chart-toggle button.active {
+          background: #fff;
+          color: #1e5bbf;
+          box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+        }
+        .rs-chart-body {
+          min-height: 420px;
+        }
+        #chartcontent,
+        #chartcontent_jenis {
+          min-height: 480px;
+        }
+        .rs-kpi-row {
+          margin-bottom: 16px;
+        }
+        .rs-kpi {
+          border-radius: 14px;
+          padding: 14px 16px;
+          margin-bottom: 12px;
+          border: 1px solid #e6edf5;
+          box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+          min-height: 98px;
+        }
+        .rs-kpi-blue { background: linear-gradient(180deg, #f4f8ff 0%, #fff 70%); }
+        .rs-kpi-teal { background: linear-gradient(180deg, #f2fbf9 0%, #fff 70%); }
+        .rs-kpi-amber { background: linear-gradient(180deg, #fff8eb 0%, #fff 70%); }
+        .rs-kpi-label {
+          display: block;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+          color: #64748b;
+        }
+        .rs-kpi-value {
+          display: block;
+          margin-top: 4px;
+          font-size: 28px;
+          font-weight: 800;
+          color: #1f2a44;
+          line-height: 1.15;
+        }
+        .rs-kpi-sub {
+          display: block;
+          margin-top: 2px;
+          font-size: 12px;
+          color: #64748b;
+        }
+        .rs-filter-bar {
+          margin: 0 0 14px;
+          padding: 10px 14px;
+          background: #edf4ff;
+          border: 1px solid #d4e3f8;
+          border-radius: 10px;
+          color: #1f2a44;
+        }
+        .rs-filter-clear {
+          margin-left: 10px;
+          border: 0;
+          background: #1e5bbf;
+          color: #fff;
+          border-radius: 8px;
+          padding: 4px 10px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .rs-list-filter {
+          display: grid;
+          grid-template-columns: 1.4fr 0.8fr 1fr;
+          gap: 12px;
+          margin: 0 0 12px;
+        }
+        .rs-list-filter-group {
+          background: #f8fafc;
+          border: 1px solid #e6edf5;
+          border-radius: 12px;
+          padding: 10px 12px;
+        }
+        .rs-list-filter-title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 8px;
+          color: #1f2a44;
+          font-size: 13px;
+        }
+        .rs-filter-mini {
+          border: 0;
+          background: transparent;
+          color: #1e5bbf;
+          font-size: 12px;
+          font-weight: 700;
+          cursor: pointer;
+          padding: 0;
+        }
+        .rs-filter-select {
+          width: 100%;
+        }
+        .rs-list-filter .select2-container {
+          width: 100% !important;
+        }
+        .rs-list-filter .select2-container--default .select2-selection--multiple {
+          min-height: 38px;
+          border: 1px solid #d4e3f8;
+          border-radius: 8px;
+        }
+        .rs-list-filter .select2-container--default .select2-selection--multiple .select2-selection__choice {
+          background: #edf4ff;
+          border-color: #93c5fd;
+          color: #1e5bbf;
+        }
+        .rs-list-filter-summary {
+          margin-top: 6px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #1e5bbf;
+        }
+        .rs-modern .container-fluid,
+        .rs-modern .row,
+        .rs-modern [class*="col-"] {
+          min-width: 0;
+        }
+        .rs-list-card,
+        .rs-list-card .card-body {
+          min-width: 0;
+          max-width: 100%;
+          overflow-x: hidden;
+        }
+        .rs-table-swipe-hint {
+          display: none;
+          margin: 0 0 8px;
+          font-size: 12px;
+          color: #64748b;
+          text-align: center;
+        }
+        .rs-table-scroll {
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+        }
+        .rs-table-scroll .dataTables_wrapper {
+          width: 100% !important;
+        }
+        /* Satu area geser (iOS/Android): tabel saja, pencarian & halaman tetap di tempat */
+        .rs-table-scroll .dataTables_wrapper > .row:nth-of-type(2) {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        .rs-table-scroll .dataTables_wrapper > .row:nth-of-type(2) > [class*="col-"] {
+          overflow-x: auto;
+          overflow-y: hidden;
+          -webkit-overflow-scrolling: touch;
+          overscroll-behavior-x: contain;
+          touch-action: pan-x pan-y;
+          max-width: 100%;
+          padding-left: 0;
+          padding-right: 0;
+        }
+        .rs-table-scroll table.dataTable {
+          width: auto !important;
+          min-width: 720px;
+          margin: 0;
+        }
+        .rs-table-scroll table.dataTable th,
+        .rs-table-scroll table.dataTable td {
+          white-space: nowrap;
+          vertical-align: middle;
+        }
+        @media (max-width: 992px) {
+          .rs-list-filter {
+            grid-template-columns: 1fr;
+          }
+          .rs-table-swipe-hint {
+            display: block;
+          }
+        }
+        .rs-chart-loading {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 420px;
+          color: #64748b;
+          font-weight: 600;
+        }
+        @media (max-width: 768px) {
+          .rs-chart-head {
+            flex-direction: column;
+          }
+          .rs-kpi-value {
+            font-size: 22px;
+          }
+        }
+        .rs-modern h3 {
+          color: #1f2a44;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+        #nasional {
+          display: inline-block;
+          margin-bottom: 10px;
+        }
+        #nasional a {
+          display: inline-block;
+          background: linear-gradient(135deg, #1e5bbf, #2f80ed);
+          color: #fff !important;
+          border-radius: 10px;
+          padding: 8px 14px;
+          text-decoration: none;
+          font-weight: 600;
+          box-shadow: 0 8px 16px rgba(47, 128, 237, 0.24);
+        }
+        #marker {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: #edf4ff;
+          border: 1px solid #d4e3f8;
+          border-radius: 10px;
+          padding: 8px 10px;
+          margin-bottom: 10px;
+        }
+        #marker label {
+          margin: 0;
+          color: #355070;
+          font-weight: 600;
+        }
+        .map-mode-bar {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: #f0f7ff;
+          border: 1px solid #d4e3f8;
+          border-radius: 10px;
+          padding: 8px 10px;
+          margin: 0 0 10px 8px;
+        }
+        .map-mode-bar label {
+          margin: 0;
+          color: #355070;
+          font-weight: 600;
+        }
+        .rasio-ringkasan {
+          background: #fff8e8;
+          border: 1px solid #f0d9a8;
+          border-radius: 10px;
+          padding: 10px 12px;
+          margin-bottom: 10px;
+          font-size: 14px;
+          line-height: 1.5;
+          color: #333;
+        }
+        .rasio-chip {
+          display: inline-block;
+          border-radius: 6px;
+          padding: 2px 8px;
+          margin: 4px 4px 0 0;
+          font-size: 12px;
+          font-weight: 600;
+          color: #fff;
+        }
+        .rasio-chip.hijau { background: #4caf50; }
+        .rasio-chip.kuning { background: #ffca28; color: #333; }
+        .rasio-chip.merah { background: #f06292; }
+        .rasio-chip.abu { background: #9e9e9e; }
+        #mapindonesia { height: 450px; }
+        .info 
+          { 
+            padding: 6px 8px; 
+            font: 14px/16px Arial, Helvetica, sans-serif; 
+            background: white; 
+            background: rgba(255,255,255,0.8);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+            border-radius: 5px; 
+          }
+        .info h4 
+          { 
+            margin: 0 0 5px;
+            color: #777; 
+          }
+        .legend 
+          { 
+            text-align: left;
+            line-height: 18px;
+            color: #555; 
+          } 
+        .legend i 
+          {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7; 
+          }
+          .class-popup .leaflet-popup-content-wrapper {
+  background:#2980b9;
+  color:#fff;
+  font-size:18px;
+  maxWidth: auto;
+  line-height:10px;
+  }
+
+.class-popup .leaflet-popup-content-wrapper a {
+  color:#fff !important;
+  text-decoration: underline;
+  }
+.class-popup .leaflet-popup-tip-container {
+  width:500px;
+  height:200px;
+  }
+.class-popup .leaflet-popup-tip {
+  background:#2980b9;
+  }
+.rs-dot-icon-wrap {
+  background: transparent !important;
+  border: none !important;
+}
+.rs-pin {
+  width: 22px;
+  height: 22px;
+  border-radius: 50% 50% 50% 0;
+  position: relative;
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+.rs-pin-hole {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid rgba(0, 0, 0, 0.35);
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+.rs-pin-hole::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+     </style>
+<script src="https://sirs.kemkes.go.id/fo/assets/leaflet/leaflet.js"></script>
+<script src="https://sirs.kemkes.go.id/fo/assets/js/jquery-3.1.1.min.js"></script>
+<script src="https://sirs.kemkes.go.id/fo/assets/select2/select2.full.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+     <script>
+
+	 var p=0;
+     var activePropFilter = (String(p) !== '0') ? String(p).substring(0, 2) : '';
+     var PROFILE_RS_URL_BASE = "https:\/\/sirs.kemkes.go.id\/fo\/home\/profile_rs\/";
+     var chartKelas = null;
+     var chartPemilik = null;
+     var chartJenis = null;
+     var rsChartState = {
+       pemilikType: 'bar',
+       jenisType: 'column',
+       filters: { pemilik: {}, kelas: {}, jenis: {} },
+       filterRegistered: false,
+       select2Syncing: false,
+       tableData: [],
+       listLabel: '',
+       lastPemilik: null,
+       lastJenis: null,
+       lastKelas: null
+     };
+     var rsSelectMap = {
+       pemilik: { id: 'selPemilik', placeholder: 'Pilih kepemilikan' },
+       kelas: { id: 'selKelas', placeholder: 'Pilih kelas' },
+       jenis: { id: 'selJenis', placeholder: 'Pilih jenis' }
+     };
+
+     Highcharts.setOptions({
+       chart: {
+         style: {
+           fontFamily: '"Source Sans Pro", "Segoe UI", Arial, sans-serif'
+         },
+         backgroundColor: '#ffffff'
+       },
+       colors: ['#2f80ed', '#14b8a6', '#f59e0b', '#8b5cf6', '#ef4444', '#06b6d4'],
+       title: {
+         style: {
+           color: '#1f2a44',
+           fontWeight: '700',
+           fontSize: '14px'
+         }
+       },
+       subtitle: {
+         style: {
+           color: '#64748b',
+           fontSize: '11px'
+         }
+       },
+       legend: {
+         itemStyle: {
+           color: '#334155',
+           fontWeight: '600',
+           fontSize: '11px'
+         }
+       },
+       xAxis: {
+         lineColor: '#dbe5f1',
+         tickColor: '#dbe5f1',
+         labels: { style: { color: '#334155' } }
+       },
+       yAxis: {
+         gridLineColor: '#edf2f7',
+         labels: { style: { color: '#475569' } },
+         title: { style: { color: '#475569' } }
+       },
+       tooltip: {
+         backgroundColor: 'rgba(15, 23, 42, 0.94)',
+         borderColor: '#0f172a',
+         borderRadius: 10,
+         style: { color: '#ffffff' }
+       },
+       plotOptions: {
+         series: {
+           animation: { duration: 650 },
+           borderRadius: 5,
+           cursor: 'pointer',
+           dataLabels: {
+             style: { color: '#1f2937', textOutline: 'none', fontWeight: '600' }
+           },
+           states: {
+             hover: { brightness: 0.07 }
+           }
+         },
+         pie: {
+           borderWidth: 2,
+           borderColor: '#ffffff',
+           innerSize: '58%',
+           allowPointSelect: true,
+           showInLegend: true,
+           dataLabels: {
+             style: { color: '#334155', textOutline: 'none' }
+           }
+         }
+       },
+       credits: { enabled: false }
+     });
+
+	 getdata(p);
+
+         var style = {
+            "fillColor": "#ff7800",                    
+            "fillOpacity": 0.8,
+            "stroke": true,
+            "color": "#03f",
+            "weight": 1,
+        };
+        
+        var geojson;
+        var selectedProvinceLayer = null;
+        var hoveredLayer = null;
+        var mapMode = 'rs_count';
+        var rasioWilayahByKode = {};
+        var rasioProvByKode = {};
+        var rasioRingkasan = null;
+        var mapLegendRasio = null;
+        var lastMapDatasql = null;
+        var RASIO_FILL = {
+          hijau: '#4caf50',
+          kuning: '#ffca28',
+          merah: '#f06292',
+          abu: '#bdbdbd'
+        };
+
+        function fetchRasioWilayah(done) {
+          return $.getJSON("https://sirs.kemkes.go.id/fo/mapgeo/rasio_tt?id=0", function(data) {
+            rasioWilayahByKode = {};
+            (data.wilayah || []).forEach(function(w) {
+              rasioWilayahByKode[String(w.kode)] = w;
+            });
+            rasioProvByKode = {};
+            (data.wilayah_prop || []).forEach(function(w) {
+              rasioProvByKode[String(w.kode)] = w;
+            });
+            rasioRingkasan = data.ringkasan || null;
+            updateRasioRingkasanBanner();
+            if (typeof done === 'function') {
+              done();
+            }
+          });
+        }
+
+        function updateRasioRingkasanBanner() {
+          if (!rasioRingkasan || mapMode !== 'rasio_tt') {
+            $('#rasioRingkasan').hide();
+            return;
+          }
+          var r = rasioRingkasan;
+          var labelWilayah = "Kab/Kota (seluruh Indonesia)";
+          var html = '<strong>Rasio tempat tidur (standar WHO)</strong><br>' +
+            'Dari total <strong>' + Number(r.total_bed).toLocaleString('id-ID') + ' bed</strong>, ' +
+            'terdapat <strong>' + r.wilayah_tidak_ideal + '</strong> ' + labelWilayah +
+            ' dengan rasio tidak ideal (lebih dari 1.000 penduduk per tempat tidur).<br>' +
+            '<small>Standar WHO: 1 tempat tidur per 1.000 penduduk. Sumber penduduk: ' + r.periode_penduduk + '.</small><br>' +
+            '<span class="rasio-chip hijau">' + r.hijau + ' ideal (&le;1.000)</span> ' +
+            '<span class="rasio-chip kuning">' + r.kuning + ' 1.001–1.500</span> ' +
+            '<span class="rasio-chip merah">' + r.merah + ' &gt;1.500</span> ' +
+            '<span class="rasio-chip abu">' + r.abu + ' tanpa data</span>';
+          $('#rasioRingkasan').html(html).show();
+        }
+
+        function getRsCountFillColor(jumlah) {
+          if (jumlah <= 5) return '#c8e5e3';
+          if (jumlah <= 10) return '#a3d5d1';
+          if (jumlah <= 15) return '#80c9c6';
+          if (jumlah <= 20) return '#44b4c4';
+          if (jumlah <= 30) return '#1792a4';
+          if (jumlah <= 40) return '#5ebdb2';
+          if (jumlah <= 50) return '#34b5aa';
+          if (jumlah <= 60) return '#309191';
+          if (jumlah <= 80) return '#bed57e';
+          if (jumlah <= 100) return '#91c470';
+          if (jumlah <= 120) return '#a6c732';
+          if (jumlah <= 140) return '#5fb677';
+          if (jumlah <= 160) return '#6fa84b';
+          if (jumlah <= 180) return '#2e8b57';
+          if (jumlah <= 200) return '#00796b';
+          if (jumlah <= 230) return '#00695c';
+          if (jumlah <= 300) return '#009688';
+          if (jumlah <= 350) return '#004d40';
+          if (jumlah <= 400) return '#2e8b57';
+          return 'green';
+        }
+
+        function featureCodeOf(feature) {
+          var p = (feature && feature.properties) ? feature.properties : {};
+          var candidates = [p.ID2013, p.ID, p.KODE, p.kode, p.id, p.ID_1, p.IDPROP, p.PROVNO];
+          for (var c = 0; c < candidates.length; c++) {
+            if (candidates[c] !== undefined && candidates[c] !== null && String(candidates[c]).trim() !== '') {
+              return String(candidates[c]).trim();
+            }
+          }
+          return '';
+        }
+
+        function featureNameOf(feature) {
+          var p = (feature && feature.properties) ? feature.properties : {};
+          return p.PROVINSI || p.provinsi || p.WADMPR || p.NAMOBJ || p.NAME || 'Wilayah';
+        }
+
+        // Peta nasional memakai poligon provinsi (kode 2 digit), peta provinsi memakai
+        // poligon kab/kota (kode 4 digit), jadi rasio dicari di kedua tingkat.
+        function rasioUntukKode(featureCode) {
+          var kode = String(featureCode || '');
+          if (!kode) {
+            return null;
+          }
+          return rasioWilayahByKode[kode] || rasioProvByKode[kode] || null;
+        }
+
+        function styleWilayahLayer(layer, featureCode, datasql) {
+          var fillColor = '#ff7800';
+          if (mapMode === 'rasio_tt') {
+            var rw = rasioUntukKode(featureCode);
+            fillColor = rw ? (RASIO_FILL[rw.kategori] || RASIO_FILL.abu) : RASIO_FILL.abu;
+          } else if (datasql && datasql.provinsi) {
+            for (var i = 0; i < datasql.provinsi.length; i++) {
+              if (String(datasql.provinsi[i].kode) === String(featureCode)) {
+                fillColor = getRsCountFillColor(parseInt(datasql.provinsi[i].jumlah, 10) || 0);
+                break;
+              }
+            }
+          }
+          layer.setStyle({
+            fillColor: fillColor,
+            fillOpacity: 0.8,
+            stroke: true,
+            color: '#03f',
+            weight: 1
+          });
+        }
+
+        function applyRasioPopup(layer, featureCode, featureName) {
+          if (mapMode !== 'rasio_tt') {
+            layer.unbindPopup();
+            return;
+          }
+          var rw = rasioUntukKode(featureCode);
+          if (!rw) {
+            layer.unbindPopup();
+            return;
+          }
+          var html = '<strong>' + featureName + '</strong><br>' +
+            'Tempat tidur: ' + Number(rw.jumlah_tt).toLocaleString('id-ID') + '<br>' +
+            'Penduduk: ' + Number(rw.penduduk).toLocaleString('id-ID') + '<br>';
+          if (rw.penduduk_per_bed !== null) {
+            html += 'Rasio: 1 bed / ' + Number(rw.penduduk_per_bed).toLocaleString('id-ID') + ' penduduk<br>' +
+              'Kecukupan: ' + Number(rw.bed_per_1000).toLocaleString('id-ID') + ' bed per 1.000 penduduk';
+          } else {
+            html += 'Data rasio tidak tersedia';
+          }
+          layer.bindPopup(html);
+        }
+
+        function refreshAllLayerStyles() {
+          if (!geojson) {
+            return;
+          }
+          geojson.eachLayer(function(layer) {
+            if (!layer.feature) {
+              return;
+            }
+            var code = featureCodeOf(layer.feature);
+            styleWilayahLayer(layer, code, lastMapDatasql);
+            applyRasioPopup(layer, code, featureNameOf(layer.feature));
+          });
+        }
+
+        function toggleRasioLegend(show) {
+          if (mapLegendRasio) {
+            map.removeControl(mapLegendRasio);
+            mapLegendRasio = null;
+          }
+          if (!show) {
+            return;
+          }
+          mapLegendRasio = L.control({ position: 'bottomright' });
+          mapLegendRasio.onAdd = function() {
+            var div = L.DomUtil.create('div', 'info legend');
+            div.innerHTML = '<strong>Rasio bed / penduduk (WHO)</strong><br>' +
+              '<i style="background:' + RASIO_FILL.hijau + '"></i> 1 bed / &lt;1.000 penduduk<br>' +
+              '<i style="background:' + RASIO_FILL.kuning + '"></i> 1 bed / 1.001–1.500 penduduk<br>' +
+              '<i style="background:' + RASIO_FILL.merah + '"></i> 1 bed / &gt;1.500 penduduk<br>' +
+              '<i style="background:' + RASIO_FILL.abu + '"></i> Tanpa data';
+            return div;
+          };
+          mapLegendRasio.addTo(map);
+        }
+
+        fetchRasioWilayah(function() {
+          refreshAllLayerStyles();
+        }).fail(function() {
+          console.warn('Gagal memuat data rasio tempat tidur.');
+        });
+        $('#mapMode').on('change', function() {
+          mapMode = $(this).val();
+          updateRasioRingkasanBanner();
+          toggleRasioLegend(mapMode === 'rasio_tt');
+          refreshAllLayerStyles();
+        });
+
+        var indonesiaBounds = [[-12.0, 94.0], [8.5, 142.0]];
+        var map = L.map('mapindonesia', {
+          minZoom: 4,
+          maxBounds: indonesiaBounds,
+          maxBoundsViscosity: 1.0
+        }).setView([-4.021933, 114.793895], 5);
+        var rsCoordinateLayer = L.featureGroup().addTo(map);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          noWrap: true,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map); 
+
+        map.on('mouseout zoomstart movestart', bersihkanSorotanWilayah);
+
+        // Browser dapat memulihkan pilihan mode sebelumnya saat halaman dimuat ulang
+        mapMode = $('#mapMode').val() || 'rs_count';
+        updateRasioRingkasanBanner();
+        toggleRasioLegend(mapMode === 'rasio_tt');
+
+        window.__rsDataLoaded = false;
+        $("#chkmark").on('change', function(){
+          if (!window.__rsDataLoaded) {
+            $("#markerStatus").text("data koordinat belum termuat");
+          }
+        });
+
+        $.ajax({
+        dataType: "json",
+        //memanggil data.php yang tadi dibuat
+        url: "https://sirs.kemkes.go.id/fo/home/list_prop_noncovid?id=0",
+        success: function(datasql) {
+          window.__rsDataLoaded = true;
+          indonesialayer(datasql);
+        },
+        error: function() {
+          window.__rsDataLoaded = false;
+          $("#markerStatus").text("gagal memuat data koordinat");
+        }
+        });
+       
+        function indonesialayer(datasql)
+        {
+          lastMapDatasql = datasql;
+          function getColorByKelas(kelas) {
+            var k = String(kelas || '').toUpperCase().trim();
+            if (k === 'A' || k.indexOf('KELAS A') !== -1) return '#27ae60';
+            if (k === 'B' || k.indexOf('KELAS B') !== -1) return '#2980b9';
+            if (k === 'C' || k.indexOf('KELAS C') !== -1) return '#f1c40f';
+            if (k.indexOf('D PRATAMA') !== -1 || k.indexOf('KELAS D PRATAMA') !== -1) return '#e74c3c';
+            if (k === 'D' || k.indexOf('KELAS D') !== -1) return '#e74c3c';
+            return '#7f8c8d';
+          }
+
+          function toggleKoordinatRs(nilai){
+            rsCoordinateLayer.clearLayers();
+
+            if (!nilai) {
+              return;
+            }
+
+            var rsList = [];
+            if (Array.isArray(datasql.rs)) {
+              rsList = datasql.rs;
+            } else if (datasql.rs && typeof datasql.rs === 'object') {
+              for (var key in datasql.rs) {
+                if (Object.prototype.hasOwnProperty.call(datasql.rs, key)) {
+                  rsList.push(datasql.rs[key]);
+                }
+              }
+            }
+            var shownCount = 0;
+
+            for (var j = 0; j < rsList.length; j++) {
+              var lat;
+              var lng;
+
+              if (Array.isArray(rsList[j].koordinat) && rsList[j].koordinat.length >= 2) {
+                lat = parseFloat(rsList[j].koordinat[0]);
+                lng = parseFloat(rsList[j].koordinat[1]);
+              } else {
+                lat = parseFloat(rsList[j].alt);
+                lng = parseFloat(rsList[j].long);
+              }
+
+              if (!isFinite(lat) || !isFinite(lng)) {
+                continue;
+              }
+
+              if (activePropFilter !== '' && String(rsList[j].kode || '').substring(0, 2) !== activePropFilter) {
+                continue;
+              }
+
+              var PopupClass = {'className': 'class-popup'};
+              var markerColor = getColorByKelas(rsList[j].kelas);
+              var marker = L.marker([lat, lng], {
+                icon: L.divIcon({
+                  className: 'rs-dot-icon-wrap',
+                  html: '<div class="rs-pin" style="background:' + markerColor + ';"><div class="rs-pin-hole"></div></div>',
+                  iconSize: [22, 30],
+                  iconAnchor: [7, 24]
+                }),
+                zIndexOffset: 1000
+              });
+
+              marker
+                .bindPopup(
+                  '<html><div>Nama : ' + rsList[j].nama + '</div><div>Kelas : ' + (rsList[j].kelas || '-') + '</div><div>Jenis : ' + (rsList[j].jenis || '-') + '</div><div>Alamat : ' + rsList[j].alamat + '</div><div>telepon : ' + rsList[j].telepon + '</div><div>Koordinat : ' + lat + ', ' + lng + '</div><div style="margin-top:8px;"><a class="btn btn-primary btn-sm" href="' + PROFILE_RS_URL_BASE + rsList[j].kode + '" target="_blank">Klik Disini Untuk Profile</a></div></html>',
+                  PopupClass
+                )
+                .bindTooltip(
+                  '<div><strong>' + (rsList[j].nama || '-') + '</strong></div><div>Kelas: ' + (rsList[j].kelas || '-') + '</div><div>Jenis: ' + (rsList[j].jenis || '-') + '</div>'
+                )
+                .addTo(rsCoordinateLayer);
+              shownCount++;
+            }
+
+            if (nilai) {
+              $("#markerStatus").text(shownCount + " koordinat ditampilkan");
+              if (shownCount > 0 && rsCoordinateLayer.getLayers().length > 0) {
+                try {
+                  map.fitBounds(rsCoordinateLayer.getBounds(), { padding: [20, 20], maxZoom: 10 });
+                } catch (e) {
+                  /* layer kosong atau bounds tidak valid */
+                }
+              }
+            } else {
+              $("#markerStatus").text("");
+            }
+          }
+
+          $("#chkmark").on('change', function(){
+            toggleKoordinatRs(this.checked);
+          });
+
+          toggleKoordinatRs(document.getElementById("chkmark").checked);
+
+          $.ajax({
+          dataType: "json",
+          url: "https://sirs.kemkes.go.id/fo/mapgeo/koordinat?id=0&mapfile=json%2Fprovinsi.json",
+          success: function(data) {
+            if (!data || !data.features || data.features.length === 0) {
+              console.warn('GeoJSON peta kosong — periksa koordinat wilayah di database.');
+            }
+              //provinsi.json disimpan dalam variable data
+              //tampilkan provinsi.json ke dalam mapindonesia            
+              //bindPopup digunakan untuk menampilkan info nama provinsi ketika layer provinsi di klik       
+               var PopupClass={'className': 'class-popup'}                
+              geojson=L.geoJSON(data,{
+                onEachFeature:onEachFeature,
+                style:style
+              }).addTo(map);
+
+              function onEachFeature(feature, layer) {
+                var featureCode = featureCodeOf(feature);
+                var featureName = featureNameOf(feature);
+                layer.bindTooltip('Klik untuk fokus: ' + featureName);
+                layer.on({
+                  mouseover: highlightFeature,
+                  mouseout: resetHighlight,
+                  click: function(e){
+                    var wilayahSebelumnya = selectedProvinceLayer;
+                    selectedProvinceLayer = null;
+                    if (wilayahSebelumnya) {
+                      resetHighlight({target: wilayahSebelumnya});
+                    }
+                    selectedProvinceLayer = e.target;
+                    selectedProvinceLayer.setStyle({
+                      weight: 3,
+                      color: '#1f2937',
+                      fillOpacity: 0.85
+                    });
+                    activePropFilter = featureCode !== '' ? String(featureCode).substring(0, 2) : '';
+                    map.fitBounds(e.target.getBounds(), { padding: [20, 20], maxZoom: 9 });
+                    if (featureCode !== '') {
+                      getdata(featureCode);
+                    }
+                    document.getElementById("chkmark").checked = true;
+                    toggleKoordinatRs(true);
+                    if (featureCode === '') {
+                      $("#markerStatus").text("Fokus wilayah: " + featureName + " (kode wilayah tidak ditemukan)");
+                    } else {
+                      $("#markerStatus").text("Fokus wilayah: " + featureName);
+                    }
+                  }
+                });
+                layer._path && (layer._path.style.cursor = 'pointer');
+                styleWilayahLayer(layer, featureCode, datasql);
+                applyRasioPopup(layer, featureCode, featureName);
+              } 
+            }
+          }).fail(function(xhr) {
+            console.error('Gagal memuat peta GeoJSON:', xhr.status, xhr.responseText);
+          });
+        }
+
+        //fungsi untuk menampilkan legenda
+    
+        function highlightFeature(e) {
+          var layer = e.target;
+          // Jaga hanya satu wilayah tersorot: pada peta dengan ratusan poligon,
+          // event mouseout kadang tidak sampai sehingga sorotan lama tertinggal.
+          if (hoveredLayer && hoveredLayer !== layer) {
+            resetHighlight({ target: hoveredLayer });
+          }
+          hoveredLayer = layer;
+          layer.setStyle({
+            weight: 4,
+            color: '#ff0000',
+            dashArray: '',
+            fillOpacity: 0.9
+          });
+        }
+
+        function resetHighlight(e) {
+          var layer = e.target;
+          if (hoveredLayer === layer) {
+            hoveredLayer = null;
+          }
+          layer.closeTooltip();
+          if (layer === selectedProvinceLayer) {
+            layer.setStyle({
+              weight: 3,
+              color: '#1f2937',
+              fillOpacity: 0.85
+            });
+            return;
+          }
+          if (layer.feature) {
+            styleWilayahLayer(layer, featureCodeOf(layer.feature), lastMapDatasql);
+            return;
+          }
+          layer.setStyle({
+            stroke: true,
+            color: "#03f",
+            weight: 1
+          });
+        }
+
+        function bersihkanSorotanWilayah() {
+          if (hoveredLayer) {
+            resetHighlight({ target: hoveredLayer });
+          }
+        }
+	 function fmtNumber(n) {
+       return Highcharts.numberFormat(n || 0, 0, ',', '.');
+     }
+     function cleanChartTitle(text) {
+       return String(text || '').replace(/<br\s*\/?>/gi, ' ');
+     }
+     function pointsFromPayload(payload) {
+       var raw = (payload && payload.json && payload.json.data) ? payload.json.data : [];
+       var cats = (payload && payload.label && payload.label.categories) ? payload.label.categories : [];
+       return raw.map(function(item, i) {
+         if (item && typeof item === 'object') {
+           return { name: item.name, y: Number(item.y || 0) };
+         }
+         return { name: cats[i] || ('Kategori ' + (i + 1)), y: Number(item || 0) };
+       });
+     }
+     function sumPoints(points) {
+       return points.reduce(function(s, p) { return s + (p.y || 0); }, 0);
+     }
+     function topPoint(points) {
+       if (!points.length) return null;
+       return points.slice().sort(function(a, b) { return b.y - a.y; })[0];
+     }
+     function showChartLoading(id) {
+       $('#' + id).html('<div class="rs-chart-loading">Memuat grafik...</div>');
+     }
+     function destroyChart(chart) {
+       if (chart && typeof chart.destroy === 'function') {
+         try { chart.destroy(); } catch (e) {}
+       }
+       return null;
+     }
+     function updateDonutCenter(chart, total, caption) {
+       if (!chart || !chart.renderer) return;
+       var cx = chart.plotLeft + (chart.plotWidth / 2);
+       var cy = chart.plotTop + (chart.plotHeight / 2);
+       if (chart.rsCenterValue && chart.rsCenterLabel) {
+         chart.rsCenterValue.attr({ text: fmtNumber(total), x: cx, y: cy - 2 });
+         chart.rsCenterLabel.attr({ text: caption, x: cx, y: cy + 16 });
+         return;
+       }
+       chart.rsCenterValue = chart.renderer.text(fmtNumber(total), cx, cy - 2)
+         .attr({ align: 'center', zIndex: 5 })
+         .css({ fontSize: '20px', fontWeight: '800', color: '#1f2a44' })
+         .add();
+       chart.rsCenterLabel = chart.renderer.text(caption, cx, cy + 16)
+         .attr({ align: 'center', zIndex: 5 })
+         .css({ fontSize: '11px', color: '#64748b', fontWeight: '600' })
+         .add();
+     }
+     function selectedFilterValues(col) {
+       return Object.keys(rsChartState.filters[col] || {});
+     }
+     function hasAnyFilter() {
+       return selectedFilterValues('pemilik').length || selectedFilterValues('kelas').length || selectedFilterValues('jenis').length;
+     }
+     function rowMatchesFilters(row) {
+       if (!row) return false;
+       var pemilik = selectedFilterValues('pemilik');
+       var kelas = selectedFilterValues('kelas');
+       var jenis = selectedFilterValues('jenis');
+       if (pemilik.length && pemilik.indexOf(String(row.pemilik || '').trim()) === -1) return false;
+       if (kelas.length && kelas.indexOf(String(row.kelas || '').trim()) === -1) return false;
+       if (jenis.length && jenis.indexOf(String(row.jenis || '').trim()) === -1) return false;
+       return true;
+     }
+     function uniqueColValues(col) {
+       var seen = {};
+       (rsChartState.tableData || []).forEach(function(r) {
+         var v = String((r && r[col]) || '').trim();
+         if (v) seen[v] = true;
+       });
+       return Object.keys(seen);
+     }
+     function optionsForCol(col) {
+       var payload = null;
+       if (col === 'pemilik') payload = rsChartState.lastPemilik;
+       if (col === 'kelas') payload = rsChartState.lastKelas;
+       if (col === 'jenis') payload = rsChartState.lastJenis;
+       var fromChart = payload ? pointsFromPayload(payload).map(function(p) { return String(p.name || '').trim(); }).filter(Boolean) : [];
+       if (fromChart.length) return fromChart;
+       return uniqueColValues(col).sort();
+     }
+     function detachSelect2($el) {
+       if ($.fn.select2 && $el.data('select2')) {
+         try { $el.select2('destroy'); } catch (e) {}
+       }
+       // Widget bisa dibuat instance jQuery lain, sehingga data('select2') kosong
+       // walau DOM select2 masih menempel dan membuat selectbox tidak bisa dipakai.
+       if ($el.hasClass('select2-hidden-accessible')) {
+         $el.nextAll('.select2-container').first().remove();
+         $el.removeClass('select2-hidden-accessible')
+            .removeAttr('data-select2-id')
+            .removeAttr('aria-hidden')
+            .removeAttr('tabindex');
+         $el.find('option').removeAttr('data-select2-id');
+       }
+     }
+     function fillFilterSelect(col) {
+       var meta = rsSelectMap[col];
+       if (!meta) return;
+       var $el = $('#' + meta.id);
+       if (!$el.length) return;
+       var names = optionsForCol(col);
+       var selected = selectedFilterValues(col);
+       var current = $el.find('option').map(function() { return this.value; }).get();
+       var same = current.length === names.length && names.every(function(n, i) { return current[i] === n; });
+       var stale = $el.hasClass('select2-hidden-accessible') && !$el.data('select2');
+       rsChartState.select2Syncing = true;
+       if (!same || stale) {
+         detachSelect2($el);
+       }
+       if (!same) {
+         $el.empty();
+         names.forEach(function(name) {
+           $el.append($('<option></option>').val(name).text(name));
+         });
+       }
+       if ($.fn.select2 && !$el.data('select2')) {
+         $el.select2({
+           placeholder: meta.placeholder,
+           allowClear: true,
+           width: '100%',
+           closeOnSelect: false
+         });
+       }
+       // Handler diikat di sini agar memakai instance jQuery yang sama dengan select2
+       // (halaman memuat jQuery dua kali, event sintetis select2 tidak lintas instance)
+       $el.off('.rsfilter').on('change.rsfilter select2:select.rsfilter select2:unselect.rsfilter', function() {
+         if (rsChartState.select2Syncing) return;
+         setFilterFromSelect(col, $(this).val() || []);
+         renderRsFilterBar();
+         updateListTitle();
+         drawRsTable();
+       });
+       $el.val(selected);
+       if ($.fn.select2 && $el.data('select2')) {
+         $el.trigger('change.select2');
+       }
+       rsChartState.select2Syncing = false;
+     }
+     function renderFilterSelects() {
+       fillFilterSelect('pemilik');
+       fillFilterSelect('kelas');
+       fillFilterSelect('jenis');
+     }
+     function setFilterFromSelect(col, values) {
+       var next = {};
+       (values || []).forEach(function(v) {
+         var key = String(v || '').trim();
+         if (key) next[key] = true;
+       });
+       rsChartState.filters[col] = next;
+     }
+     function filterSummaryParts() {
+       var parts = [];
+       var pemilik = selectedFilterValues('pemilik');
+       var kelas = selectedFilterValues('kelas');
+       var jenis = selectedFilterValues('jenis');
+       if (pemilik.length) parts.push('Pemilik: ' + pemilik.join(', '));
+       if (kelas.length) parts.push('Kelas: ' + kelas.join(', '));
+       if (jenis.length) parts.push('Jenis: ' + jenis.join(', '));
+       return parts;
+     }
+     function updateListTitle() {
+       var html = rsChartState.listLabel || '';
+       var parts = filterSummaryParts();
+       if (parts.length) {
+         html += '<div class="rs-list-filter-summary">Ditampilkan sesuai filter: ' + parts.join(' · ') + '</div>';
+       }
+       $('#lbl1').html(html);
+       var total = (rsChartState.tableData || []).length;
+       var shown = (rsChartState.tableData || []).filter(rowMatchesFilters).length;
+       if (hasAnyFilter()) {
+         $('#rsListCountHint').text('Menampilkan ' + fmtNumber(shown) + ' dari ' + fmtNumber(total) + ' RS');
+       } else {
+         $('#rsListCountHint').text(total ? (fmtNumber(total) + ' RS') : '');
+       }
+     }
+     function getFilteredTableData() {
+       var rows = rsChartState.tableData || [];
+       if (!hasAnyFilter()) return rows;
+       return rows.filter(rowMatchesFilters);
+     }
+     function drawRsTable() {
+       var rows = getFilteredTableData();
+       if ($.fn.DataTable && $.fn.DataTable.isDataTable('#tblRsPeta')) {
+         $('#tblRsPeta').DataTable().clear().destroy();
+       }
+       var table = $("<table id='tblRsPeta' class='table table-bordered nowrap' style='width:100%'></table>");
+       table.append($("<thead><tr><th>Rumah Sakit</th><th>Provinsi</th><th>Kab/Kota</th><th>Alamat</th><th>Telepon</th><th>Pemilik</th><th>Kelas</th><th>Jenis</th><th>Detail</th></tr></thead>"));
+       var $tbody = $("<tbody></tbody>");
+       for (var i = 0; i < rows.length; i++) {
+         var r = rows[i] || {};
+         $tbody.append(
+           $("<tr></tr>").append(
+             $("<td></td>").text(r.nama || ''),
+             $("<td></td>").text(r.nama_prop || ''),
+             $("<td></td>").text(r.kab || ''),
+             $("<td></td>").text(r.alamat || ''),
+             $("<td></td>").text(r.TELEPON || ''),
+             $("<td></td>").text(r.pemilik || ''),
+             $("<td></td>").text(r.kelas || ''),
+             $("<td></td>").text(r.jenis || ''),
+             $("<td class='text-center'></td>").html(
+               "<a href='" + PROFILE_RS_URL_BASE + (r.kode || '') + "'><button type='button' class='btn btn-primary btn-sm'>Profile RS</button></a>"
+             )
+           )
+         );
+       }
+       table.append($tbody);
+       $("#tbl1").html('').append(table);
+       if ($.fn.DataTable && $('#tblRsPeta').length) {
+         var dt = $('#tblRsPeta').DataTable({
+           paging: true,
+           pageLength: 25,
+           lengthChange: false,
+           searching: true,
+           ordering: true,
+           info: true,
+           autoWidth: false
+         });
+         setTimeout(function() {
+           try { dt.columns.adjust(); } catch (e) {}
+         }, 50);
+       }
+     }
+     function refreshListFilter() {
+       renderFilterSelects();
+       renderRsFilterBar();
+       updateListTitle();
+       drawRsTable();
+     }
+     function applyRsFilter(col, value) {
+       var key = String(value || '').trim();
+       if (!key || !rsChartState.filters[col]) return;
+       if (rsChartState.filters[col][key]) {
+         delete rsChartState.filters[col][key];
+       } else {
+         rsChartState.filters[col][key] = true;
+       }
+       refreshListFilter();
+     }
+     function clearFilterGroup(col) {
+       if (col && rsChartState.filters[col]) {
+         rsChartState.filters[col] = {};
+       } else {
+         rsChartState.filters = { pemilik: {}, kelas: {}, jenis: {} };
+       }
+       refreshListFilter();
+     }
+     function renderRsFilterBar() {
+       var parts = filterSummaryParts();
+       if (!parts.length) {
+         $('#rsFilterBar').hide();
+         return;
+       }
+       $('#rsFilterLabel').text(parts.join(' · '));
+       $('#rsFilterBar').show();
+     }
+     function registerRsTableFilter() {
+       if (!$.fn.dataTable || rsChartState.filterRegistered) return;
+       $.fn.dataTable.ext.search.push(function(settings, data) {
+         if (settings.nTable.id !== 'tblRsPeta') return true;
+         if (!hasAnyFilter()) return true;
+         var pemilik = selectedFilterValues('pemilik');
+         var kelas = selectedFilterValues('kelas');
+         var jenis = selectedFilterValues('jenis');
+         if (pemilik.length && pemilik.indexOf(String(data[5] || '').trim()) === -1) return false;
+         if (kelas.length && kelas.indexOf(String(data[6] || '').trim()) === -1) return false;
+         if (jenis.length && jenis.indexOf(String(data[7] || '').trim()) === -1) return false;
+         return true;
+       });
+       rsChartState.filterRegistered = true;
+     }
+     function tooltipPercent(total) {
+       return {
+         useHTML: true,
+         formatter: function() {
+           var y = this.y || 0;
+           var pct = total ? ((y / total) * 100).toFixed(1) : '0.0';
+           return '<b>' + this.point.name + '</b><br/>' + fmtNumber(y) + ' RS<br/>' + pct + '% dari total';
+         }
+       };
+     }
+     function categoryChartOptions(container, type, title, points, filterCol, height) {
+       var total = sumPoints(points);
+       var isPie = type === 'pie';
+       return {
+         chart: {
+           type: type,
+           height: height || (isPie ? 460 : 500),
+           animation: true,
+           events: isPie ? {
+             render: function() { updateDonutCenter(this, total, 'Total RS'); }
+           } : {}
+         },
+         title: { text: null },
+         subtitle: { text: 'Klik kategori untuk filter daftar RS (bisa lebih dari satu)' },
+         xAxis: isPie ? undefined : {
+           type: 'category',
+           categories: points.map(function(p) { return p.name; }),
+           labels: {
+             rotation: type === 'column' ? -35 : 0,
+             style: { fontSize: '11px' }
+           }
+         },
+         yAxis: isPie ? undefined : {
+           min: 0,
+           allowDecimals: false,
+           title: { text: 'Jumlah RS' }
+         },
+         legend: { enabled: isPie, align: 'center', verticalAlign: 'bottom' },
+         tooltip: tooltipPercent(total),
+         plotOptions: {
+           series: {
+             colorByPoint: true,
+             borderRadius: 6,
+             dataLabels: {
+               enabled: true,
+               allowOverlap: true,
+               crop: false,
+               overflow: 'none',
+               format: isPie ? '{point.percentage:.0f}%' : '{point.y}'
+             },
+             point: {
+               events: {
+                 click: function() {
+                   applyRsFilter(filterCol, this.name);
+                 }
+               }
+             }
+           },
+           pie: {
+             innerSize: '58%',
+             allowPointSelect: false,
+             cursor: 'pointer',
+             showInLegend: true,
+             dataLabels: {
+               filter: { property: 'percentage', operator: '>', value: 4 }
+             }
+           },
+           bar: { pointPadding: 0.12, groupPadding: 0.08 },
+           column: { pointPadding: 0.12, groupPadding: 0.1 }
+         },
+         series: [{
+           name: 'Jumlah RS',
+           data: points
+         }]
+       };
+     }
+     function renderPemilikChart() {
+       var payload = rsChartState.lastPemilik;
+       if (!payload) return;
+       var points = pointsFromPayload(payload);
+       var total = sumPoints(points);
+       var top = topPoint(points);
+       $('#titlePemilik').text(cleanChartTitle(payload.text) || 'Rekap RS per Pemilik');
+       $('#badgePemilik').text(fmtNumber(total) + ' RS');
+       $('#kpiPemilik').text(top ? fmtNumber(top.y) : '—');
+       $('#kpiPemilikSub').text(top ? top.name : 'berdasarkan jumlah RS');
+       chartPemilik = destroyChart(chartPemilik);
+       chartPemilik = Highcharts.chart('chartcontent', categoryChartOptions(
+         'chartcontent', rsChartState.pemilikType, payload.text, points, 'pemilik', 500
+       ));
+       renderFilterSelects();
+     }
+     function renderJenisChart() {
+       var payload = rsChartState.lastJenis;
+       if (!payload) return;
+       var points = pointsFromPayload(payload);
+       var total = sumPoints(points);
+       var top = topPoint(points);
+       $('#titleJenis').text(cleanChartTitle(payload.text) || 'Rekap RS per Jenis');
+       $('#badgeJenis').text(fmtNumber(total) + ' RS');
+       $('#kpiJenis').text(top ? fmtNumber(top.y) : '—');
+       $('#kpiJenisSub').text(top ? top.name : 'berdasarkan jumlah RS');
+       chartJenis = destroyChart(chartJenis);
+       chartJenis = Highcharts.chart('chartcontent_jenis', categoryChartOptions(
+         'chartcontent_jenis', rsChartState.jenisType, payload.text, points, 'jenis', 500
+       ));
+       renderFilterSelects();
+     }
+     function renderKelasChart() {
+       var payload = rsChartState.lastKelas;
+       if (!payload) return;
+       var points = pointsFromPayload(payload);
+       var total = sumPoints(points);
+       $('#titleKelas').text(cleanChartTitle(payload.text) || 'Rekap RS per Kelas');
+       $('#kpiTotalRs').text(fmtNumber(total));
+       $('#kpiTotalRsSub').text('RS aktif, selain RS Darurat');
+       chartKelas = destroyChart(chartKelas);
+       chartKelas = Highcharts.chart('chartcontentx', {
+         chart: {
+           type: 'pie',
+           height: 430,
+           events: {
+             render: function() { updateDonutCenter(this, total, 'Total RS'); }
+           }
+         },
+         title: { text: null },
+         subtitle: { text: 'Klik irisan untuk filter daftar RS (bisa lebih dari satu)' },
+         tooltip: tooltipPercent(total),
+         legend: { align: 'center', verticalAlign: 'bottom' },
+         plotOptions: {
+           pie: {
+             innerSize: '60%',
+             allowPointSelect: false,
+             cursor: 'pointer',
+             showInLegend: true,
+             dataLabels: {
+               enabled: true,
+               format: '{point.name}: {point.y}',
+               filter: { property: 'percentage', operator: '>', value: 3 }
+             },
+             point: {
+               events: {
+                 click: function() { applyRsFilter('kelas', this.name); }
+               }
+             }
+           }
+         },
+         series: [{ name: 'Jumlah RS', colorByPoint: true, data: points }]
+       });
+       renderFilterSelects();
+     }
+
+	 function getdata(prop){
+  registerRsTableFilter();
+  rsChartState.filters = { pemilik: {}, kelas: {}, jenis: {} };
+  chartKelas = destroyChart(chartKelas);
+  chartPemilik = destroyChart(chartPemilik);
+  chartJenis = destroyChart(chartJenis);
+  showChartLoading('chartcontentx');
+  showChartLoading('chartcontent');
+  showChartLoading('chartcontent_jenis');
+
+  $.getJSON("https://sirs.kemkes.go.id/fo/home/rekap_rs_all?id="+prop, function(json) {
+    rsChartState.listLabel = json['label'] || '';
+    rsChartState.tableData = json['data'] || [];
+    drawRsTable();
+    renderFilterSelects();
+    renderRsFilterBar();
+    updateListTitle();
+  });
+	 $.getJSON("https://sirs.kemkes.go.id/fo/home/rekap_by_kepemilikan?id="+prop, function(json) {
+       rsChartState.lastPemilik = json[0];
+       renderPemilikChart();
+	});
+$.getJSON("https://sirs.kemkes.go.id/fo/home/rekap_by_jenis?id="+prop, function(json) {
+       rsChartState.lastJenis = json[0];
+       renderJenisChart();
+  });
+	
+$.getJSON("https://sirs.kemkes.go.id/fo/home/rekap_by_kelas?id="+prop, function(json3) {
+       rsChartState.lastKelas = json3[0];
+       renderKelasChart();
+	});
+}
+
+$(document).on('click', '.rs-chart-toggle button', function() {
+  var $btn = $(this);
+  var chartKey = $btn.closest('.rs-chart-toggle').data('chart');
+  var type = $btn.data('type');
+  $btn.addClass('active').siblings().removeClass('active');
+  if (chartKey === 'pemilik') {
+    rsChartState.pemilikType = type;
+    renderPemilikChart();
+  } else if (chartKey === 'jenis') {
+    rsChartState.jenisType = type;
+    renderJenisChart();
+  }
+});
+$('#rsFilterClear').on('click', function() {
+  clearFilterGroup();
+});
+$(document).on('click', '.rs-filter-mini', function() {
+  clearFilterGroup($(this).data('clear'));
+});
+$(window).on('load', function() {
+  renderFilterSelects();
+});
+
+
+$("#prp").click(function(){
+    var kode=$(this).val();
+        $.ajax({ 
+      type  : 'POST', 
+      url : "https://sirs.kemkes.go.id/fo//home/propinsi",
+      data  : {kode:kode},
+      cache : false, 
+      success : function(data){ 
+        $('#kabupaten').html(data);
+      },
+    });
+  })
+$("#prop2").click(function(){
+    var kode=$(this).val();
+        $.ajax({ 
+      type  : 'POST', 
+      url : "https://sirs.kemkes.go.id/fo//home/propinsi",
+      data  : {kode:kode},
+      cache : false, 
+      success : function(data){ 
+        $('#kab2').html(data);
+      },
+    });
+  })
+$("#kab2").click(function(){
+    var kode=$(this).val();
+        $.ajax({ 
+      type  : 'POST', 
+      url : "https://sirs.kemkes.go.id/fo//home/listrs",
+      data  : {kode:kode},
+      cache : false, 
+      success : function(data){ 
+        $('#rs').html(data);
+      },
+    });
+  })
+     </script>
+
+
+
+</div><!-- /.content-wrapper -->
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b>Version</b> 3.0.0
+    </div>
+    <strong>Copyright &copy; 2026 SETDIJEN-KESLAN-PUSDATIN.</strong> All rights reserved.
+</footer>
+</div><!-- ./wrapper -->
+
+
+<!-- jQuery -->
+
+<script src="https://sirs.kemkes.go.id/fo/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="https://sirs.kemkes.go.id/fo/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="https://sirs.kemkes.go.id/fo/plugins/datatables/jquery.dataTables.js"></script>
+<script src="https://sirs.kemkes.go.id/fo/plugins/datatables/dataTables.bootstrap4.js"></script>
+<!-- SlimScroll -->
+<script src="https://sirs.kemkes.go.id/fo/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="https://sirs.kemkes.go.id/fo/plugins/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="https://sirs.kemkes.go.id/fo/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="https://sirs.kemkes.go.id/fo/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="https://sirs.kemkes.go.id/fo/dist/js/demo.js"></script>
+<script src="https://sirs.kemkes.go.id/fo/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="https://sirs.kemkes.go.id/fo/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="https://sirs.kemkes.go.id/fo/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<script src="https://sirs.kemkes.go.id/fo/assets/moment.min.js"></script>
+<script src="https://sirs.kemkes.go.id/fo/assets/daterangepicker.js"></script>
+<script src="https://sirs.kemkes.go.id/fo/assets/tempusdominus-bootstrap-4.min.js"></script>
+<script src="https://sirs.kemkes.go.id/fo/plugins/datepicker/bootstrap-datepicker.js"></script>
+
+<script src="https://sirs.kemkes.go.id/fo/assets/select2/select2.full.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" charset="utf-8"></script>
+<script src="https://sirs.kemkes.go.id/fo/assets/js/bootbox.all.min.js"></script>
+
+
+
+<script>
+  $(function () {
+     $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+     $('#example4').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+     $('#example5').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });	
+     if ($('#example3').length && $('#example3 thead th').length) {
+       $('#example3').DataTable({
+        "paging": false,
+        "lengthChange": false,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false
+      });
+     }
+
+    $('#example6').DataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+
+$('#example77').DataTable({
+    "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      dom: 'Bfrtip',
+    buttons: [
+        'copy', 'excel', 'csv'
+    ]
+    });
+	
+
+    $('#executiveoksigen').DataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      dom: 'Bfrtip',
+    buttons: [
+      { extend: 'excel', text: 'Cetak' }
+    ]
+    });
+ 
+     $('#executivebor').DataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      dom: 'Bfrtip',
+     colReorder: true,
+	
+    buttons: [
+      { extend: 'excel', text: 'Cetak' }
+    ]
+    });
+
+    $('#rekapdispute').DataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      dom: 'Bfrtip',
+    buttons: [
+        'copy', 'excel', 'pdf', 'csv'
+    ]
+    });
+
+
+  });
+</script>

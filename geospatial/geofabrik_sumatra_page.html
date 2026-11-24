@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="https://www.geofabrik.de/favicon.ico" />
+<meta name="description" content="Download OpenStreetMap data for Sumatra, one of the regions served on Geofabrik&#39;s free download server. OSM PBF and Shapefiles available.">
+<meta name="og:description" property="og:description" content="Download OpenStreetMap data for Sumatra, one of the regions served on Geofabrik&#39;s free download server. OSM PBF and Shapefiles available.">
+<meta property="og:image" content="https://www.geofabrik.de/img/geofabrik_logo_notext.svg">
+<meta property="og:site_name" content="Geofabrik Download Server">
+<meta property="og:title" content="Download OpenStreetMap for Sumatra | Geofabrik Download Server">
+<title>Download OpenStreetMap for Sumatra | Geofabrik Download Server</title>
+<link rel="stylesheet" href="/static/leaflet/leaflet.css" />
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+<script type="importmap">
+{ "imports": { "leaflet": "/static/leaflet/leaflet.js" } }
+</script>
+</head>
+<body>
+<div id="donation">
+Do you find OpenStreetMap data useful? Consider giving something back in the OSMF's <a href="//supporting.openstreetmap.org">funding campaign!</a>
+</div>
+<div id="download-top">
+   <div id="download-top-right">
+      <img alt="header image" src="/static/img/geofabrik-downloads.png" height="20">
+   </div>
+</div>
+<div id="download-titlebar">
+<div class="download-main">
+<div class="leftColumn">
+
+<a href="/search.html" class="search">🔍</a>
+<h1 googl="true">Download OpenStreetMap data for this region:</h1>
+<h2>Sumatra</h2>
+<nav class="breadcrumb">
+   <ol>
+      <li><a href="/">World</a></li>
+      
+      <li><a href="/asia">Asia</a></li>
+      
+      <li><a href="/asia/indonesia">Indonesia (with East Timor)</a></li>
+      
+      <li><b>Sumatra</b></li>
+   </ol>
+</nav>
+
+
+
+<p class="isPublicInfo">
+   The OpenStreetMap data files provided on this server do <b>not</b> contain the user names, user IDs and changeset IDs of the OSM objects because these fields are assumed to contain personal information about the OpenStreetMap contributors and are therefore subject to data protection regulations in the European Union.
+   <br>
+   Extracts with full metadata are only available to OpenStreetMap contributors on the <a href="https://osm-internal.download.geofabrik.de/asia/indonesia/sumatra.html">internal download server</a>.
+</p>
+
+
+
+
+
+<h3>Commonly Used Formats</h3>
+<ul>
+
+
+<li>
+
+   <a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-latest.osm.pbf">sumatra-latest.osm.pbf</a>,
+
+   suitable for Osmium, Osmosis, imposm, osm2pgsql, mkgmap, and others.
+
+This file was last modified <time title="Sunday, 22.11.2026, 23:36:59 UTC", datetime="2026-11-22T23:36:59+00:00">1 day ago</time> and contains all OSM data up to <time title="Sunday, 22.11.2026, 21:20:48 UTC", datetime="2026-11-22T21:20:48+00:00">1 day ago</time>. File size: 270&nbsp;MB.
+
+</li>
+
+
+<li>
+
+   <a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-latest-free.shp.zip">sumatra-latest-free.shp.zip</a>,
+
+   yields a number of ESRI compatible shape files when unzipped.
+   <a href="/static/osm-data-in-gis-formats-free.pdf">(Format description PDF)</a>
+
+   This file was last modified on <time title="Monday, 23.11.2026, 02:05:35 UTC", datetime="2026-11-23T02:05:35+00:00">22 hours ago</time>. File size: 702&nbsp;MB.
+
+</li>
+
+
+<li>
+
+   <a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-latest-free.gpkg.zip">sumatra-latest-free.gpkg.zip</a>,
+
+   same as shape file but in more modern Geopackage format.
+
+   This file was last modified <time title="Monday, 23.11.2026, 02:08:22 UTC", datetime="2026-11-23T02:08:22+00:00">22 hours ago</time>. File size: 718&nbsp;MB.
+
+</li>
+
+</ul>
+
+<h3>Other Formats and Auxiliary Files</h3>
+<ul>
+
+
+<li>
+
+   <s>sumatra-internal.osh.pbf</s>
+
+
+   The history file contains personal data and is available on the <a href="https://osm-internal.download.geofabrik.de/asia/indonesia/sumatra.html">internal server</a> only.
+   See notice above for further information.
+
+</li>
+
+
+<li>
+
+   <a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra.geojson">.geojson file</a>
+
+   that describes the extent of this region.
+</li>
+
+
+<li>
+
+   <font color="green" googl="true">experimental</font>
+   <a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-shortbread-1.0.mbtiles">vector tile package</a>
+
+   conforming to
+   <a href="https://shortbread-tiles.org/">Shortbread schema</a>
+   for use with MapLibre and other MVT capable software
+
+   Last modified: <time title="Thursday, 19.11.2026, 04:10:08 UTC", datetime="2026-11-19T04:10:08+00:00">4 days ago</time> ago, file size: 618&nbsp;MB
+
+</li>
+
+
+<li>
+
+   <a href="https://download.geofabrik.de/asia/indonesia/sumatra/updates">.osc.gz files</a>
+
+   that contain all changes in this region, suitable e.g. for Osmosis updates
+</li>
+
+
+
+<li><a href="https://taginfo.geofabrik.de/asia:indonesia:sumatra">Taginfo statistics for this region</a></li>
+
+
+
+<li>
+   <a href="#" onclick="document.getElementById('details').style.display = document.getElementById('details').style.display === 'inline' ? 'none' : 'inline'">
+      raw directory index
+   </a>
+   allowing you to see and download older files
+</li>
+
+
+</ul>
+
+
+<div id="details" style="display: none;">
+   <table id="file_index">
+      <tbody>
+         <tr><th class="filename">Filename</th><th>Last modified</th><th>Filesize</th></tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-220101-free.shp.zip">sumatra-220101-free.shp.zip</a></td>
+            <td ><time title="Sunday, 02.01.2022, 02:44:07 UTC", datetime="2022-01-02T02:44:07+00:00">4 years ago</time></td>
+            <td>518&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-220101.osm.pbf">sumatra-220101.osm.pbf</a></td>
+            <td ><time title="Sunday, 02.01.2022, 02:30:23 UTC", datetime="2022-01-02T02:30:23+00:00">4 years ago</time></td>
+            <td>204&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-230101-free.shp.zip">sumatra-230101-free.shp.zip</a></td>
+            <td ><time title="Monday, 02.01.2023, 01:28:39 UTC", datetime="2023-01-02T01:28:39+00:00">3 years ago</time></td>
+            <td>552&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-230101.osm.pbf">sumatra-230101.osm.pbf</a></td>
+            <td ><time title="Monday, 02.01.2023, 01:15:02 UTC", datetime="2023-01-02T01:15:02+00:00">3 years ago</time></td>
+            <td>218&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-240101-free.shp.zip">sumatra-240101-free.shp.zip</a></td>
+            <td ><time title="Tuesday, 02.01.2024, 02:23:22 UTC", datetime="2024-01-02T02:23:22+00:00">2 years ago</time></td>
+            <td>569&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-240101.osm.pbf">sumatra-240101.osm.pbf</a></td>
+            <td ><time title="Tuesday, 02.01.2024, 01:10:30 UTC", datetime="2024-01-02T01:10:30+00:00">2 years ago</time></td>
+            <td>224&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-250101-free.shp.zip">sumatra-250101-free.shp.zip</a></td>
+            <td ><time title="Thursday, 02.01.2025, 03:11:55 UTC", datetime="2025-01-02T03:11:55+00:00">1 year ago</time></td>
+            <td>590&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-250101.osm.pbf">sumatra-250101.osm.pbf</a></td>
+            <td ><time title="Thursday, 02.01.2025, 02:26:37 UTC", datetime="2025-01-02T02:26:37+00:00">1 year ago</time></td>
+            <td>233&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-260101-free.shp.zip">sumatra-260101-free.shp.zip</a></td>
+            <td ><time title="Friday, 02.01.2026, 00:54:25 UTC", datetime="2026-01-02T00:54:25+00:00">10 months ago</time></td>
+            <td>615&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-260101.osm.pbf">sumatra-260101.osm.pbf</a></td>
+            <td ><time title="Thursday, 01.01.2026, 23:38:27 UTC", datetime="2026-01-01T23:38:27+00:00">10 months ago</time></td>
+            <td>246&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-260101.osm.pbf.md5">sumatra-260101.osm.pbf.md5</a></td>
+            <td ><time title="Thursday, 01.01.2026, 23:38:28 UTC", datetime="2026-01-01T23:38:28+00:00">10 months ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-260901-free.gpkg.zip">sumatra-260901-free.gpkg.zip</a></td>
+            <td ><time title="Saturday, 05.09.2026, 14:32:54 UTC", datetime="2026-09-05T14:32:54+00:00">2 months ago</time></td>
+            <td>715&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-260901-free.shp.zip">sumatra-260901-free.shp.zip</a></td>
+            <td ><time title="Saturday, 05.09.2026, 14:31:12 UTC", datetime="2026-09-05T14:31:12+00:00">2 months ago</time></td>
+            <td>700&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-260901.osm.pbf">sumatra-260901.osm.pbf</a></td>
+            <td ><time title="Wednesday, 02.09.2026, 05:29:13 UTC", datetime="2026-09-02T05:29:13+00:00">2 months ago</time></td>
+            <td>269&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-260901.osm.pbf.md5">sumatra-260901.osm.pbf.md5</a></td>
+            <td ><time title="Wednesday, 02.09.2026, 05:29:13 UTC", datetime="2026-09-02T05:29:13+00:00">2 months ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261001-free.gpkg.zip">sumatra-261001-free.gpkg.zip</a></td>
+            <td ><time title="Friday, 02.10.2026, 02:02:08 UTC", datetime="2026-10-02T02:02:08+00:00">1 month ago</time></td>
+            <td>717&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261001-free.shp.zip">sumatra-261001-free.shp.zip</a></td>
+            <td ><time title="Friday, 02.10.2026, 02:06:54 UTC", datetime="2026-10-02T02:06:54+00:00">1 month ago</time></td>
+            <td>701&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261001.osm.pbf">sumatra-261001.osm.pbf</a></td>
+            <td ><time title="Friday, 02.10.2026, 12:44:07 UTC", datetime="2026-10-02T12:44:07+00:00">1 month ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261001.osm.pbf.md5">sumatra-261001.osm.pbf.md5</a></td>
+            <td ><time title="Friday, 02.10.2026, 12:44:08 UTC", datetime="2026-10-02T12:44:08+00:00">1 month ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261101-free.gpkg.zip">sumatra-261101-free.gpkg.zip</a></td>
+            <td ><time title="Monday, 02.11.2026, 01:02:21 UTC", datetime="2026-11-02T01:02:21+00:00">3 weeks ago</time></td>
+            <td>717&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261101-free.shp.zip">sumatra-261101-free.shp.zip</a></td>
+            <td ><time title="Monday, 02.11.2026, 01:02:11 UTC", datetime="2026-11-02T01:02:11+00:00">3 weeks ago</time></td>
+            <td>702&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261101.osm.pbf">sumatra-261101.osm.pbf</a></td>
+            <td ><time title="Monday, 02.11.2026, 04:40:10 UTC", datetime="2026-11-02T04:40:10+00:00">3 weeks ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261101.osm.pbf.md5">sumatra-261101.osm.pbf.md5</a></td>
+            <td ><time title="Monday, 02.11.2026, 04:40:10 UTC", datetime="2026-11-02T04:40:10+00:00">3 weeks ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261112.osm.pbf">sumatra-261112.osm.pbf</a></td>
+            <td ><time title="Thursday, 12.11.2026, 23:54:00 UTC", datetime="2026-11-12T23:54:00+00:00">1 week ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261112.osm.pbf.md5">sumatra-261112.osm.pbf.md5</a></td>
+            <td ><time title="Thursday, 12.11.2026, 23:54:00 UTC", datetime="2026-11-12T23:54:00+00:00">1 week ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261113.osm.pbf">sumatra-261113.osm.pbf</a></td>
+            <td ><time title="Saturday, 14.11.2026, 00:00:19 UTC", datetime="2026-11-14T00:00:19+00:00">1 week ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261113.osm.pbf.md5">sumatra-261113.osm.pbf.md5</a></td>
+            <td ><time title="Saturday, 14.11.2026, 00:00:19 UTC", datetime="2026-11-14T00:00:19+00:00">1 week ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261114.osm.pbf">sumatra-261114.osm.pbf</a></td>
+            <td ><time title="Sunday, 15.11.2026, 01:48:50 UTC", datetime="2026-11-15T01:48:50+00:00">1 week ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261114.osm.pbf.md5">sumatra-261114.osm.pbf.md5</a></td>
+            <td ><time title="Sunday, 15.11.2026, 01:48:51 UTC", datetime="2026-11-15T01:48:51+00:00">1 week ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261115.osm.pbf">sumatra-261115.osm.pbf</a></td>
+            <td ><time title="Monday, 16.11.2026, 00:00:57 UTC", datetime="2026-11-16T00:00:57+00:00">1 week ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261115.osm.pbf.md5">sumatra-261115.osm.pbf.md5</a></td>
+            <td ><time title="Monday, 16.11.2026, 00:00:57 UTC", datetime="2026-11-16T00:00:57+00:00">1 week ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261116.osm.pbf">sumatra-261116.osm.pbf</a></td>
+            <td ><time title="Tuesday, 17.11.2026, 00:07:46 UTC", datetime="2026-11-17T00:07:46+00:00">6 days ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261116.osm.pbf.md5">sumatra-261116.osm.pbf.md5</a></td>
+            <td ><time title="Tuesday, 17.11.2026, 00:07:47 UTC", datetime="2026-11-17T00:07:47+00:00">6 days ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261117-free.gpkg.zip">sumatra-261117-free.gpkg.zip</a></td>
+            <td ><time title="Wednesday, 18.11.2026, 01:02:23 UTC", datetime="2026-11-18T01:02:23+00:00">5 days ago</time></td>
+            <td>718&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261117-free.shp.zip">sumatra-261117-free.shp.zip</a></td>
+            <td ><time title="Wednesday, 18.11.2026, 01:02:07 UTC", datetime="2026-11-18T01:02:07+00:00">5 days ago</time></td>
+            <td>702&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261117.osm.pbf">sumatra-261117.osm.pbf</a></td>
+            <td ><time title="Wednesday, 18.11.2026, 00:09:48 UTC", datetime="2026-11-18T00:09:48+00:00">5 days ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261117.osm.pbf.md5">sumatra-261117.osm.pbf.md5</a></td>
+            <td ><time title="Wednesday, 18.11.2026, 00:09:48 UTC", datetime="2026-11-18T00:09:48+00:00">5 days ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261118-free.gpkg.zip">sumatra-261118-free.gpkg.zip</a></td>
+            <td ><time title="Thursday, 19.11.2026, 03:32:17 UTC", datetime="2026-11-19T03:32:17+00:00">4 days ago</time></td>
+            <td>718&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261118-free.shp.zip">sumatra-261118-free.shp.zip</a></td>
+            <td ><time title="Thursday, 19.11.2026, 03:35:06 UTC", datetime="2026-11-19T03:35:06+00:00">4 days ago</time></td>
+            <td>702&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261118.osm.pbf">sumatra-261118.osm.pbf</a></td>
+            <td ><time title="Thursday, 19.11.2026, 00:05:32 UTC", datetime="2026-11-19T00:05:32+00:00">4 days ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261118.osm.pbf.md5">sumatra-261118.osm.pbf.md5</a></td>
+            <td ><time title="Thursday, 19.11.2026, 00:05:32 UTC", datetime="2026-11-19T00:05:32+00:00">4 days ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261119-free.gpkg.zip">sumatra-261119-free.gpkg.zip</a></td>
+            <td ><time title="Friday, 20.11.2026, 02:04:54 UTC", datetime="2026-11-20T02:04:54+00:00">3 days ago</time></td>
+            <td>718&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261119-free.shp.zip">sumatra-261119-free.shp.zip</a></td>
+            <td ><time title="Friday, 20.11.2026, 02:02:22 UTC", datetime="2026-11-20T02:02:22+00:00">3 days ago</time></td>
+            <td>702&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261119.osm.pbf">sumatra-261119.osm.pbf</a></td>
+            <td ><time title="Friday, 20.11.2026, 00:18:25 UTC", datetime="2026-11-20T00:18:25+00:00">3 days ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261119.osm.pbf.md5">sumatra-261119.osm.pbf.md5</a></td>
+            <td ><time title="Friday, 20.11.2026, 00:18:25 UTC", datetime="2026-11-20T00:18:25+00:00">3 days ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261120-free.gpkg.zip">sumatra-261120-free.gpkg.zip</a></td>
+            <td ><time title="Saturday, 21.11.2026, 03:03:20 UTC", datetime="2026-11-21T03:03:20+00:00">2 days ago</time></td>
+            <td>718&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261120-free.shp.zip">sumatra-261120-free.shp.zip</a></td>
+            <td ><time title="Saturday, 21.11.2026, 03:02:27 UTC", datetime="2026-11-21T03:02:27+00:00">2 days ago</time></td>
+            <td>702&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261120.osm.pbf">sumatra-261120.osm.pbf</a></td>
+            <td ><time title="Saturday, 21.11.2026, 00:10:50 UTC", datetime="2026-11-21T00:10:50+00:00">2 days ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261120.osm.pbf.md5">sumatra-261120.osm.pbf.md5</a></td>
+            <td ><time title="Saturday, 21.11.2026, 00:10:50 UTC", datetime="2026-11-21T00:10:50+00:00">2 days ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261121-free.gpkg.zip">sumatra-261121-free.gpkg.zip</a></td>
+            <td ><time title="Sunday, 22.11.2026, 02:32:23 UTC", datetime="2026-11-22T02:32:23+00:00">1 day ago</time></td>
+            <td>718&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261121-free.shp.zip">sumatra-261121-free.shp.zip</a></td>
+            <td ><time title="Sunday, 22.11.2026, 02:32:29 UTC", datetime="2026-11-22T02:32:29+00:00">1 day ago</time></td>
+            <td>702&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261121.osm.pbf">sumatra-261121.osm.pbf</a></td>
+            <td ><time title="Saturday, 21.11.2026, 23:56:39 UTC", datetime="2026-11-21T23:56:39+00:00">1 day ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261121.osm.pbf.md5">sumatra-261121.osm.pbf.md5</a></td>
+            <td ><time title="Saturday, 21.11.2026, 23:56:39 UTC", datetime="2026-11-21T23:56:39+00:00">1 day ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261122-free.gpkg.zip">sumatra-261122-free.gpkg.zip</a></td>
+            <td ><time title="Monday, 23.11.2026, 02:08:22 UTC", datetime="2026-11-23T02:08:22+00:00">22 hours ago</time></td>
+            <td>718&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261122-free.shp.zip">sumatra-261122-free.shp.zip</a></td>
+            <td ><time title="Monday, 23.11.2026, 02:05:35 UTC", datetime="2026-11-23T02:05:35+00:00">22 hours ago</time></td>
+            <td>702&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261122.osm.pbf">sumatra-261122.osm.pbf</a></td>
+            <td ><time title="Sunday, 22.11.2026, 23:36:59 UTC", datetime="2026-11-22T23:36:59+00:00">1 day ago</time></td>
+            <td>270&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261122.osm.pbf.md5">sumatra-261122.osm.pbf.md5</a></td>
+            <td ><time title="Sunday, 22.11.2026, 23:36:59 UTC", datetime="2026-11-22T23:36:59+00:00">1 day ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-latest.osm.pbf.md5">sumatra-latest.osm.pbf.md5</a></td>
+            <td ><time title="Monday, 23.11.2026, 23:30:46 UTC", datetime="2026-11-23T23:30:46+00:00">15 minutes ago</time></td>
+            <td>57.0&nbsp;B</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-shortbread-1.0.mbtiles">sumatra-shortbread-1.0.mbtiles</a></td>
+            <td ><time title="Thursday, 19.11.2026, 04:10:08 UTC", datetime="2026-11-19T04:10:08+00:00">4 days ago</time></td>
+            <td>618&nbsp;MB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra.geojson">sumatra.geojson</a></td>
+            <td ><time title="Sunday, 22.11.2026, 23:37:20 UTC", datetime="2026-11-22T23:37:20+00:00">1 day ago</time></td>
+            <td>1.1&nbsp;KB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra.kml">sumatra.kml</a></td>
+            <td ><time title="Sunday, 22.11.2026, 23:37:08 UTC", datetime="2026-11-22T23:37:08+00:00">1 day ago</time></td>
+            <td>1.5&nbsp;KB</td>
+         </tr>
+         
+         <tr>
+            <td class="filename"><a href="https://download.geofabrik.de/asia/indonesia/sumatra/sumatra.poly">sumatra.poly</a></td>
+            <td ><time title="Sunday, 22.11.2026, 23:36:21 UTC", datetime="2026-11-22T23:36:21+00:00">1 day ago</time></td>
+            <td>1.5&nbsp;KB</td>
+         </tr>
+         
+      </tbody>
+   </table>
+</div>
+
+
+
+
+
+
+</div>
+<div id="download-right">
+   <div id="noscroll">
+      
+      <div id="map"></div>
+      <script type="module">
+         import map from '/static/map.js';
+         import { GeoJSON } from 'leaflet';
+         
+   const geojson = {"coordinates": [[[[101.7149, 2.390798], [102.4503, 1.844013], [103.2358, 1.33472], [103.4291, 1.258407], [103.4479, 1.244872], [103.5487, 1.211209], [103.5662, 1.204288], [103.5723, 1.203337], [103.5797, 1.200853], [103.6173, 1.196238], [103.6642, 1.188842], [103.7398, 1.151084], [103.8768, 1.209093], [104.0376, 1.276837], [104.3541, 1.290624], [104.4372, 1.335637], [104.6043, 1.424643], [104.6475, 1.533779], [105.358, 3.243168], [108.1772, 5.259626], [109.5285, 2.761135], [109.7524, 2.33449], [109.7477, 2.298111], [109.2535, 2.163798], [108.88, 1.828918], [108.3527, 1.038157], [108.2483, 0.532835], [108.2867, -0.324089], [106.2158, -0.527331], [105.0787, -1.219385], [105.0162, -2.138403], [105.1138, -2.188493], [105.6603, -2.217997], [105.7503, -2.416275], [105.948, -2.853891], [106.2193, -2.962241], [106.3325, -3.163825], [106.9244, -5.049904], [106.4531, -5.190449], [106.3216, -5.520992], [105.8031, -5.92341], [105.7722, -6.084569], [105.6157, -6.285267], [104.6063, -6.535008], [101.8962, -7.169929], [92.76481, 5.206835], [95.79392, 6.99933], [100.6619, 3.158571], [101.4414, 2.559672], [101.7149, 2.390798]]]], "type": "MultiPolygon"};
+   const layer = new GeoJSON(geojson, {
+      style: { fillColor: '#ffcc66', color: '#ff9933', weight: 2, fillOpacity: 0.5 }
+   }).addTo(map);
+   map.fitBounds(layer.getBounds(), { padding: [20, 20] });
+   const childrenGeo = {};
+   
+   
+
+   let activeLayer = null;
+   document.querySelectorAll('#subregions tr[data-child-id], #special_regions tr[data-child-id]').forEach(row => {
+      row.addEventListener('mouseover', () => {
+         const id = row.getAttribute('data-child-id');
+         if (!childrenGeo[id]) return;
+         if (activeLayer) map.removeLayer(activeLayer);
+         activeLayer = new GeoJSON(childrenGeo[id], {
+            style: { color: '#ff0000', weight: 0, fillOpacity: 0.6 }
+         }).addTo(map);
+      });
+      row.addEventListener('mouseout', () => {
+         if (activeLayer) { map.removeLayer(activeLayer); activeLayer = null; }
+      });
+   });
+
+      </script>
+      
+
+      <div class="customized_shapes">
+         <p>
+         <img alt="small flag of UK" src="/static/img/en.png">
+         Not what you were looking for?
+         Geofabrik is a consulting and software development firm based in Karlsruhe, Germany
+         specializing in OpenStreetMap services. We're happy to help you with data
+         preparation, processing, server setup and the like. <a href="http://www.geofabrik.de/data/shapefiles.html">Check out our web site</a>
+         and contact us if we can be of service.
+         </p>
+      </div>
+      <div class="customized_shapes">
+         <p>
+         <img alt="small flag of Germany" src="/static/img/de.png">
+         Nicht das Richtige dabei?
+         Die Geofabrik ist ein auf OpenStreetMap spezialisiertes Beratungs- und Softwareentwicklungsunternehmen in Karlsruhe.
+         Gern helfen wir Ihnen bei der Datenaufbereitung, Datenkonvertierung, Serverinstallation und &auml;hnlichen Aufgaben.
+         <a href="http://www.geofabrik.de/data/shapefiles.html">Besuchen Sie unsere Webseite</a> und sprechen Sie mit uns, wenn wir Ihnen
+         helfen k&ouml;nnen.
+         </p>
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<div id="download-copyright">
+Data processed by
+<a href="http://www.geofabrik.de/">Geofabrik GmbH</a>
+and created by
+<a href="http://www.openstreetmap.org/">OpenStreetMap Contributors</a>
+|
+<a href="http://opendatacommons.org/licenses/odbl/">License: ODbL 1.0</a>
+|
+<a href="http://www.geofabrik.de/geofabrik/contact.html">Contact</a>
+|
+<a href="http://www.geofabrik.de/geofabrik/imprint.html">Legal Notice/Privacy Policy</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+{
+ "capture_date": "2026-11-24T07:24:30+07:00",
+ "source_url": "https://katalog.inaproc.id/pt-amanah-meddis-indonesia/meddis-r-nitrile-examination-gloves-powder-free-size-m",
+ "source_type": "transcription of the page's embedded Next.js RSC state (self.__next_f payload, key 'initialProduct') plus literal visible page text; the raw page HTML is retained separately",
+ "product": {
+  "id": "85c25df2-5111-44e8-803c-c7f5999caef7",
+  "slug": "meddis-r-nitrile-examination-gloves-powder-free-size-m",
+  "username": "pt-amanah-meddis-indonesia",
+  "name": "MEDDIS® Nitrile Examination Gloves, Powder Free , size M",
+  "description": "Sarung tangan non-steril, terbuat dari bahan nitrile rubber, tidak mengandung powder, kemasan isi 100 pcs/box",
+  "category": "Peralatan RSUP Lainnya",
+  "category_id": "f1d81486-a127-4455-a0bf-47ebd8883b2a",
+  "category_type": "GENERAL",
+  "kbki": "4815015999",
+  "labels": [
+   "PDN",
+   "PPN"
+  ],
+  "status": "IN_REVIEW",
+  "is_active": false,
+  "unit_sold": 2165,
+  "seller_id": "01HTBZBWMJN8KDP1051NWHVCFN",
+  "seller_location": {
+   "paramId": "36.71.13.1008",
+   "cityName": "KOTA TANGERANG",
+   "isFTZ": false
+  },
+  "stock_unit": {
+   "primaryUnit": "DUS",
+   "secondaryUnit": null,
+   "value": null
+  },
+  "shipping": {
+   "dimensionUnit": "CM",
+   "hasSellerShipping": false,
+   "height": 10,
+   "length": 28,
+   "weight": 492,
+   "weightUnit": "GR",
+   "width": 14
+  },
+  "pdn": {
+   "laborType": "ALL",
+   "locationType": "ALL",
+   "materialType": "ALL",
+   "type": "LOCAL",
+   "countryCode": "IDN",
+   "countryName": "Indonesia"
+  },
+  "tkdn": {
+   "bmpDate": "2024-06-13 00:00:00 +0000 +0000",
+   "bmpExpirationDate": "2027-06-13 00:00:00 +0000 +0000",
+   "bmpValue": 3,
+   "brand": "",
+   "companyName": "PT Haloni Jane Tbk",
+   "date": "2025-06-25 00:00:00 +0000 +0000",
+   "email": "",
+   "hs": "40151210",
+   "description": "Ukuran : XS, S, M, L, XL; Kemasan Dus",
+   "expirationDate": "2028-06-25 00:00:00 +0000 +0000",
+   "number": "9195/SJ-IND.8/E-TKDN/6/2025",
+   "producerName": "PT Haloni Jane Tbk",
+   "productType": "Patient Examination Gloves",
+   "specificationId": "Pgoj5Oo8wZjMijNE_jq-7JCYEvV939dPAuof4RHL2aY,",
+   "standard": "",
+   "type": "MEDGEN Nitrile Examination Gloves Powder Free",
+   "url": "http://tkdn.kemenperin.go.id/sertifikat.php?id=KCLsncADlol4PO6638tmD3z3GaYAfg7r2cm1UlQaV5P3zWmRvX9f16mpEath7vdeM7U8PuI4uZi6lEppvvPgcQ,,",
+   "value": 39.63,
+   "score": null,
+   "status": "APPROVED"
+  },
+  "brand": {
+   "applicationNumber": "D002019021398",
+   "brandName": "MEDDIS",
+   "expirationDate": "2029-04-25 00:00:00 +0000 +0000",
+   "fillingDate": "2019-04-25 00:00:00 +0000 +0000",
+   "ownerName": "PT. AMANAH MEDDIS INDONESIA",
+   "registrationNumber": "IDM000697631",
+   "statusName": "(TM) Didaftar",
+   "url": "https://pdki-indonesia.dgip.go.id/search?type=trademark&keyword=D002019021398&page=1",
+   "status": "APPROVED"
+  },
+  "prices": {
+   "isRegionPrice": false,
+   "minPurchase": 1,
+   "minPriceWithTax": 96570,
+   "maxPrice": 87000,
+   "maxPriceWithTax": 96570,
+   "productWholesalePrices": null,
+   "selectedRegionPrice": null
+  },
+  "variants": [
+   {
+    "id": "6ceb903c-aee4-4e01-9e24-0fe24cbc43ea",
+    "imageUrl": "",
+    "isActive": true,
+    "optionValues": null,
+    "options": null,
+    "price": 87000,
+    "taxablePrice": 79750,
+    "priceWithTax": 96570,
+    "sku": "",
+    "sortOrder": 0,
+    "stock": 999998989
+   }
+  ],
+  "product_informations": {
+   "additionalInformations": [
+    {
+     "name": "Informasi Lainnya",
+     "value": "",
+     "id": "6f6512a4-ff7c-4e31-bf88-2ac938f89bd1",
+     "customFormFieldId": "4d6a1a63-8772-4f71-bfb9-eafb9d159111"
+    },
+    {
+     "name": "Label Produk Ramah Lingkungan Hidup",
+     "value": "",
+     "id": "f590caaf-6536-4acc-946a-702978947d11",
+     "customFormFieldId": "dd111783-99c7-4c79-9927-c677649f0376"
+    }
+   ],
+   "documents": [
+    {
+     "customFormFieldId": "a8693330-ed5d-4628-81b8-b4d4465aa08c",
+     "id": "aef0a73e-9b3a-11f0-9a6f-6a55475a02a3",
+     "name": "Spesifikasi Produk",
+     "value": "aef0a73e-9b3a-11f0-9a6f-6a55475a02a3"
+    }
+   ],
+   "mainInformations": [
+    {
+     "customFormFieldId": "b0e1c4ca-fd35-4d9c-8251-0fd403bed98d",
+     "id": "31a3b510-73da-49be-9f01-9d7ac07d1709",
+     "name": "Kode KFA",
+     "value": "33006688"
+    },
+    {
+     "customFormFieldId": "cac52b24-2635-4fe4-af17-3ad73ad62327",
+     "id": "ad65d86e-0d69-4385-b33c-c4d4c5869c5d",
+     "name": "Spesifikasi Produk",
+     "value": "Patient examination glove M nitrile powder free non steril"
+    },
+    {
+     "customFormFieldId": "74ba7c50-4298-4cfe-9ac2-1df5b8273df3",
+     "id": "61a3e64b-9ef6-4734-a57f-f07aa7782aa5",
+     "name": "Nomor Izin Edar (NIE)",
+     "value": "AKD 10903220671"
+    },
+    {
+     "customFormFieldId": "cb58e1d6-6deb-48b1-947f-d985e64a0876",
+     "id": "0920e8b2-3e98-4d00-b875-4c1f8c7d0807",
+     "name": "Masa Berlaku NIE",
+     "value": "2027-02-28"
+    },
+    {
+     "customFormFieldId": "a5e1433d-fffb-48aa-913a-78afc8fd6f29",
+     "id": "5a0295d0-e9c3-42d8-92c3-e2ca70d94fa3",
+     "name": "Daftar Distributor yang Ditunjuk",
+     "value": "Menunjuk "
+    },
+    {
+     "customFormFieldId": "847e22aa-77d9-49c0-a50c-eafa853adf4a",
+     "id": "a6de0a35-b60b-4e84-9515-e4d65202c09b",
+     "name": "Izin Distribusi Alat Kesehatan",
+     "value": "Tersedia "
+    },
+    {
+     "customFormFieldId": "37657c9d-92a1-4b91-a7f5-ae327bd232c2",
+     "id": "a07cac46-9e25-4b57-aa85-430e91fbdc1c",
+     "name": "Sertifikat Cara Pembuatan Alat Kesehatan yang Baik Yang Masih Berlaku",
+     "value": "Tersedia "
+    },
+    {
+     "customFormFieldId": "bd124708-0dbe-4cc1-9756-f4d289a49699",
+     "id": "4d424e06-2a46-4519-a4b9-23c7c5e9543d",
+     "name": "Sertifikat Cara Distribusi Alat Kesehatan Yang Baik Yang Masih Berlaku",
+     "value": "Tersedia "
+    },
+    {
+     "customFormFieldId": "5fe6b17b-8b61-4bb0-93f3-8abfa61ca373",
+     "id": "5d31cd7e-44a8-4e0a-ad98-8a9b2dba4084",
+     "name": "Sertifikat Alat Telekomunikasi dan/atau Perangkat Telekomunikasi",
+     "value": ""
+    },
+    {
+     "customFormFieldId": "8ec180b3-7d51-4216-b11a-61980915e556",
+     "id": "ac5fc0f8-d45b-455b-beb7-ddd9ec8e20f4",
+     "name": "Sertifikat Izin Pemanfaatan Sumber Radiasi Pengion (SRP)",
+     "value": ""
+    },
+    {
+     "customFormFieldId": "889bd333-d520-4bcd-9576-68f52a157478",
+     "id": "ca6aab0d-7e23-42b0-8d9f-f1973b218afe",
+     "name": "Hasil Pengujian Post Market",
+     "value": " Tidak Ada"
+    },
+    {
+     "customFormFieldId": "2e4ef596-3dfb-46a4-b1f5-4848c8fae0c9",
+     "id": "c03b5a72-29ae-41f2-b54c-9591010400eb",
+     "name": "Pemberitahuan Import Barang (PIB)",
+     "value": " Tidak Ada"
+    },
+    {
+     "customFormFieldId": "d83ca0af-8520-48b6-8b89-8afa3a95aedb",
+     "id": "cc80a9d9-ee77-48a7-b525-bbc8701897af",
+     "name": "BMHP",
+     "value": "Ya"
+    },
+    {
+     "customFormFieldId": "fa79f5b7-4098-4191-ae6e-d85cead86b97",
+     "id": "e3e6c6c6-a424-45e3-a5ba-252299707f34",
+     "name": "Garansi",
+     "value": "BMHP"
+    },
+    {
+     "customFormFieldId": "74bcd04b-6f18-4733-9b96-f80fba0eba7d",
+     "id": "2fa44142-9a94-4703-b450-a9141bafcc0e",
+     "name": "Surat Ketersediaan Layanan Purna Jual dan Spare Part",
+     "value": " Tidak Tersedia"
+    },
+    {
+     "customFormFieldId": "80a483f7-80af-436c-bad6-884eefb4ddd2",
+     "id": "b5b57263-3306-4b4e-bb50-7116e4e21cf1",
+     "name": "Struktur Harga",
+     "value": "Tersedia "
+    }
+   ]
+  },
+  "images": [
+   {
+    "id": "6ef7f1cb-9b3a-11f0-975e-aa74a652596c",
+    "imageUrl": "https://asset.inaproc.id/upload/6ef7f1c6-9b3a-11f0-975e-aa74a652596c.jpeg"
+   }
+  ]
+ },
+ "visible_page_text": {
+  "title": "MEDDIS® Nitrile Examination Gloves, Powder Free , size M",
+  "sold_count_text": "Terjual 2,1 rb",
+  "shipped_from_text": "Dikirim Dari KOTA TANGERANG",
+  "tkdn_section": "Jenis Produk PDN Nilai TKDN(%) 39.63 Nilai BMP 3 Nilai TKDN + Nilai BMP 42.63",
+  "certificate_owner_text": "Nama Pemilik Sertifikat PT Haloni Jane Tbk",
+  "note": "Literal text fragments copied from the served HTML. The product name carries the registered-trademark sign U+00AE exactly as served (MEDDIS®)."
+ },
+ "purchase_history": {
+  "query_operation": "getProductUnitSoldLogPdp",
+  "endpoint": "https://katalog.inaproc.id/graphql",
+  "saved_separately_as": "procurement/katalog/history_meddis_product_unit_sold_log.json",
+  "note": "History rows come from the site's own public GraphQL operation; see the history_* files in this directory."
+ }
+}

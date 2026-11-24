@@ -1,0 +1,41 @@
+{
+ "cpakb": {
+  "rows": 1129,
+  "columns": [
+   "No",
+   "Nomor Sertifikat",
+   "Tgl Terbit",
+   "Tgl Exp",
+   "Nama Perusahaan",
+   "Alamat Perusahaan",
+   "Kelompok Alkes",
+   "KBLI"
+  ],
+  "pt_basic_rows": 1,
+  "source": "infoalkes_cpakb_export_all.xls",
+  "csv": "infoalkes_cpakb_export_all.csv"
+ },
+ "idak": {
+  "rows": 7342,
+  "columns": [
+   "No",
+   "Nomor Sertifikat",
+   "Tgl Terbit",
+   "Tgl Exp",
+   "Nama Perusahaan",
+   "Alamat Perusahaan",
+   "Propinsi Perusahaan",
+   "Kab./Kota Perusahaan",
+   "Alamat Gudang",
+   "Propinsi Gudang",
+   "Kab./Kota Gudang",
+   "PJT",
+   "CDAKB",
+   "STATUS PIE"
+  ],
+  "pt_basic_rows": 0,
+  "source": "infoalkes_idak_export_all.xls",
+  "csv": "infoalkes_idak_export_all.csv"
+ },
+ "note": "Exports are HTML tables served with Content-Type application/vnd.ms-excel (Excel HTML export), charset iso-8859-1; CSV files are exact transcriptions of those tables with <br> preserved as newlines."
+}

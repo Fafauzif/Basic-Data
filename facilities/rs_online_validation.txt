@@ -1,0 +1,50 @@
+RS Online (SIRS Kemenkes) national feed validation
+============================================================
+Source URL: https://sirs.kemkes.go.id/fo/home/list_prop_noncovid?id=0
+Original payload: facilities/rs_online_list_prop_noncovid_2026-11-24.json
+Top-level JSON keys: rs, provinsi (both present)
+rs rows: 3295
+provinsi rows: 39
+Sum of provinsi.jumlah: 3700 (feed per-province count; vs rs rows 3295)
+
+Field names in rs rows (feed): nama, alamat, telepon, kelas, jenis, koordinat, kode
+Field names in provinsi rows (feed): propinsi_name, kode, jumlah
+
+Derived CSV fields: nama, alamat, kelas, jenis, kode, koordinat_lat, koordinat_lon
+  - 'telepon' (phone) intentionally dropped from the CSV and GeoJSON conversions (contact field, no analytical value; still present in the original JSON).
+  - 'koordinat' split into koordinat_lat/koordinat_lon.
+
+Coordinate interpretation
+  koordinat is a 2-element list. Tested as [lat, lon]: 3279/3295 pairs fall inside Indonesia bounds (lat -11..6, lon 95..141).
+  Tested as [lon, lat]: 2/3295 pairs fall inside those bounds.
+  Interpretation used: [lat,lon].
+  Observed ranges: lat -8670687882185506.0 .. 36439954687367.0; lon -479.35546875000006 .. 98662376508223.0.
+
+CSV rows written: 3295 (one per rs row)
+GeoJSON point features: 3279 (rows with numeric coordinates inside Indonesia bounds)
+Rows with missing/non-numeric coordinate: 0
+Rows rejected for the points layer: 16
+  REJECT kode=1275516 nama='RS Umum Mitra Medika': coordinate outside Indonesia bounds: koordinat=[36439954687367, 98662376508223] -> lat=36439954687367.0 lon=98662376508223.0
+  REJECT kode=1371463 nama='RS Khusus Bedah Kartika Docta': coordinate outside Indonesia bounds: koordinat=[1440, 108.4919086] -> lat=1440.0 lon=108.4919086
+  REJECT kode=1372016 nama='RS Umum Daerah Serambi Madinah Kota Solok': coordinate outside Indonesia bounds: koordinat=[0, 0] -> lat=0.0 lon=0.0
+  REJECT kode=1607017 nama='RS Bunda Medika Jakabaring': coordinate outside Indonesia bounds: koordinat=[-3.05414684120526, -255.1943230396137] -> lat=-3.05414684120526 lon=-255.1943230396137
+  REJECT kode=3314056 nama='RS Umum Islam Amal Sehat Sragen': coordinate outside Indonesia bounds: koordinat=[-7.4346669, -7.4346669] -> lat=-7.4346669 lon=-7.4346669
+  REJECT kode=3314097 nama='RS Umum Saras Ibnu Sina Sukowati': coordinate outside Indonesia bounds: koordinat=[111.0417636768489, -7.417298154430426] -> lat=111.0417636768489 lon=-7.417298154430426
+  REJECT kode=3371014 nama='RS Umum Daerah Tidar': coordinate outside Indonesia bounds: koordinat=[-7.18810087117902, -479.35546875000006] -> lat=-7.18810087117902 lon=-479.35546875000006
+  REJECT kode=3372026 nama='RS Umum Dr. Oen': coordinate outside Indonesia bounds: koordinat=[7.555531, 110.838109] -> lat=7.555531 lon=110.838109
+  REJECT kode=3471380 nama='RS Siloam Yogyakarta': coordinate outside Indonesia bounds: koordinat=[7, 110] -> lat=7.0 lon=110.0
+  REJECT kode=3504068 nama='RS Umum Bhayangkara Tulungagung': coordinate outside Indonesia bounds: koordinat=[111.9075195155536, -8.067420157531151] -> lat=111.9075195155536 lon=-8.067420157531151
+  REJECT kode=3603082 nama='RS Sari Asih Bintaro': coordinate outside Indonesia bounds: koordinat=[-6.2916080911145, -6.2916080911145] -> lat=-6.2916080911145 lon=-6.2916080911145
+  REJECT kode=3671222 nama='RS Makiyah': coordinate outside Indonesia bounds: koordinat=[-71.07405646336098, 285.46875000000006] -> lat=-71.07405646336098 lon=285.46875000000006
+  REJECT kode=3672040 nama='RS Citra sundari': coordinate outside Indonesia bounds: koordinat=[0, 0] -> lat=0.0 lon=0.0
+  REJECT kode=3673004 nama='RS Umum Daerah Banten': coordinate outside Indonesia bounds: koordinat=[105.111, 106.712] -> lat=105.111 lon=106.712
+  REJECT kode=5171234 nama='RS Khusus Bedah Dharma Usadha Sidhi': coordinate outside Indonesia bounds: koordinat=[-8670687882185506, 115.2173903135671] -> lat=-8670687882185506.0 lon=115.2173903135671
+  REJECT kode=7304011 nama='RS Umum Daerah Lanto Daeng Pasewang': coordinate outside Indonesia bounds: koordinat=[-5417.958, 1194537.156] -> lat=-5417.958 lon=1194537.156
+
+'kode' field assessment
+  distinct values: 3295 / 3295; lengths: {7: 3295}
+  all-numeric: 3295/3295
+  duplicate values: 0
+  first 2 digits match a provinsi.kode: 3281/3295
+  -> 'kode' is a facility-level identifier (7-digit hospital code) whose leading digits embed the province and regency/city code; it is NOT a province-only regional code and not a pure sequentially assigned ID.
+

@@ -1,0 +1,62 @@
+==============================================================================
+SESSION GET https://infoalkes.kemkes.go.id/cari -> 200 (51068 bytes); csrf=yes searchToken=yes; cookies=['XSRF-TOKEN', 'infoalkespkrt-session']; server=cloudflare
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=3 strCari='PT Basic International Sumatera' length=100 | HTTP 200 | bytes=62 | rows=0 total=0 | saved regulatory/infoalkes_result_pt_basic_pendaftar.json
+TRY-VARIANT kat_pencarian=3 strCari='BASIC' -> HTTP 200 recordsFiltered=1 rows=1 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=3 strCari='basic' -> HTTP 200 recordsFiltered=1 rows=1 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=3 strCari='Sumatera' -> HTTP 200 recordsFiltered=851 rows=5 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=5 strCari='BASIC' -> HTTP 200 recordsFiltered=1 rows=1 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=2 strCari='SYNGUARD' -> HTTP 200 recordsFiltered=1 rows=1 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=2 strCari='synguard' -> HTTP 200 recordsFiltered=1 rows=1 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=2 strCari='SynGuard' -> HTTP 200 recordsFiltered=1 rows=1 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=2 strCari='nitril' -> HTTP 200 recordsFiltered=421 rows=5 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=2 strCari='NITRIL' -> HTTP 200 recordsFiltered=421 rows=5 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=2 strCari='nitrile' -> HTTP 200 recordsFiltered=415 rows=5 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=2 strCari='Nitrile' -> HTTP 200 recordsFiltered=415 rows=5 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=2 strCari='sarung tangan' -> HTTP 200 recordsFiltered=47 rows=5 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=2 strCari='SARUNG TANGAN' -> HTTP 200 recordsFiltered=47 rows=5 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=2 strCari='handscoon' -> HTTP 200 recordsFiltered=0 rows=0 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=1 strCari='AKD 10903620817' -> HTTP 200 recordsFiltered=1 rows=1 (exploratory, not registered)
+TRY-VARIANT kat_pencarian=1 strCari='10903620817' -> HTTP 200 recordsFiltered=1 rows=1 (exploratory, not registered)
+==============================================================================
+FINAL SESSION GET https://infoalkes.kemkes.go.id/cari -> 200 (51068 bytes); csrf=yes searchToken=yes; cookies=['XSRF-TOKEN', 'infoalkespkrt-session']; note: server caps length at 100 rows
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=3 strCari='PT Basic International Sumatera' start=0 length=100 | HTTP 200 | bytes=62 | rows_in_page=0 recordsFiltered=0 | saved regulatory/infoalkes_result_pt_basic_international_sumatera.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=5 strCari='PT Basic International Sumatera' start=0 length=100 | HTTP 200 | bytes=1315 | rows_in_page=1 recordsFiltered=1 | saved regulatory/infoalkes_result_pt_basic_international_sumatera_produsen.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='SYNGUARD' start=0 length=100 | HTTP 200 | bytes=1315 | rows_in_page=1 recordsFiltered=1 | saved regulatory/infoalkes_result_synguard.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=1 strCari='AKD 10903620817' start=0 length=100 | HTTP 200 | bytes=1315 | rows_in_page=1 recordsFiltered=1 | saved regulatory/infoalkes_result_akd_10903620817.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=3 strCari='BASIC' start=0 length=100 | HTTP 200 | bytes=1315 | rows_in_page=1 recordsFiltered=1 | saved regulatory/infoalkes_result_pt_basic_variant_basic_pendaftar.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=5 strCari='BASIC' start=0 length=100 | HTTP 200 | bytes=1315 | rows_in_page=1 recordsFiltered=1 | saved regulatory/infoalkes_result_pt_basic_variant_basic_produsen.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='nitril' start=0 length=100 | HTTP 200 | bytes=109210 | rows_in_page=100 recordsFiltered=421 | saved regulatory/infoalkes_result_nitril_p1.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='nitril' start=100 length=100 | HTTP 200 | bytes=108270 | rows_in_page=100 recordsFiltered=421 | saved regulatory/infoalkes_result_nitril_p2.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='nitril' start=200 length=100 | HTTP 200 | bytes=106297 | rows_in_page=100 recordsFiltered=421 | saved regulatory/infoalkes_result_nitril_p3.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='nitril' start=300 length=100 | HTTP 200 | bytes=106284 | rows_in_page=100 recordsFiltered=421 | saved regulatory/infoalkes_result_nitril_p4.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='nitril' start=400 length=100 | HTTP 200 | bytes=22354 | rows_in_page=21 recordsFiltered=421 | saved regulatory/infoalkes_result_nitril_p5.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='nitrile' start=0 length=100 | HTTP 200 | bytes=109344 | rows_in_page=100 recordsFiltered=415 | saved regulatory/infoalkes_result_nitrile_p1.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='nitrile' start=100 length=100 | HTTP 200 | bytes=108161 | rows_in_page=100 recordsFiltered=415 | saved regulatory/infoalkes_result_nitrile_p2.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='nitrile' start=200 length=100 | HTTP 200 | bytes=106226 | rows_in_page=100 recordsFiltered=415 | saved regulatory/infoalkes_result_nitrile_p3.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='nitrile' start=300 length=100 | HTTP 200 | bytes=106235 | rows_in_page=100 recordsFiltered=415 | saved regulatory/infoalkes_result_nitrile_p4.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='nitrile' start=400 length=100 | HTTP 200 | bytes=16173 | rows_in_page=15 recordsFiltered=415 | saved regulatory/infoalkes_result_nitrile_p5.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='sarung tangan pemeriksaan' start=0 length=100 | HTTP 200 | bytes=62 | rows_in_page=0 recordsFiltered=0 | saved regulatory/infoalkes_result_sarung_tangan_pemeriksaan.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='examination glove' start=0 length=100 | HTTP 200 | bytes=110442 | rows_in_page=100 recordsFiltered=1068 | saved regulatory/infoalkes_result_examination_glove_p1.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='examination glove' start=100 length=100 | HTTP 200 | bytes=109551 | rows_in_page=100 recordsFiltered=1068 | saved regulatory/infoalkes_result_examination_glove_p2.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='examination glove' start=200 length=100 | HTTP 200 | bytes=110720 | rows_in_page=100 recordsFiltered=1068 | saved regulatory/infoalkes_result_examination_glove_p3.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='examination glove' start=300 length=100 | HTTP 200 | bytes=108683 | rows_in_page=100 recordsFiltered=1068 | saved regulatory/infoalkes_result_examination_glove_p4.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='examination glove' start=400 length=100 | HTTP 200 | bytes=108071 | rows_in_page=100 recordsFiltered=1068 | saved regulatory/infoalkes_result_examination_glove_p5.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='examination glove' start=500 length=100 | HTTP 200 | bytes=107392 | rows_in_page=100 recordsFiltered=1068 | saved regulatory/infoalkes_result_examination_glove_p6.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='examination glove' start=600 length=100 | HTTP 200 | bytes=106839 | rows_in_page=100 recordsFiltered=1068 | saved regulatory/infoalkes_result_examination_glove_p7.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='examination glove' start=700 length=100 | HTTP 200 | bytes=107208 | rows_in_page=100 recordsFiltered=1068 | saved regulatory/infoalkes_result_examination_glove_p8.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='examination glove' start=800 length=100 | HTTP 200 | bytes=106197 | rows_in_page=100 recordsFiltered=1068 | saved regulatory/infoalkes_result_examination_glove_p9.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='examination glove' start=900 length=100 | HTTP 200 | bytes=106983 | rows_in_page=100 recordsFiltered=1068 | saved regulatory/infoalkes_result_examination_glove_p10.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='examination glove' start=1000 length=100 | HTTP 200 | bytes=71989 | rows_in_page=68 recordsFiltered=1068 | saved regulatory/infoalkes_result_examination_glove_p11.json
+POST https://infoalkes.kemkes.go.id/cari/getPencarian | kat_pencarian=2 strCari='handscoon' start=0 length=100 | HTTP 200 | bytes=62 | rows_in_page=0 recordsFiltered=0 | saved regulatory/infoalkes_result_handscoon.json
+GET https://infoalkes.kemkes.go.id/index.php/cpakb/getDataCpakb?draw=1&start=0&length=100&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&search_field=nama_perusahaan&search_keyword=BASIC&action=&remove_keyword=&remove_field= | HTTP 200 | bytes=556 | rows=1 filtered=1 | saved regulatory/infoalkes_cpakb_result_pt_basic.json
+GET https://infoalkes.kemkes.go.id/idak/getDataIdak?draw=1&start=0&length=100&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&custom_filter=&search_field=nama&search_keyword=BASIC&action=&remove_keyword=&remove_field= | HTTP 200 | bytes=153 | rows=0 filtered=0 | saved regulatory/infoalkes_idak_result_pt_basic.json
+GET https://infoalkes.kemkes.go.id/idak/getDataIdak?draw=1&start=0&length=100&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&custom_filter=&search_field=nama&search_keyword=BASIC&action=add_search&remove_keyword=&remove_field= | HTTP 200 | bytes=153 | rows=0 filtered=0 | saved regulatory/infoalkes_idak_result_pt_basic.json
+GET https://infoalkes.kemkes.go.id/cari/aWVfYWt8Uy1NMzg0NjQwMDAxMjQwNzI2/detail (base64 of PRODUK_ID=ie_ak|S-M384640001240726) | HTTP 200 | bytes=2528 | saved regulatory/infoalkes_detail_S-M384640001240726.html
+GET https://infoalkes.kemkes.go.id/idak/getDataIdak with empty search_keyword (control) | HTTP 200 | bytes=61590 | rows=100 recordsFiltered=7342 | saved regulatory/infoalkes_idak_result_baseline_empty_keyword.json
+
+[cleanup 2026-11-24] The exploratory 0-row file
+regulatory/infoalkes_result_pt_basic_pendaftar.json (very first probe) was
+removed after the definitive run; the registered 0-row response for the literal
+query "PT Basic International Sumatera" (kat_pencarian=3) is
+regulatory/infoalkes_result_pt_basic_international_sumatera.json. TRY-VARIANT
+lines above are exploratory counts and were not registered as payloads.

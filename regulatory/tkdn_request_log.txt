@@ -1,0 +1,73 @@
+TKDN / P3DN (tkdn.kemenperin.go.id) - exact request log
+Collected: 2026-11-24 (Asia/Jakarta). All requests are plain public GETs,
+browser-like UA, Accept-Encoding: identity (the server gzips some responses so
+Content-Length then differs from the decoded size).
+
+A. INTERFACE SNAPSHOTS
+1. GET https://tkdn.kemenperin.go.id/sertifikat
+   -> 200 text/html, 294,446 bytes  [regulatory/tkdn_sertifikat.html]
+2. GET https://tkdn.kemenperin.go.id/rekapitulasi
+   -> 200 text/html, 279,376 bytes  [regulatory/tkdn_rekapitulasi.html]
+
+B. /sertifikat CERTIFICATE SEARCH  (LIMITATION - see tkdn_sertifikat_limitations.txt)
+3. GET https://tkdn.kemenperin.go.id/sertifikat?q=PT%20Basic%20International%20Sumatera&by=perusahaan
+   -> 200 text/html, 293,448 bytes  [regulatory/tkdn_cert_lookup_pt_basic.html]
+   Observed: server-rendered page contains 'Tidak ada hasil untuk ""' - the q
+   parameter is NOT bound by the server; result rows are produced client-side
+   by the page's WASM module, so the raw HTML holds no result rows.
+4. GET https://tkdn.kemenperin.go.id/sertifikat?q=nitril&by=produk
+   -> 200 text/html, 260,263 bytes  [regulatory/tkdn_cert_lookup_nitril.html]
+   Same SSR limitation (q echoed as "").
+5. GET https://tkdn.kemenperin.go.id/sertifikat?q=SARUNG%20TANGAN&by=produk
+   -> 200 text/html, 294,179 bytes  [regulatory/tkdn_cert_lookup_sarung_tangan.html]
+   Same SSR limitation (q echoed as "").
+
+C. SCRAPED DATA ROUTES TRIED FOR /sertifikat (no public data route found)
+6. GET /sertifikat/data?q=BASIC   -> 200 text/html 174,338 bytes (same site shell, not data)
+7. GET /sertifikat.json?q=BASIC   -> 404 text/html 169,783 bytes (not found)
+8. GET /api/sertifikat?q=BASIC    -> 200 text/html 169,725 bytes (site shell, not JSON)
+9. GET /api/sertifikat/cari?q=BASIC -> 200 text/html 169,725 bytes (site shell, not JSON)
+10. GET /sertifikat?q=BASIC&by=perusahaan with headers
+    Accept: application/json | X-Requested-With: XMLHttpRequest | HX-Request: true
+    -> 200 text/html 244,949 bytes each; no JSON, no result rows.
+11. GET https://tkdn.kemenperin.go.id/cari?q=BASIC
+    -> 200 text/html, 173,559 bytes. This is the SITE-WIDE search (menu/news/
+    regulation); page states: 'Tidak ada hasil untuk "BASIC" ... pencarian
+    mencakup menu, berita, blog, dan regulasi. Untuk data sertifikat dan
+    perusahaan, gunakan halaman khususnya' -> not a certificate data source.
+
+D. PUBLIC EXPORT CONTROL REPLAYED INSTEAD (the 'Unduh TKDN' dialog form
+   action="/unduh_preview"; download links point at /export_excel)
+12. GET https://tkdn.kemenperin.go.id/unduh_preview?kind=tkdn&scope=baris&fmt=csv&thn=2026&bln=0
+    -> 200 text/html, 8,176 bytes   [regulatory/tkdn_unduh_preview_tkdn_2026.html]
+    Observed page text: "17.110 baris" (sample table shown; download carries all columns).
+13. GET https://tkdn.kemenperin.go.id/export_excel?kind=tkdn&thn=2026
+    -> 200 text/csv, 3,482,160 bytes  [regulatory/tkdn_rekapitulasi_tkdn_2026_all_months.csv]
+    Verified: UTF-8 BOM, comma-delimited, 17,110 data rows + header, 12 columns.
+14. GET https://tkdn.kemenperin.go.id/export_excel?kind=tkdn&thn=2026&kb=Bahan%20dan%20Peralatan%20Kesehatan
+    -> 200 text/csv, 924,164 bytes  [regulatory/tkdn_rekapitulasi_tkdn_2026_bahan_peralatan_kesehatan.csv]
+    Verified: 4,532 data rows + header, same 12 columns.
+15. GET https://tkdn.kemenperin.go.id/unduh?kind=tkdn&scope=baris&fmt=csv&thn=2026&bln=0
+    -> 200 text/html, 8,651 bytes. Not the file: /unduh renders an HTML page; the
+    actual file is served by /export_excel (the link the preview page exposes).
+
+E. COMPANY / KEYWORD SCOPED LOOKUPS via /unduh_preview (q filter; year 2026,
+   0 bln = all months). Observed row counts exactly as printed on the page:
+16. q=PT Basic International Sumatera                  -> 0 baris   [regulatory/tkdn_lookup_pt_basic_2026.html]
+17. q=BASIC INTERNATIONAL                              -> 0 baris   [regulatory/tkdn_unduh_preview_q-basic-international.html]
+18. q=BASIC                                            -> 40 baris  (partial token only)
+19. q=SYNGUARD                                         -> 0 baris
+20. q=nitril                                           -> 4 baris   [regulatory/tkdn_lookup_nitril_2026.html]
+21. q=nitrile                                          -> 3 baris   [regulatory/tkdn_lookup_nitrile_2026.html]
+22. q=sarung tangan                                    -> 5 baris   [regulatory/tkdn_lookup_sarung_tangan_2026.html]
+23. q=BASIC INTERNATIONAL for thn=2020,2021,2022,2023,2024,2025,2026 -> 0 baris in every year.
+
+F. COLUMN NOTE ON THE EXPORT (important, no speculation)
+The /export_excel file has exactly these 12 columns:
+Kode HS, Nama Perusahaan, Kabupaten/Kota, Provinsi, Produk, Spesifikasi,
+Kelompok Barang, Nilai TKDN (%), Nilai BMP (%), Nilai TKDN + BMP (%), LVI,
+Tanggal Kadaluarsa Sertifikat.
+It does NOT contain a certificate number or an issuance date, so the export is
+a recap of certificate rows, not the certificate master record. Certificate
+numbers are only visible in the interactive /sertifikat UI, which is
+client-side only (item B/C above).

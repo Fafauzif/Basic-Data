@@ -1,0 +1,41 @@
+2023.xlsx STRUCTURAL CHECK (derived)
+======================================================================
+File     : procurement/opentender/2023.xlsx
+Bytes    : 42,652,150
+sha256   : 5f6281ae8670c4c1970e5c4b3991b3e135bf5588dde18c27f32b8475fb88f73b
+Source   : https://data.open-contracting.org/en/publication/101/download?name=2023.xlsx
+           (HTTP 200, redirects to https://fastly.data.open-contracting.org/downloads/indonesia_opentender/4043/2023.xlsx)
+Checked  : 2026-11-24T07:10:28+07:00 (2026-11-24 Asia/Jakarta)
+Tool     : Python 3.14 stdlib zipfile / ElementTree; openpyxl is NOT
+           installed, so this is a container/structure check only -
+           no conversion, no cell-data extraction.
+
+ZIP INTEGRITY
+- zipfile.testzip() : OK - all member CRCs verified
+- members           : 19
+- total uncompressed: 333,482,655 bytes
+- content types xml : yes
+- xl/workbook.xml   : YES - present
+
+WORKBOOK STRUCTURE
+- sheet count (xl/workbook.xml): 10
+  1. sheet name = "main"  ->  xl/worksheets/sheet1.xml  [present]
+  2. sheet name = "awards"  ->  xl/worksheets/sheet2.xml  [present]
+  3. sheet name = "awards_items"  ->  xl/worksheets/sheet3.xml  [present]
+  4. sheet name = "awards_suppliers"  ->  xl/worksheets/sheet4.xml  [present]
+  5. sheet name = "parties"  ->  xl/worksheets/sheet5.xml  [present]
+  6. sheet name = "parties_additionalidentifiers"  ->  xl/worksheets/sheet6.xml  [present]
+  7. sheet name = "parties_details_classifications"  ->  xl/worksheets/sheet7.xml  [present]
+  8. sheet name = "relatedprocesses"  ->  xl/worksheets/sheet8.xml  [present]
+  9. sheet name = "tender_items"  ->  xl/worksheets/sheet9.xml  [present]
+  10. sheet name = "planning_budget_budgetbreakdown"  ->  xl/worksheets/sheet10.xml  [present]
+- xl/_rels/workbook.xml.rels : yes
+- xl/sharedStrings.xml        : yes
+- xl/styles.xml               : yes
+- xl/worksheets/sheet1.xml    : yes
+
+CONCLUSION
+- This file IS a structurally valid XLSX container:
+  zip CRCs verified, xl/workbook.xml present, worksheet parts resolvable.
+- Scope limit: container integrity does not verify spreadsheet cell
+  semantics or completeness of the 2023 data itself.

@@ -1,0 +1,28 @@
+{
+ "query": {
+  "endpoint": "https://infoalkes.kemkes.go.id/cari/getPencarian",
+  "method": "POST",
+  "kat_pencarian": 1,
+  "strCari": "AKD 10903620817",
+  "length": 100,
+  "pages": 1
+ },
+ "recordsFiltered": 1,
+ "rows_collected": 1,
+ "data": [
+  {
+   "PRODUK_ID": "ie_ak|S-M384640001240726",
+   "TANGGAL": "2026-08-19",
+   "CARI_NAMA_PRODUK": "SYNGUARD Nitrile Exam Gloves",
+   "CARI_PRODUSEN": "PT BASIC INTERNATIONAL SUMATERA",
+   "NOMOR": "<b>AKD 10903620817</b><div>Terbit : 2026-08-19</div><div>Expired : 2031-08-13</div>",
+   "MERK": "<b>SYNGUARD Nitrile Exam Gloves</b><div>Peralatan Rumah Sakit Umum dan Perorangan Lainnya</div><div>Patient examination glove</div><span class=\"badge py-3 px-4 fs-7 badge-light- PRIMARY\">Non Elektromedik Non Steril</span>",
+   "TIPE": "<b>XS, S, M, L, XL, XXL (Warna : Blue, Black, White, Violet Blue)</b><div>Kelas : A</div>",
+   "PENDAFTAR": "<b>PT. BASIC INTERNATIONAL SUMATERA</b><div>Jalan Surfaktan Kavling D09 - D16, C8 - C15, C16 (setengah) - C24, Kawasan Ekonomi Khusus</div>",
+   "PRODUSEN": "<b>PT BASIC INTERNATIONAL SUMATERA</b><div>Jalan Surfaktan Kavling D9 - D16, C8 - C15, C16 (setengah) - C24, KEK Sei Mangkei, Desa/Kelurahan Sei Mangkei, Kec. Bosar Maligas, Kab. Simalungun, Sumatera Utara</div><div>Indonesia</div><div></div><div></div><div></div>",
+   "JENIS_PRODUK": "Patient examination glove",
+   "KETERANGAN": "<span class=\"badge py-3 px-4 fs-7 badge-light-info\">ALKES</span>",
+   "STATUS_NIE": "<span class=\"badge py-3 px-4 fs-7 badge-light-success\">Berlaku</span>"
+  }
+ ]
+}

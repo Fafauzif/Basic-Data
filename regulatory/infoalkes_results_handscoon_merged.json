@@ -1,0 +1,13 @@
+{
+ "query": {
+  "endpoint": "https://infoalkes.kemkes.go.id/cari/getPencarian",
+  "method": "POST",
+  "kat_pencarian": 2,
+  "strCari": "handscoon",
+  "length": 100,
+  "pages": 1
+ },
+ "recordsFiltered": 0,
+ "rows_collected": 0,
+ "data": []
+}

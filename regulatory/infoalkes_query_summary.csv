@@ -1,0 +1,12 @@
+slug,endpoint,method,kat_pencarian,strCari,records_filtered,rows_collected,pages,merged_file
+pt_basic_international_sumatera_produsen,https://infoalkes.kemkes.go.id/cari/getPencarian,POST,5,PT Basic International Sumatera,1,1,1,infoalkes_results_pt_basic_international_sumatera_produsen_merged.json
+synguard,https://infoalkes.kemkes.go.id/cari/getPencarian,POST,2,SYNGUARD,1,1,1,infoalkes_results_synguard_merged.json
+akd_10903620817,https://infoalkes.kemkes.go.id/cari/getPencarian,POST,1,AKD 10903620817,1,1,1,infoalkes_results_akd_10903620817_merged.json
+pt_basic_variant_basic_pendaftar,https://infoalkes.kemkes.go.id/cari/getPencarian,POST,3,BASIC,1,1,1,infoalkes_results_pt_basic_variant_basic_pendaftar_merged.json
+pt_basic_variant_basic_produsen,https://infoalkes.kemkes.go.id/cari/getPencarian,POST,5,BASIC,1,1,1,infoalkes_results_pt_basic_variant_basic_produsen_merged.json
+pt_basic_international_sumatera,https://infoalkes.kemkes.go.id/cari/getPencarian,POST,3,PT Basic International Sumatera,0,0,1,infoalkes_results_pt_basic_international_sumatera_merged.json
+nitril,https://infoalkes.kemkes.go.id/cari/getPencarian,POST,2,nitril,421,421,5,infoalkes_results_nitril_merged.json
+nitrile,https://infoalkes.kemkes.go.id/cari/getPencarian,POST,2,nitrile,415,415,5,infoalkes_results_nitrile_merged.json
+sarung_tangan_pemeriksaan,https://infoalkes.kemkes.go.id/cari/getPencarian,POST,2,sarung tangan pemeriksaan,0,0,1,infoalkes_results_sarung_tangan_pemeriksaan_merged.json
+examination_glove,https://infoalkes.kemkes.go.id/cari/getPencarian,POST,2,examination glove,1068,1068,11,infoalkes_results_examination_glove_merged.json
+handscoon,https://infoalkes.kemkes.go.id/cari/getPencarian,POST,2,handscoon,0,0,1,infoalkes_results_handscoon_merged.json

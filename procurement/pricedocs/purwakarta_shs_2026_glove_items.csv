@@ -1,0 +1,31 @@
+page,no,kode_barang,uraian_verbatim,satuan,harga_rp,tkdn_persen,mechanical_parse,raw_line
+61,1052,1.1.12.01.01.0001,Sarung tangan proyek,dus,25.000,"40,00",ok,"1052 1.1.12.01.01.0001 Sarung tangan proyek dus 25.000              40,00"
+66,2,1.1.12.01.01.0002,Acetonitrile HPLC 1.00030.4000 MERCK 4 Liter,Botol,5.867.500,"25,00",ok,"2 1.1.12.01.01.0002 Acetonitrile HPLC 1.00030.4000 MERCK 4 Liter Botol 5.867.500         25,00"
+85,195,1.1.12.01.02.0003,"Sarung Tangan Lain-Lain, Alat Kesehatan",dus,153.000,"25,00",ok,"195 1.1.12.01.02.0003 Sarung Tangan Lain-Lain, Alat Kesehatan dus 153.000            25,00"
+85,196,1.1.12.01.02.0003,"Sarung Tangan Nitrile CHRONA CARE Nitrile Powder Free Examination Gloves S, M",Box,82.000,"25,00",ok,"196 1.1.12.01.02.0003 Sarung Tangan Nitrile CHRONA CARE Nitrile Powder Free Examination Gloves S, M Box 82.000              25,00"
+85,197,1.1.12.01.02.0003,Sarung Tangan non steril Sarung Tangan non steril (S) (box isi 100 pair),Set,140.000,"40,00",ok,"197 1.1.12.01.02.0003 Sarung Tangan non steril Sarung Tangan non steril (S) (box isi 100 pair) Set 140.000            40,00"
+85,198,1.1.12.01.02.0003,Sarung Tangan non steril Sarung Tangan non steril M,Set,155.000,"40,00",ok,"198 1.1.12.01.02.0003 Sarung Tangan non steril Sarung Tangan non steril M Set 155.000            40,00"
+85,199,1.1.12.01.02.0003,Sarung Tangan non steril Sarung tangan non steril uk. L,Set,132.000,"40,00",ok,"199 1.1.12.01.02.0003 Sarung Tangan non steril Sarung tangan non steril uk. L Set 132.000            40,00"
+91,,,,,,,not_parsed_multiline_or_fragment,"128 1.1.12.01.02.0004 Sarung tangan GLOVE LABORATORIUM Dus 133.000            40,00"
+101,,,,,,,not_parsed_multiline_or_fragment,"masker, sarung tangan, baju"
+118,286,1.1.12.01.03.0007,Sarung Tangan Karet Magic silicone cleaning glove,Stel,37.000,"40,00",ok,"286 1.1.12.01.03.0007 Sarung Tangan Karet Magic silicone cleaning glove Stel 37.000              40,00"
+119,,,,,,,not_parsed_multiline_or_fragment,287 1.1.12.01.03.0007 Sarung Tangan Karet
+119,,,,,,,not_parsed_multiline_or_fragment,"Ukuran L, Sarung tangan dari"
+119,,,,,,,not_parsed_multiline_or_fragment,288 1.1.12.01.03.0007 Sarung Tangan Karet
+119,,,,,,,not_parsed_multiline_or_fragment,"Ukuran M, Sarung tangan dari"
+131,,,,,,,not_parsed_multiline_or_fragment,62 1.1.12.01.03.0009 Sarung Tangan
+131,,,,,,,not_parsed_multiline_or_fragment,"Sarung tangan anak, half finger,"
+131,,,,,,,not_parsed_multiline_or_fragment,sarung tangan
+131,63,1.1.12.01.03.0009,Sarung Tangan Sarung tangan Kulit,Pasang,393.000,"25,00",ok,"63 1.1.12.01.03.0009 Sarung Tangan Sarung tangan Kulit Pasang 393.000            25,00"
+131,64,1.1.12.01.03.0009,Sarung Tangan Sarung Tangan Rajut,Pasang,52.000,"40,00",ok,"64 1.1.12.01.03.0009 Sarung Tangan Sarung Tangan Rajut Pasang 52.000              40,00"
+134,62,1.1.12.01.03.0011,"Sarung Tangan Kulit Sintetis, Gel, atau Mesh",Pasang,217.000,"40,00",ok,"62 1.1.12.01.03.0011 Sarung Tangan Kulit Sintetis, Gel, atau Mesh Pasang 217.000            40,00"
+134,63,1.1.12.01.03.0011,"Sarung Tangan  Menembak Kulit Sintetis, Nylon atau  Neoprene",Pasang,208.000,"25,00",ok,"63 1.1.12.01.03.0011 Sarung Tangan  Menembak Kulit Sintetis, Nylon atau  Neoprene Pasang 208.000            25,00"
+134,64,1.1.12.01.03.0011,"Sarung Tangan Balap Motor Kulit, Kevlar atau Sintetis",Pasang,289.000,"25,00",ok,"64 1.1.12.01.03.0011 Sarung Tangan Balap Motor Kulit, Kevlar atau Sintetis Pasang 289.000            25,00"
+134,65,1.1.12.01.03.0011,"Sarung Tangan Golf Kulit, Sintetis atau Bahan  Komposit",Pasang,289.000,"25,00",ok,"65 1.1.12.01.03.0011 Sarung Tangan Golf Kulit, Sintetis atau Bahan  Komposit Pasang 289.000            25,00"
+134,66,1.1.12.01.03.0011,Sarung Tangan Tarung Drajat Kulit Sintetis atau Lycra,Pasang,325.000,"25,00",ok,"66 1.1.12.01.03.0011 Sarung Tangan Tarung Drajat Kulit Sintetis atau Lycra Pasang 325.000            25,00"
+148,,,,,,,not_parsed_multiline_or_fragment,34 1.3.02.01.03.0014 Sarung tangan
+148,35,1.3.02.01.03.0014,Sarung Tangan Nomex,Pasang,982.000,"25,00",ok,"35 1.3.02.01.03.0014 Sarung Tangan Nomex Pasang 982.000            25,00"
+163,,,,,,,not_parsed_multiline_or_fragment,22 1.3.02.05.02.0007 Sarung Tangan Pemadam Kebakaran
+163,,,,,,,not_parsed_multiline_or_fragment,Sarung tangan Kulit Pemadam
+163,,,,,,,not_parsed_multiline_or_fragment,kering walau sarung tangan
+183,20,1.3.02.19.01.0002,Sarung Tangan Kulit Sintetis atau Lycra,Pasang,578.000,"40,00",ok,"20 1.3.02.19.01.0002 Sarung Tangan Kulit Sintetis atau Lycra Pasang 578.000  40,00"

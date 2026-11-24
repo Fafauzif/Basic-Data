@@ -1,0 +1,48 @@
+ATTRIBUTION / LICENCE NOTICE - OpenTender Indonesia (OCDS) dataset
+==================================================================
+
+Dataset
+-------
+Indonesia national public procurement data, published as OCDS OpenTender
+(ICW) in the Open Contracting Partnership Data Registry, publication 101
+("Indonesia: Indonesia Corruption Watch (ICW)").
+
+Publisher / attribution line
+----------------------------
+ICW OpenTender / Open Contracting Partnership
+
+Source
+------
+https://data.open-contracting.org/en/publication/101
+(registry landing page retained at
+ procurement/opentender/registry_publication_101.html)
+
+Licence
+-------
+Open Data Commons Open Database License (ODbL) 1.0
+https://opendatacommons.org/licenses/odbl/1-0/
+Full licence text retained at licenses/ODbL-1.0.html
+(as stated by the registry: "Open Data Commons Open Database License (ODbL)",
+ linking to https://opendatacommons.org/licenses/odbl/)
+
+Collection date
+---------------
+2026-11-24 (Asia/Jakarta)
+
+ODbL 1.0 attribution condition (summary of the licence, not a substitute)
+--------------------------------------------------------------------------
+You must attribute any public use of the database, or works produced from the
+database, in the manner specified in the ODbL. For any use or redistribution
+of the database, or works produced from it, make clear to others the licence
+of the database and keep intact any notices on the original database.
+
+Payloads collected under this notice
+------------------------------------
+procurement/opentender/full.csv.tar.gz       all-years CSV archive (gzip)
+procurement/opentender/2023.xlsx             calendar-year 2023 Excel workbook
+procurement/opentender/2023.csv.tar.gz       calendar-year 2023 CSV archive (gzip)
+procurement/opentender/registry_publication_101.html
+                                             registry landing page snapshot
+
+Snapshot sha256 of registry page:
+279115736e791765d6ca8cb6fa6944f9f66b1f37fe5d180c0f11a2fdbc7c8b5d  (60,778 bytes)

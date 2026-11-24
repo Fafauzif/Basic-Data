@@ -1,0 +1,3 @@
+PRODUK_ID=ie_ak|S-M384640001240726
+b64=aWVfYWt8Uy1NMzg0NjQwMDAxMjQwNzI2
+path=/cari/aWVfYWt8Uy1NMzg0NjQwMDAxMjQwNzI2/detail

@@ -1,0 +1,40 @@
+DERIVED VALIDATION NOTE - OSM Sumatra extract (PBF)
+generated 2026-11-24 (Asia/Jakarta) by the package lead
+
+FILE: geospatial/sumatra-261122.osm.pbf
+  bytes : 283,411,896  (matches the published Content-Length exactly)
+  sha256: 17ac853a0efa6172bb55ca4bd68776691b8d19ab833b3aa4cbc9146d9db74612
+
+OSM PBF container check (first 32 bytes):
+  hex   : 0000000e 0a094f534d486561646572 18...
+  offset 0..3 : 00 00 00 0e  -> big-endian BlobHeader length = 14 bytes
+  offset 4..15: 0a 09 "OSMHeader" (0a = protobuf field 1, 09 = length 9,
+                then the ASCII type string OSMHeader)
+  offset 16   : 18 .. -> protobuf field 3 (datasize)
+  => valid OSM PBF: the first blob is an OSMHeader blob.
+  Note: the ASCII string "OSMHeader" starts at byte offset 6, not 4, because
+  bytes 4..5 are the protobuf tag/length prefix of the type field.
+
+SNAPSHOT PROVENANCE
+  briefed URL : https://download.geofabrik.de/asia/indonesia/sumatra-latest.osm.pbf
+                (HEAD: 301 -> .../sumatra/sumatra-latest.osm.pbf
+                 -> 307 -> .../sumatra/sumatra-261122.osm.pbf)
+  collected   : https://download.geofabrik.de/asia/indonesia/sumatra/sumatra-261122.osm.pbf
+                (pinned dated URL, used because Geofabrik rolled "latest" over to
+                 sumatra-261123.osm.pbf (283,414,647 bytes) during collection)
+  snapshot date: 2026-11-22 (also recorded on geospatial/geofabrik_sumatra_page.html)
+  transport   : 10 parallel HTTP Range connections, 34 x 8 MiB segments,
+                reconstructed with exact byte-length verification
+
+WHAT IS NOT DONE HERE
+  The PBF is retained as the original binary object; it was not decoded into
+  nodes/ways with osmium/pyosmium (not available in this environment), so no
+  derived feature table is claimed from it. The bounded hospital-point extract in
+  this directory (overpass_hospitals_north_sumatra_2026-11-24.json/.geojson)
+  comes from the public Overpass API, not from this file.
+
+ATTRIBUTION
+  (c) OpenStreetMap contributors, ODbL 1.0
+  https://www.openstreetmap.org/copyright  (see geospatial/OSM_copyright.html)
+  Extract produced by Geofabrik GmbH (c) Geofabrik GmbH, ODbL 1.0
+  https://download.geofabrik.de/asia/indonesia/sumatra.html

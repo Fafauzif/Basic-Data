@@ -1,0 +1,824 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<!--	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89645367-5"></script>-->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-D78WKTMJC6" type="552730dcfe65d4ad415b2e4d-text/javascript"></script>
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript">
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', "G-D78WKTMJC6", { 'debug_mode':true });
+	</script>
+
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>Rekap Paket Nasional</title>
+
+	<link rel="shortcut icon" href="/sirup/public/images/web/favicon.ico" type="image/x-icon"/>
+	<link href="/sirup/public/stylesheets/droid-sans.css" rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="/sirup/public/plugin/bootstrap-3.3.5-dist/css/dataTables.bootstrap.css" type="text/css"/>
+	<link rel="stylesheet" href="/sirup/public/plugin/bootstrap-3.3.5-dist/css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/sirup/public/plugin/font-awesome-4.4.0/css/font-awesome.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/sirup/public/stylesheets/main.css" type="text/css"/>
+	<link rel="stylesheet" href="/sirup/public/views/app.css" type="text/css"/>
+
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/javascripts/jquery-1.11.3.min.js"></script>
+<!--	<script type="text/javascript"	src="/sirup/public/plugin/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>-->
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/plugin/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/javascripts/jquery.dataTables.columnFilter.js"></script>
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/javascripts/neatrup/akunting.js"></script>
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/javascripts/jquery.ticker.min.js"></script>
+	<!--<script type="text/javascript"	src="/sirup/public/javascripts/loader.js"></script>-->
+
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/javascripts/jquery.dataTables.columnFilter.js"></script>
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/javascripts/neatrup/akunting.js"></script>
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/javascripts/jquery.ticker.min.js"></script>
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/javascripts/loader.js"></script>
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap.min.js"></script>
+    <script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/javascripts/sumberDanaHelper.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.5/dist/js/bootstrap.min.js" type="552730dcfe65d4ad415b2e4d-text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.5/dist/css/bootstrap.min.css" type="552730dcfe65d4ad415b2e4d-text/javascript"></script>
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/javascripts/es-button-helper.js"></script>
+
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/platform.js-master/platform.js"></script>
+
+	<style>
+		.popover{
+			max-width: 100%; // Max Width of the popover (depending on the container!)
+		}
+	</style>
+
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript">
+
+
+	// var activeUserObject = null
+	// if (activeUserJson.trim() !==  "") {
+	// 	activeUserJson = activeUserJson.replace(/&quot;/g, '"');
+	// 	activeUserObject = JSON.parse(activeUserJson)
+	// }
+	//
+	// const BASIC_DATA = activeUserObject;
+
+	var path = "/sirup";
+
+	function rupiah(){
+		var items=$("td.rupiah")
+		 $.each(items,function (index,item) {
+		 	$(item).html(accounting.formatMoney(parseInt($(item).text()), "", 0, ".", ","));
+		});
+	}
+
+	function rupiahRkakl(){
+		var items=$("td.rupiahRkakl")
+		 $.each(items,function (index,item) {
+		 if(!item.textContent == '0'){
+		 	$(item).html(accounting.formatMoney(parseInt($(item).text()), "", 0, ".", ","));
+		 }else{
+		 	$(item).html('-');
+		 }
+		});
+	}
+
+	function rupiahSpesial(){
+		var items=$("td.rupiahSpesial")
+		 $.each(items,function (index,item) {
+			 $(item).html(accounting.formatMoney(parseInt($(item).text()), "Rp. ", 0, ".", ","));
+		});
+	}
+
+	const Formatrupiah = (number)=>{
+		return new Intl.NumberFormat("id-ID", {
+		  style: "currency",
+		  currency: "IDR"
+		}).format(number);
+  	}
+
+	$(document).ready(function(){
+	  $('.dropdown-submenu a.test').on("click", function(e){
+		$(this).next('ul').toggle();
+		e.stopPropagation();
+		e.preventDefault();
+	  });
+	});
+
+	</script>
+	
+	<style>
+		.dropdown-submenu {
+		position: relative;
+		}
+
+		.dropdown-submenu .dropdown-menu {
+		top: 0;
+		left: 100%;
+		margin-top: -1px;
+		}
+
+		.green-icon {
+			color: green;
+		}
+		.input-icon-container {
+			position: relative;
+		}
+
+		.input-icon-container .glyphicon {
+			position: absolute;
+			top: 50%;
+			right: -2px;
+			transform: translateY(-50%);
+		}
+
+
+	</style>
+
+	<script type="552730dcfe65d4ad415b2e4d-text/javascript">
+        <!--window.onload = function(){document.getElementById("submit").disabled = true};-->
+        <!--function enableBtn(){-->
+            <!--document.getElementById("submit").disabled = false;-->
+        <!--}-->
+    </script>
+</head>
+<body>
+<div>
+	<div id="divLoading">
+	</div>
+</div>
+<style>
+	.overlay {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+		z-index: 5000; /* Ensure it's above other content */
+	}
+
+	/* Popup container */
+
+	.popup {
+		display: none;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 700px;
+		background-color: #fff;
+		border: 0px solid #ccc;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		z-index: 5001; /* Ensure popup is above the overlay */
+
+	}
+
+	/* Popup content */
+	.popup-content {
+		padding: 20px;
+	}
+
+	/* Scrollable panel */
+	.scrollable-panel {
+		height: 500px;
+		overflow-y: auto;
+		border: 0px ;
+		margin-bottom: 20px;
+	}
+
+	/* Disabled button */
+	.disabled {
+		background-color: #ccc;
+		color: #fff;
+		border: none;
+		padding: 10px;
+		cursor: not-allowed;
+	}
+
+	.paginate_button.disabled {
+        padding: 0 !important;
+    }
+
+	/* Enabled button */
+	.enabled {
+		background-color: #28a745;
+		color: #fff;
+		border: none;
+		padding: 10px;
+		cursor: pointer;
+	}
+
+
+	/* Accordion */
+
+</style>
+<div class="overlay" id="overlay"></div>
+
+<div class="popup" id="popup" tabindex="-1">
+	<div class="popup-content">
+		<div class="scrollable-panel" id="scrollablePanel">
+
+
+			
+				
+			
+
+
+			
+				
+			
+
+			<br/>
+			<div class="">
+				<div class="tabData">
+					<ul class="nav nav-tabs">
+
+					</ul>
+				</div>
+			</div>
+			<input id="actionCb" type="checkbox" name="sk_ok" >
+			&nbsp; Saya sudah membaca dan menyetujui <font color="red"><b>Syarat dan Ketentuan </b></font> serta <font color="red">
+			<b>Kebijakan Privasi</b></font> yang berlaku
+			<br/>
+		</div>
+		<div class="alert alert-info" role="alert">
+
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<span class="fa fa-info-circle"> </span>
+			<medium><b>Geser Ke Bawah Untuk Melanjutkan</b></medium><br/>
+
+			<small>Silakan baca Syarat dan Ketentuan serta Kebijakan Privasi hingga akhir halaman, lalu klik centang.</small>
+
+		</div>
+
+
+		<button id="actionBtn" class="disabled" style="width: 100%" disabled>Setuju</button>
+
+	</div>
+</div>
+
+<script type="552730dcfe65d4ad415b2e4d-text/javascript">
+	function tampilkanPopup() {
+		var lastPopupShown = localStorage.getItem('BannerPopupShownIntegrasiPPN');
+		if ($('#popup').is(':hidden')) {
+			if (lastPopupShown === null) {
+				localStorage.setItem('BannerPopupShownIntegrasiPPN', true);
+				$('#fullImageModal').modal('show');
+			}
+		}
+	}
+
+	$(document).ready(function() {
+		// Show the popup when the button is clicked
+
+		var skChecked = "";
+
+
+		if ( skChecked == "false") {
+			$('#popup').show();
+			$('#overlay').show();
+		}
+		
+			tampilkanPopup();
+		
+
+
+                // Check if the scrollable panel is scrolled to the bottom
+
+                //tambahkan aksi ketika checkbox actionCb diklik maka actionBtn akan aktif
+		$('#actionCb').on('click', function() {
+                    if ($(this).is(':checked')) {
+                        $('#actionBtn').removeClass('disabled').addClass('enabled').prop('disabled', false);
+                    } else {
+				$('#actionBtn').removeClass('enabled').addClass('disabled').prop('disabled', true);
+			}
+		});
+
+		//tambahkan aksi ajax ketika button actionBtn diklik maka akan update status sk_ok memanggil UserCtr.updateSk()
+		$('#actionBtn').on('click', function() {
+			console.log('actionBtn clicked first');
+			$('#actionCb').prop('checked', true);
+			$('#actionCb').prop('disabled', true);
+			$('#actionBtn').prop('disabled', true);
+			$('#actionBtn').text('Menyimpan...');
+			$.ajax({
+				url: "/sirup/userctr/updatesk",
+				type: 'POST',
+				success: function(data) {
+					$('#actionBtn').text('Berhasil');
+					$('#actionBtn').prop('disabled', true);
+					$('#actionCb').prop('disabled', true);
+
+					setTimeout(function() {
+						$('#popup').hide();
+						$('#overlay').hide();
+						$('#header').show();
+					}, 1000);
+				},
+				error: function(data) {
+					$('#actionBtn').text('Gagal');
+					$('#actionBtn').prop('disabled', false);
+				}
+			});
+		});
+
+		//tambahkan aksi ketika button actionBtn diklik maka akan close popup scrollablepanel nya
+		$('#actionBtn').on('click', function() {
+			console.log('actionBtn clicked');
+			$('#popup').hide();
+			$('#overlay').hide();
+			$('#header').show();
+			tampilkanPopup();
+		});
+
+
+		// $('#scrollablePanel').on('scroll', function() {
+		// 	var scrollableHeight = $(this)[0].scrollHeight;
+		// 	var scrollTop = $(this).scrollTop();
+		// 	var panelHeight = $(this).outerHeight();
+		//
+		// 	if (scrollTop + panelHeight >= scrollableHeight) {
+		// 		$('#actionCb').removeClass('disabled').addClass('enabled').prop('disabled', false);
+		// 	}
+		// });
+
+
+
+		// Check if the scrollable panel is scrolled to the bottom
+		$('#scrollablePanel').on('scroll', function() {
+			checkScrollEnd();
+		});
+
+		// Function to check if the scrollable panel is scrolled to the bottom
+		function checkScrollEnd() {
+			var scrollableHeight = $('#scrollablePanel')[0].scrollHeight;
+			var scrollTop = $('#scrollablePanel').scrollTop();
+			var panelHeight = $('#scrollablePanel').outerHeight();
+
+			if (scrollTop + panelHeight >= scrollableHeight) {
+				$('#actionCb').removeClass('disabled').addClass('enabled').prop('disabled', false);
+			}
+		}
+
+		// Update scroll height dynamically when accordion panels are toggled
+
+	});
+</script>
+<!--**********************************************************************************************
+    I.HEADER
+    ***********************************************************************************************-->
+<nav id="header" class="navbar navbar-default navbar-fixed-top navbar-custom">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header" style="color: #FFFFFF">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/sirup/">
+				
+				
+				<img style="max-width:310px; margin-top: -15px; height:50px" src="/sirup/public/images/web/logo-header-latihan.png">
+				
+			</a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				<li  class="active" ><a href="/sirup/home/rekapitulasiindex">Rekap</a></li>
+				
+				
+				
+				<!-- <li ><a href="/sirup/pencarianctr/index">Cari Paket <span class="sr-only">(current)</span></a></li> -->
+				<li class="dropdown ">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cari Paket<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li ><a href="/sirup/caripaketctr/index">Penyedia <span class="sr-only">(current)</span></a></li>
+					<li ><a href="/sirup/caripaketctr/index_s">Swakelola <span class="sr-only">(current)</span></a></li>
+				</ul>
+				</li>
+				
+				
+				<!---->
+
+				</li>
+				
+				<!-- ini bukan integrasi nya KRISNA!-->
+
+				
+				<li class="dropdown ">
+				<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistik <span class="caret"></span></a>-->
+				<!--<ul class="dropdown-menu">-->
+				<!--<li><a href="/sirup/statistik/statistikmetodepemilihanindex">Metode Pemilihan Penyedia</a></li>-->
+				<!--<li><a href="/sirup/statistik/statistikjenisbelanjaindex">Jenis Belanja</a></li>-->
+				<!---->
+				<!--<li><a href="#">Jenis Pengadaan</a></li>-->
+				<!--<li role="separator" class="divider"></li>-->
+				<!--<li><a href="#">APBN vs APBD</a></li>-->
+				<!--<li><a href="#">Penyedia vs Swakelola</a></li>-->
+				<!--<li role="separator" class="divider"></li>-->
+				<!--<li><a href="#">Ketertiban Pengisian</a></li>-->
+				<!--</ul>-->
+				</li>
+				
+
+				
+				
+				
+				<li ><a href="/sirup/unduhctr/unduh">Panduan</a></li>
+				
+				
+
+				
+				
+				
+				
+				<li ><a href="/sirup/faqctr/indexdaftarfaq">FAQ</a></li>
+				<li ><a href="/sirup/beritactr/indexpublic">Berita</a></li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dashboard<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/sirup/dashboardctr/googlestudio?jenis=1" target="_blank">RUP</a></li>
+						<li><a href="/sirup/dashboardctr/googlestudio?jenis=2" target="_blank">ITKP</a></li>
+					</ul>
+				</li>
+				
+				
+				
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kontak<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+<!--						<li><a href="https://t.me/+WJlIyUMAOMU3MDQ9"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/></svg><span>&nbsp;&nbsp;Group Telegram RUP</span></a></li>-->
+						<li><a href="https://t.me/+lklJrsWxcVQ3Nzhl"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/></svg><span>&nbsp;&nbsp;Group Telegram RUP</span></a></li>
+						<li><a href="/cdn-cgi/l/email-protection#44372d3631342c212834042329252d286a272b29"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-open" viewBox="0 0 16 16"><path d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882l-6-3.2ZM15 7.383l-4.778 2.867L15 13.117V7.383Zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765l6-3.2Z"/></svg><span>&nbsp;&nbsp;E-mail Helpdesk</span></a></li>
+						<li><a href="https://bantuan.inaproc.id/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-dots-fill" viewBox="0 0 16 16"><path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg><span>&nbsp;&nbsp;Pusat Bantuan INAPROC</span></a></li>
+						<li><a href="https://www.youtube.com/c/DirektoratPMEP"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/></svg><span>&nbsp;&nbsp;Youtube PTPEP</span></a></li>
+					</ul>
+				</li>
+				
+				
+				
+				
+
+
+				<!-- UPDATE TEAM AXOMATRIX -->
+
+				<!-- UPDATE TEAM AXOMATRIX -->
+			</ul>
+			<img style="max-width:150px;  height:50px"src="">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-calendar"></span>
+					</span>2026</a>
+					<ul class="dropdown-menu">
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2028">2028</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2027">2027</a></li>
+						
+						<li class='active'><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2026">2026</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2025">2025</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2024">2024</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2023">2023</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2022">2022</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2021">2021</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2020">2020</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2019">2019</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2018">2018</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2017">2017</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2016">2016</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2015">2015</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2014">2014</a></li>
+						
+						<li ><a href="/sirup/application/changetahunanggaran?tahunAnggaran=2013">2013</a></li>
+						
+					</ul>
+				</li>
+				
+				
+				
+				
+				<li > <a href="/sirup/loginctr/index"data-toggle="modal" id="login-clicked" ><span class="fa fa-user"></span> Masuk </a></li>
+				
+				
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+<!--**********************************************************************************************
+    II.BODY
+    *********************************************************************************************** -->
+<div id="main" class="container-full"  style="padding-top: 50px; ">
+	<div class="alert alert-danger" style="display: none" id="alert" role="alert"></div>
+	
+	
+
+	
+
+<div id="content">
+	<div class="row">
+		<div class="tableTitle">
+			REKAPITULASI RUP
+		</div>
+	</div>
+	<button onclick="if (!window.__cfRLUnblockHandlers) return false; history.go(-1); return false;" class="btn btn-default" data-cf-modified-552730dcfe65d4ad415b2e4d-=""><span class="glyphicon glyphicon-arrow-left"></span> Kembali </button>
+	<div class="row">
+		<div class="tableTitleEntitas">
+			
+		</div>
+	</div>`
+
+	<div class="row resultTable">
+		<div class="tabData">
+			<ul class="nav nav-tabs">
+				<a tabindex="0"
+				   data-toggle="popover"
+				   data-trigger="focus" class="help"><span class="fa fa-question-circle"></span></a>
+				<li role="presentation"><a href="#">Perspektif Kegiatan</a></li>
+				<!--<li role="presentation"><a onclick="history.go(-1); return false;">Kembali</a></li>-->
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div>
+			<div id="resultRekap" style="width: 100%;">
+			</div>
+
+			<div id="result" style="width: 100%;">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<u><b>Catatan: </b></u>
+		<ul>
+			<li> Data rekap terakhir diperbaharui pada tanggal 24 November 2026 01:50 </li>
+			<li> Data pagu ditampilkan dalam satuan juta rupiah</li>
+
+		</ul>
+	</div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="552730dcfe65d4ad415b2e4d-text/javascript" charset="utf-8">
+	// Search function
+    var search = function() {
+		nilaiTahunAnggaran = 2026;
+        
+			var listAction = function(options) {var pattern = '/sirup/home/rekapitulasi2?levelView=:levelView&jenisID=KABUPATEN&tahunAnggaran=:tahunAnggaran';for(key in options) {var val = options[key];pattern = pattern.replace(':' + encodeURIComponent(key), ( (val===undefined || val===null)?'': val));}return pattern;}
+
+	        $('#result').load(listAction({tahunAnggaran: nilaiTahunAnggaran, levelView: "kldi"}), function() {
+	        	  $('#content').css('visibility', 'visible');
+	        })
+        
+
+
+    }
+    // Init
+    search();
+
+    $(function() {
+	    $('#tahunAnggaran').change(function() {
+	    	search();
+	    });
+	});
+
+	$('[data-toggle="popover"]').popover({
+		 title : '<span  style=\"color: black;\">Perspektif Kegiatan</span>',
+		 html: true,
+		 content:"<div class=\"popupover\" style=\"color: black;\">" +
+				 		"<b>Perspektif Kegiatan merupakan Rekapitulasi RUP berdasarkan seluruh sumber dana dari pengumuman yang telah dilakukan oleh K/L/PD. </b> <br/>"+
+				"</div>"
+	});
+
+</script>
+	<div class="col-xs-12" style="height:20px;"></div>
+</div>
+<!--  **********************************************************************************************
+    III.FOOTER
+    *********************************************************************************************** -->
+<div id="footer">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid footerExLink">
+			<div class="row">
+				<a href="http://www.lkpp.go.id">
+					<div class="boxLink col-sm-6">
+						<img src="/sirup/public/images/web/lkpp.png" alt="www.lkpp.go.id" height="20px" />
+					</div>
+				</a>
+				
+				<a href="https://sirup-preproduction.eproc.dev/sirup">
+					<div class="boxLink col-sm-6">
+						<img src="/sirup/public/images/web/siruplatihan.png" alt="www.lkpp.go.id" height="15px" />
+					</div>
+				</a>
+				
+				
+<!--				<a href="http://monev.lkpp.go.id">-->
+<!--					<div class="boxLink col-sm-2">-->
+<!--						<img src="/sirup/public/images/web/tepra.png" alt="www.monev.lkpp.go.id" height="20px" />-->
+<!--					</div>-->
+<!--				</a>-->
+<!--				<a href="http://inaproc.lkpp.go.id">-->
+<!--					<div class="boxLink col-sm-4">-->
+<!--						<img src="/sirup/public/images/web/inaproc.png" alt="www.inaproc.lkpp.go.id" height="20px" />-->
+<!--					</div>-->
+<!--				</a>-->
+<!--				<a href="http://report-lpse.lkpp.go.id/v2">-->
+<!--					<div class="boxLink col-sm-2">-->
+<!--						<img src="/sirup/public/images/web/smartreport.png" alt="www.report-lpse.lkpp.go.id" height="20px" />-->
+<!--					</div>-->
+<!--				</a>-->
+<!--				<a href="http://bantuan.monev.lkpp.go.id">-->
+<!--					<div class="boxLink col-sm-2">-->
+<!--						<img src="/sirup/public/images/web/bantuan.png" alt="www.bantuan.monev.lkpp.go.id" height="20px" />-->
+<!--					</div>-->
+<!--				</a>-->
+			</div>
+		</div>
+		<div class="container-fluid footerLKPP">
+			<h5>SiRUP versi 4 &copy; 2021 LKPP</h5>
+			<div class="container" id="intro">
+				<h3>Lembaga Kebijakan Pengadaan Barang/Jasa Pemerintah</h3>
+				<p>
+				<h5>
+					Direktorat Perencanaan Transformasi, Pemantauan dan Evaluasi Pengadaan<br>
+					Gedung LKPP Lantai 6<br>
+					Komplek Rasuna Epicentrum Jl. Epicentrum Tengah Lot 11B	Jakarta Selatan <br>
+					Tel: (021) 299 12 450, Fax: (021) 299 12 451 Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5038353c203435233b7e203d3520103c3b20207e373f7e3934">[email&#160;protected]</a>
+				</h5>
+				</p>
+			</div>
+		</div>
+	</nav>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="552730dcfe65d4ad415b2e4d-text/javascript">
+		$(document).ready(function(){
+			$("#ticker1").ticker();
+			$("#ticker2").ticker({ effect: "slideUp", interval: 4000});
+			$("#ticker3").ticker({ effect: "slideDown", interval: 5000});
+		});
+
+</script>
+<!-- modal detail informasi -->
+<div class="modal fade" id="modalPengguna" tabindex="-1" role="dialog" aria-labelledby="modalDetailPenggunaLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Detail Informasi</h4>
+			</div>
+			<div class="modal-body" style="font-size:14px">
+				<div class="row">
+					<dl class="dl-horizontal">
+						<dt>Nama Lengkap :</dt>
+						<dd>&nbsp;</dd>
+						<dt>K/L/PD :</dt>
+						<dd>&nbsp;</dd>
+						<dt>Satker :</dt>
+						<dd>&nbsp;</dd>
+						<dt>Golongan :</dt>
+						<dd>&nbsp;</dd>
+						<dt>Jabatan :</dt>
+						<dd>&nbsp;</dd>
+						<dt>Role User :</dt>
+						<dd>&nbsp;</dd>
+						<dt>Email :</dt>
+						<dd>&nbsp;</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info col-sm-2 btn-redPastel btn-rup" data-dismiss="modal">Tutup</button>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- modal login -->
+<div class="container">
+	<!-- Modal -->
+	<div class="modal fade" id="modalLogin" role="dialog">
+		<div class="modal-dialog" style="margin-top:125px;">
+			<!-- Modal content-->
+			<div class="modal-content col-sm-8 col-sm-offset-3 ">
+				<!-- modal body -->
+				<div class="modal-body">
+					<div class="center-block" style="text-align: center;">
+						<div id ="">
+							<p style="text-align: center-block; font-size: 50pt;" class="fa fa-user"></p>
+							<form role="form" id="i-recaptcha" name="formLogin" action="/sirup/loginctr/login" method="POST">
+
+								<div class="form-group">
+									<input type="text" name="txtUsername" class="form-control" placeholder="Username" >
+								</div>
+								<div class="form-group">
+									<input type="password" id="txtPassword" name="txtPassword" class="form-control" placeholder="Kata Sandi" ><br/>
+									<a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; myFunction()" data-cf-modified-552730dcfe65d4ad415b2e4d-=""><span class="glyphicon glyphicon-eye-open"></span><br/> Tampilkan Sandi</a>
+
+								</div>
+								<br/><br/>
+								
+								<br/><br/>
+								<div class="form-group" style="padding-top: 20px;">
+									<button data-action="login" type="submit" id="submit" class="btn btn-default col-sm-4 btn-danger">Submit</button>
+
+								</div>
+								<br/>
+							</form>
+
+						</div>
+						<br/><br/>
+					</div>
+					<!-- end modal body -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="fullImageModal" tabindex="-1" role="dialog" aria-labelledby="fullImageModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content modal-content-new">
+
+				<img src="/sirup/public/berkas/banner/banner_sirup_integrasi_ppn.jpg">
+
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; top: 10px; right: 10px; background-color: white; border: none; border-radius: 50%; padding: 5px; width: 30px; height: 30px;">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	
+
+
+</div>
+
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="552730dcfe65d4ad415b2e4d-|49" defer></script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"6e04930abdfb4530bc3375460e3243b5","spa":2}' crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<style>
+	.modal-content-new img {
+		max-width: 100%;
+		/*height: auto;*/
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	.modal {
+		text-align: center;
+	}
+
+	@media screen and (min-width: 768px) {
+		.modal:before {
+			display: inline-block;
+			vertical-align: middle;
+			content: "";
+			height: 100%;
+		}
+	}
+
+	.modal-dialog {
+		display: inline-block;
+		text-align: left;
+		vertical-align: middle;
+	}
+</style>
+
+<script type="552730dcfe65d4ad415b2e4d-text/javascript" src="/sirup/public/ga/ga.js"></script>
+<script type="552730dcfe65d4ad415b2e4d-text/javascript">
+	
+
+	function myFunction() {
+		var x = document.getElementById("txtPassword");
+		if (x.type === "password") {
+		x.type = "text";
+		} else {
+		x.type = "password";
+		}
+	}
+
+</script>

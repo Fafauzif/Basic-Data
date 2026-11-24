@@ -1,0 +1,49 @@
+TKDN /sertifikat certificate search - observed limitation (2026-11-24)
+=====================================================================
+Target: exact certificate lookup scoped to PT Basic International Sumatera,
+plus nitrile/glove keywords, on https://tkdn.kemenperin.go.id/sertifikat
+
+WHAT WAS OBSERVED
+1. GET /sertifikat?q=<any text>&by=perusahaan|produk returns HTTP 200 and the
+   full public page, but the server-rendered result region always reads
+   'Tidak ada hasil untuk ""' (empty query), i.e. the ?q= value is not bound
+   server-side. The three saved captures show this:
+     1. regulatory/tkdn_cert_lookup_pt_basic.html
+     2. regulatory/tkdn_cert_lookup_nitril.html
+     3. regulatory/tkdn_cert_lookup_sarung_tangan.html
+   They are therefore INTERFACE snapshots (search form + all filter options),
+   not result records. No result row is claimed from them.
+2. The page ships its search as a client-side WebAssembly module
+   (/pkg/tkdn-web.<hash>.js + .wasm) and there is no public JSON/CSV data
+   route behind the form. Probed and observed:
+     /sertifikat/data?q=BASIC          -> 200 text/html site shell (not data)
+     /sertifikat.json?q=BASIC          -> 404
+     /api/sertifikat?q=BASIC           -> 200 text/html site shell (not JSON)
+     /api/sertifikat/cari?q=BASIC      -> 200 text/html site shell (not JSON)
+     /sertifikat?q=... with Accept: application/json,
+       X-Requested-With: XMLHttpRequest, HX-Request: true -> 200 text/html,
+       still no result rows
+3. /cari?q=BASIC is the site-wide search (menu/news/regulation) and says so on
+   the page; it is not certificate data.
+   No login, CAPTCHA, paywall or access control was bypassed.
+
+DOCUMENTED PUBLIC ALTERNATIVE USED INSTEAD
+The site's own 'Unduh TKDN' dialog posts to the server-rendered
+/unduh_preview form, which DOES bind the public filters and states the exact
+match count, and whose download link is /export_excel. That control was used
+for the company/keyword-scoped lookups and for the year/product-group exports:
+   regulatory/tkdn_lookup_pt_basic_2026.html       (0 baris)
+   regulatory/tkdn_lookup_nitril_2026.html         (4 baris)
+   regulatory/tkdn_lookup_nitrile_2026.html        (3 baris)
+   regulatory/tkdn_lookup_sarung_tangan_2026.html  (5 baris)
+   regulatory/tkdn_unduh_preview_q-basic-international.html (0 baris)
+   regulatory/tkdn_rekapitulasi_tkdn_2026_all_months.csv           (17,110 rows)
+   regulatory/tkdn_rekapitulasi_tkdn_2026_bahan_peralatan_kesehatan.csv (4,532 rows)
+Full request/response details: regulatory/tkdn_request_log.txt
+
+CONSEQUENCE FOR THE DATA
+The exported recap has no certificate-number column, so no TKDN certificate
+number is claimed anywhere in this stream. The observed zero-row company
+lookups mean: in the public export dataset, no row matched the queried
+company/nitrile tokens for the stated year(s) - they are not evidence of the
+absence of a paper certificate held outside this dataset.

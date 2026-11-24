@@ -1,0 +1,62 @@
+Indonesia Health Profile 2025 - resolution / redirect chain log
+================================================================
+Collected: 2026-11-24 (Asia/Jakarta)
+Final payload: facilities/indonesia_health_profile_2025.pdf
+  11,348,932 bytes
+  sha256 d90b802535dcdc81cfb5a0b5d27a9e2bb31d7eecdb9e2d3bb589048385da2ab3
+  %PDF magic validated by build/tools/collect.py (--expect pdf)
+
+Source chain (all public, no login, no password):
+1) Landing page
+   https://kemkes.go.id/id/indonesia-health-profile-2025
+   -> 200 text/html, 76,402 bytes
+   saved: facilities/health_profile_2025_landing.html
+   The page's "Unduh" (download) button links to https://s.kemkes.go.id/profil2025
+
+2) Short link
+   https://s.kemkes.go.id/profil2025
+   -> 200 text/html, 663-byte single-page-app shell
+      (title/description: "Aplikasi Penyingkat Link Pintar Kemenkes");
+      no server-side HTTP redirect - the short link is resolved by its public
+      resolver API below.
+
+3) Short-link resolver (JSON)
+   https://s.kemkes.go.id/slink/public/links/profil2025/
+   -> 200 application/json (289 bytes)
+   {"id":286477,"type":"single","title":"Profil Kesehatan Indonesia 2025",
+    "description":"","short_code":"profil2025",
+    "original_url":"https://drive.kemkes.go.id:5001/sharing/xfxEZXL5u",
+    "click_count":12740,"is_active":true,"is_public":true,
+    "created_at":"2026-08-26T07:48:52.529343Z","items":[]}
+   (requesting the path without the trailing slash returns 301 to the
+   trailing-slash URL)
+
+4) Resolved target - Kemenkes Synology Drive share (single file, not a folder)
+   https://drive.kemkes.go.id:5001/sharing/xfxEZXL5u
+   -> 200 text/html (13,028 bytes, DSM share page "Drive - Kemkes")
+   The page's own session endpoint reports:
+     api=SYNO.Core.Sharing.Session&version=1&method=get&sharing_id="xfxEZXL5u"
+       sharing: true; sharing_id: xfxEZXL5u; sharing_status: none
+     SYNO.SDS.ExtraSession:
+       filename = "Profil Kesehatan Indonesia 2025-ok.pdf"
+       is_folder = false
+       status = 0
+   so the share contains exactly one file and requires no password.
+
+5) Public file download URL (constructed by the share page's own front-end
+   /wfmlogindialog.js, function onDownloadFile: it replaces "/sharing/" with
+   "/fsdownload/" in the page URL and appends encodeURIComponent(filename))
+   https://drive.kemkes.go.id:5001/fsdownload/xfxEZXL5u/Profil%20Kesehatan%20Indonesia%202025-ok.pdf
+   -> 200 application/octet-stream, Content-Length 11,348,932,
+      Content-Disposition: attachment; filename="Profil%20Kesehatan%20Indonesia%202025-ok.pdf"
+   The share page sets a public session cookie (sharing_sid=...) that this URL
+   requires: without that cookie the same URL answers 302 back to the share
+   page. The cookie was obtained by GETting the public share page (step 4) in
+   the same session; no credentials were supplied. Accept-Ranges: bytes.
+
+6) Payload
+   Streamed to facilities/indonesia_health_profile_2025.pdf through
+   build/tools/collect.py (get --expect pdf), which renamed it only after the
+   %PDF signature check. Bytes on disk: 11,348,932 (matches Content-Length).
+
+No substituted document was used; no login/CAPTCHA/paywall was bypassed.
